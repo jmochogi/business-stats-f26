@@ -1,0 +1,12 @@
+---
+title: "Templates"
+format: html
+---
+
+## Project Templates
+
+Project templates provide a structured way to organize the various sections of your project report to ensure consistency with the project requirements. Once downloaded, the templates can be uploaded to posit cloud or opened in your local device if you have R and RStudio installed. Download the templates from the links below:
+
+[First Project Template](https://drive.google.com/file/d/1ww8y9lR3tblvhr4sp0qXHjqpbUKnPpBR/view?usp=sharing)
+
+[Final Project Template](https://drive.google.com/file/d/1w5jwsX17BQy3Tv28DD3MMy49yQSzT3qE/view?usp=sharing)

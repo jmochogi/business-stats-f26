@@ -1,0 +1,223 @@
+---
+title: "Final Project"
+format:
+  html: default
+  pdf: default
+---
+
+# Project Overview
+
+The goal of this project is to apply what you have learned in **this course** to conduct exploratory and inferential statistical analysis. Multiple data frames are available but your group will choose only one to use for the project. You will need to browse the available data sets, their variables, etc, and come up with possible research questions that can be answered using the data. Your group will narrow down to two or three interesting research questions then use the various tools learned in the course to explore patterns in the data (exploratory analysis) then use statistical inference tools (hypotheses tests and confidence intervals) taught in the course to run inferential analysis. Your exploratory analysis should include both numerical statistics (e.g., means, medians, proportions, etc.) and visualizations (e.g., histograms, bar plots, box plots, etc.). Your inferential analysis should use both hypotheses tests and confidence intervals.
+
+# Research Topic and Questions
+
+Your research topic is a brief statement that describes the general area your research questions will address. It should be broad enough to allow for multiple questions, yet specific enough to clearly convey your focus.
+
+When developing your research questions, consider which variables in the dataset you will analyze and how they will help you answer those questions. Make sure your questions can be answered using the data available to you; avoid asking questions that cannot be supported by the dataset.
+
+Your research questions must meet the following guidelines:
+
+- One research question must involve a numerical variable while the other must involve a categorical variable as the response.
+
+- At least one of your research questions must involve a comparison between two groups. For example, if one question focuses on inference for a single mean, the other should involve inference comparing two proportions (rather than another single-parameter analysis, such as a single proportion or two means).
+
+  ```         
+    a. Inference for Categorical Data (one question):
+        - Single proportion
+        - Difference in two proportions (two groups)
+    b. Inference for Numerical Data (one question):
+        - Single mean
+        - Difference in means (two groups)
+  ```
+
+# The Data
+
+Multiple data sets are available online for you to choose from. We have used [openintro]() and [Stat2Data](https://www.rdocumentation.org/packages/Stat2Data/versions/2.0.0) for the most part, but feel free to explore the other sources listed. If you need help importing a data set into R, please let me know.
+
+- [Openintro](https://www.openintro.org/data/) website: Most of these data sets can be loaded into your work space as long as the openintro package is installed and running. I recommend you use this option if you are new to R and RStudio.
+
+- [Stat2Data](https://www.rdocumentation.org/packages/Stat2Data/versions/2.0.0): This is an R package containing over 200 data sets drawn from a wide variety of contexts (sports, environment, economics, health, etc.), plus a few helper functions for diagnostic plotting. The package was designed by statistician Ann Cannon and her colleagues.
+
+- [Kaggle](https://www.kaggle.com/datasets): This is a platform for predictive modeling and analytics competitions in which companies and researchers post data and statisticians and data miners from all over the world compete to produce the best models.
+
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday): Tidy Tuesday is a public and free platform where data science enthusiasts share data and analyses. A new dataset is posted every Monday morning to a public data repository. The data is in a standardized format to help participants analyze and visualize it. The data can be downloaded from their GitHub repository or accessed through the [tidytuesdayR](https://cran.r-project.org/web/packages/tidytuesdayR/index.html) package.
+
+- [FiveThirtyEight](https://data.fivethirtyeight.com/): This is an American website that does opinion poll analysis on politics, economics, and sports in the United States. 538 shares their datasets, related articles, and code.
+
+It is important to understand that the data set you choose may have been collected for a different purpose and may not be perfect for your research questions as is. If need be, you can modify various variables to suit your interest. For example, you can mutate a numerical variable into a categorical variable to suit your research goals. Any such modifications of data should be explained in the methods section of your report.
+
+**Your chosen data set should meet the following criteria:**
+
+- Must have at least 60 observations (rows) and 3 variables (columns).
+
+- Have both numerical and categorical variables or describe a plan of creating a missing categorical/numerical variable from the available variables. For example, we have seen situations where categories are created from a numerical variable. You may refer to the special lab on introduction to data wrangling.
+
+- You may not use data that has previously been used in any course materials, such as labs or class activities. If you must use a data set that has been used in the course, you must get approval from the instructor first. The approval will be granted depending on how your proposed analyses and research questions differ from those used in the course.
+
+If you are unsure whether your chosen data meets the above criteria, please check with me.
+
+# Final Project Report
+
+Your project report should be written in a clear and concise manner, and should include the following sections:
+
+## Abstract
+
+The abstract is a brief summary of your research topic, questions, data, methods, key findings, and implications of the findings. It should be no more than 250 words.
+
+## Introduction
+
+This section introduces your topic and provides background information. You should explain the rationale for your study and why it is important to investigate. Be sure to include the potential benefits of your research. In addition, cite a few relevant previous studies to support your argument. Refer to the project example for guidance on how to structure your introduction.
+
+## Research Questions & Hypotheses
+
+Write down two research questions that you will answer in your study. Both questions should clearly relate to your research topic. Avoid including unrelated questions, as this may indicate that you are conducting two separate studies within one project. The variables of interest should be clearly identified in each question.
+
+Since your questions will be addressed using statistical inference, you should also include the corresponding hypotheses for each question.
+
+## Literature Review
+
+Find 5 to 7 articles related to your topic, read them, and synthesize their findings to summarize what previous researchers have reported. The goal is to place your study within the context of existing literature. This section should be approximately five paragraphs in length.
+
+## Methodology
+
+The methods section should describe the data and the methods used to analyze the data. This section should include the following subsections:
+
+### Sample and Data Collection Methods
+
+Describe your sample, the cases, and their characteristics (e.g., if you the cases are people, what's their age? gender?, etc). How large is the sample and how was it collected (e.g., what instruments were used?). What is the target population? What sampling method was used and how does this impact whether or not the sample is representative of the population? <br> ***Note that*** since you are using existing data that you did not collect, you are allowed to speculate on some of the data collection techniques as long as the speculation seems reasonable. You will do this only when you cannot find enough information in the documentation for the data set of your choice.
+
+### Description of Data Analysis Techniques
+
+Briefly **describe** the data analysis techniques you will use to answer each of your research questions and justify your choices. This section should include a description of the variables used in the analysis, including their types (numerical or categorical) and how they were measured.
+
+You should also explain any data cleaning or transformations performed prior to the analysis. If you created a categorical variable from a numerical variable, describe this step and provide a rationale for doing so.
+
+Finally, outline the statistical methods you will use to analyze the data. Your description should include both exploratory and inferential analyses. Exploratory analysis should include summary statistics and data visualizations. Inferential statistics should involve hypothesis testing and confidence intervals. This section may or may not include visualizations, depending on your analysis. You must also provide a justification for your choice of analysis methods (e.g., inference for two independent means is appropriate because the question involves....).
+
+## Data Analysis, Results, and Discussion
+
+In this section, you will carry out the analyses described above and report your findings. All outputs (such as graphs, summary statistics, p-values, and confidence intervals) must be accompanied by interpretations in the context of your study and should directly address the original research questions.
+
+Organize the section by research question. For each question, include both exploratory and inferential analyses.
+
+## Conclusion
+
+Finally, you will need to write a conclusion for your study. In the conclusion, you want to **briefly restate** what you set out to do and **how** you went about it. Give some **brief summary on the data** used, data explorations/analyses performed and the **results obtained**. State the **insights** drawn from the study and **compare to existing findings** reported under literature review section. Discuss the **potential implications** of your work (i.e., what practical consequences does your study have?) Lastly, reflect on **limitations** of your study and how future similar studies might be better designed.
+
+## References
+
+All sources used should be cited both in text and listed under references. Use the APA format. You may find the APA referencing guide on [this link](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/index.html).
+
+# Grading Rubric
+
+The project will be graded out of 100 points. The following rubric will be used to grade the project.
+
+### Quality of Written Report
+
++--------+-----------------------------------------------------------------------------------------------------+
+| Points | Description                                                                                         |
++========+=====================================================================================================+
+| 10     | - Organization and structure are good, report is easy to follow and interesting to read.            |
+|        |                                                                                                     |
+|        | - No grammatical errors/typos.                                                                      |
+|        |                                                                                                     |
+|        | - Graphs are well labelled and incorporated into the body of the report alongside software outputs. |
+|        |                                                                                                     |
+|        | - References provided in APA format.                                                                |
++--------+-----------------------------------------------------------------------------------------------------+
+| 9      | - A few minor grammatical, spelling, and/or formatting errors.                                      |
+|        |                                                                                                     |
+|        | - Minor APA formatting errors.                                                                      |
++--------+-----------------------------------------------------------------------------------------------------+
+| 8      | - Weak introduction/rationale and/or a fair amount of grammatical, spelling errors.                 |
+|        |                                                                                                     |
+|        | - Incomplete reference list or missing some citations.                                              |
++--------+-----------------------------------------------------------------------------------------------------+
+| 6      | - Report is not well-structured.                                                                    |
+|        |                                                                                                     |
+|        | - Discussion is difficult to follow or is too shallow/vague.                                        |
++--------+-----------------------------------------------------------------------------------------------------+
+| 4      | - Graphs/software output not included in the body of the report.                                    |
+|        |                                                                                                     |
+|        | - Structure of report is sloppy.                                                                    |
+|        |                                                                                                     |
+|        | - No apparent proofreading.                                                                         |
++--------+-----------------------------------------------------------------------------------------------------+
+| \< 4   | - Even more problematic (e.g., no citations at all).                                                |
++--------+-----------------------------------------------------------------------------------------------------+
+
+### Design and Methodology of the Study
+
++---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Points  | Description                                                                                                                                                                     |
++=========+=================================================================================================================================================================================+
+| 18 - 20 | - Innovative topic with precaution taken and detail considered. Description of methods is clear and complete (another person could follow the protocol to replicate the study). |
+|         |                                                                                                                                                                                 |
+|         | - Design is appropriate for both research questions.                                                                                                                            |
+|         |                                                                                                                                                                                 |
+|         | - Complete analyes techniques, with justifications are provided for both questions.                                                                                             |
++---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 16 - 17 | - Design not as innovative and extensive.                                                                                                                                       |
+|         |                                                                                                                                                                                 |
+|         | - Discussion of design missing minor components (see project descriptions above).                                                                                               |
++---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 13 - 15 | - Design is reasonable but not appropriate for one of the stated research questions.                                                                                            |
+|         |                                                                                                                                                                                 |
+|         | - Discussion misses major components.                                                                                                                                           |
+|         |                                                                                                                                                                                 |
+|         | - Little creativity or originality is demonstrated.                                                                                                                             |
++---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| \< 13   | - Design is broken and not appropriate for at least one question.                                                                                                               |
+|         |                                                                                                                                                                                 |
+|         | - Minimal consideration of basic principles discussed in the course.                                                                                                            |
++---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+### Analyses and Interpretations
+
++---------+----------------------------------------------------------------------------------------------------------------+
+| Points  | Description                                                                                                    |
++=========+================================================================================================================+
+| 30 - 35 | - Both exploratory and inferential analyses done properly for both research questions.                         |
+|         |                                                                                                                |
+|         | - Software outputs are properly interpreted in context and in enough detail to address the research questions. |
+|         |                                                                                                                |
+|         | - Language is clear and precise. Not overly technical.                                                         |
++---------+----------------------------------------------------------------------------------------------------------------+
+| 25 - 29 | - Interpretations are vague or imprecise, but seem largely correct and complete.                               |
+|         |                                                                                                                |
+|         | - Insights not well integrated or not fully substantiated by analyses.                                         |
++---------+----------------------------------------------------------------------------------------------------------------+
+| 20 - 24 | - Insufficient output provided.                                                                                |
+|         |                                                                                                                |
+|         | - Major errors in statistics and/or weak interpretation of software outputs.                                   |
+|         |                                                                                                                |
+|         | - No or minimal insights drawn from the analyses.                                                              |
++---------+----------------------------------------------------------------------------------------------------------------+
+| \< 20   | - Project does not consider two separate questions.                                                            |
+|         |                                                                                                                |
+|         | - Analyses are incomplete and/or inappropriate for the data or research questions.                             |
+|         |                                                                                                                |
+|         | - Report does not provide interpretations or interpretations are inconsistent and contradictory.               |
++---------+----------------------------------------------------------------------------------------------------------------+
+
+### Conclusion
+
++--------+--------------------------------------------------------------------------------------------------------------------------+
+| Points | Description                                                                                                              |
++========+==========================================================================================================================+
+| 8 - 10 | - Discussion summarizes the study, including methods, key findings, implications, and considerations of future research. |
+|        |                                                                                                                          |
+|        | - Ties to existing literature as reported in the literature review section.                                              |
+|        |                                                                                                                          |
+|        | - Highlights potential implications of the study.                                                                        |
+|        |                                                                                                                          |
+|        | - Highlights any limitations and suggestions for future improvement.                                                     |
++--------+--------------------------------------------------------------------------------------------------------------------------+
+| 6 - 7  | - Conclusion lacks one of the important components stated above.                                                         |
++--------+--------------------------------------------------------------------------------------------------------------------------+
+| 4 - 5  | - Conclusion lacks multiple components and is generally hard to follow.                                                  |
++--------+--------------------------------------------------------------------------------------------------------------------------+
+| \< 4   | - Even more problematic.                                                                                                 |
++--------+--------------------------------------------------------------------------------------------------------------------------+
+
+**Note** that the above points total to 75. As a group, your will be graded out of 75. The rest of the points (25) will come from your presentation (each member is expected to take part) and individual contribution to the project (you will complete a project assessment). This means that members in the same group may not earn the same grade.

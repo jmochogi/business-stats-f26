@@ -1,0 +1,20 @@
+---
+title: "About the Course"
+---
+
+A first course in statistics covering descriptive statistical techniques; introduction to probability; statistical inference including problems of estimation and hypothesis testing; correlation and regression analysis; and multiple regression. Most of the data sets and exercises will be chosen from the fields of business, economics, and management. Technology used in this course will include graphing calculators and statistical software (R). Students may also collect their own data for analysis.
+
+## Course Objectives
+
+-   Implement the model-simulate-evaluate process to address data-driven questions on real-world topics.
+
+-   Choose and use various statistical analysis techniques (exploratory and inferential) in a variety of “real life” business contexts.
+
+-   Critically analyze the use of statistics in research, in the media, and in various day-to-day life situations.
+
+-   Communicate statistical ideas effectively and in context without relying on statistical jargon.
+
+-   Use R statistical software to perform statistical explorations and manipulations.
+
+-   Effectively collaborate with peers on projects and presentations.
+

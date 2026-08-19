@@ -1,0 +1,124 @@
+---
+categories: "Lab 7"
+title: "Lab 7: Introduction to Inference - Confidence Intervals"
+execute:
+  eval: true
+format:
+  html: 
+    code-link: true #Supposed to create a link to documentation but its not, for some reason.
+    code-block-border-left: "#31BAE9"
+    code-fold: show #also try true OR false and decide if you like it.
+    code-tools: false
+    code-copy: true
+---
+
+```{r, include=FALSE, echo=F}
+library(tidyverse)
+library(openintro)
+library(infer)
+data("sex_discrimination")
+```
+
+## [Introduction]{style="color:#4166f5;"}
+
+In the previous lab (lab 6), we ran a hypothesis test for difference in two proportions via a simulation process known as randomization. The goal was to test ***whether or not*** female candidates were discriminated against in promotion decisions. We generated 1000 differences and found a small P-value which lead to the conclusion that discrimination was likely going on in the company (the population).
+
+In this lab, we will create a confidence interval for the same scenario used in lab 6. Unlike a hypothesis test, a confidence interval estimates the ***"magnitude of the discrimination"*** by providing a range of values within which we may expect the true population parameter to be. We will do this using a simulation process known as ***bootstrapping***.
+
+## [Creating a quarto file]{style="color:#4166f5;"}
+
+Go to posit cloud (<https://posit.cloud>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and datasets that you don't need.
+
+Next, create your new quarto file as follows:
+
+-   File \> New File \> Quarto document. Use the file name `Lab_7`. Do not delete the `.qmd` extension.
+
+-   Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field and set the title to `Introduction to Statistical Inference - Confidence Intervals`.
+
+-   Change the output option to `pdf` then click on `render`. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.
+
+## [Packages and Data]{style="color:#4166f5;"}
+
+Add a new code chunk and and load the following packages (and data) at the beginning of your quarto file. Be sure to run the code chunk before you proceed:
+
+``` toml
+library(openintro)
+library(tidyverse)
+library(infer)
+data(sex_discrimination)
+```
+
+After running the code chunk, the `sex_discrimination` dataset will be available for use in your analysis. You can click on the dataset in the environment area to view it.
+
+## [The Observed Statistic]{style="color:#4166f5;"}
+
+Recall from lab 6, that the observed statustic was 0.2917, meaning the difference in promotion rates between males and females in the sample was about 29.2%.
+
+## [Bootstrap Simulations]{style="color:#4166f5;"}
+
+We want to run a simulation process known as bootsrapping to create a confidence interval for the true population parameter (the true difference in promotion rates between the sexes in the population).
+
+Examine and run the code below:
+
+```{r, error=TRUE}
+set.seed(123) #This prevents simulated data from changing.
+bootstrap_diffs <- sex_discrimination |>
+  specify(decision~sex, success = "promoted") |>
+  generate(reps = 1000, type = "bootstrap") |>
+  calculate(stat = "diff in props", order=c("male","female"))
+```
+
+**Question:** What difference do you notice for the bootstrap code above compared to the randomization code from lab 6?
+
+## [Visualizing the Bootstrap Distribution]{style="color:#4166f5;"}
+
+We can visualize the bootstrap distribution of the proportions using a histogram. See code below:
+
+```{r}
+bootstrap_diffs |>
+  ggplot(aes(x = stat)) +
+  geom_histogram(binwidth = 0.05, fill = "#4963D4", color = "white") +
+  labs(title = "Bootstrap Distribution of Differences",
+       x = "Simulated Differences in Proportions",
+       y = "Frequency")
+```
+
+The histogram above shows the distribution of the simulated difference in proportions. This distribution gives us an idea of the variability of the observed statistic. The 95% confidence interval will be constructed using this distribution, which will provide a range of plausible values for the true difference in promotion rates.
+
+## [Constructing the Confidence Interval]{style="color:#4166f5;"}
+
+To find the 95% confidence interval for the proportion of small cars, we can use the `get_ci()` function from the `infer` package. A 95% confidence interval means that we need 95% of the simulated data in the middle. This means that each tail (right and left) shares 2.5%. Therefore, the interval runs from 2.5th percentile and the 97.5th percentile. The get_ci() function from the `infer` package is used for this as shown below:
+
+```{r}
+bootstrap_diffs |>
+  get_ci(level = 0.95)
+```
+
+The output above shows the lower (2.5th percentile) and upper (97.5th percentile) bounds of the 95% confidence interval.
+
+## [Interpretation & Conclusion]{style="color:#4166f5;"}
+
+We can interpret the interval as follows: We are 95% confident that the true difference in proportion of promotions between male and female candidates lies between 0.049 (4.9%) and 0.522 (52.2%). This means that the true difference in promotion rates could be as low as 4.9% or as high as 52.2%, but it is unlikely to be outside of this range. Since the interval does not contain 0, we can conclude that there is likely a significant difference in promotion. This interval further supports the conclusion from lab 6 that there is likely discrimination against female candidates in the promotion decisions at the company.
+
+## [Exercises]{style="color:#4166f5;"}
+
+One-hundred and fifty students were recruited in a study that aimed to understand whether reminding college students about saving money for later would make them more thriftier. The students were split into 2 equal groups (control and experiment). Each student was given the following prompt:
+
+*"Imagine that you have been saving some extra money on the side to make some purchases, and on your most recent visit to the video store you come across a special sale on a new video. This video is one with your favorite actor or actress, and your favorite type of movie (such as a comedy, drama, thriller, etc.). This particular video that you are considering is one you have been thinking about buying for a long time. It is available for a special sale price of \$14.99. What would you do in this situation? Buy video or Not buy video?"*
+
+Students in the control group were given the following two options:
+
+A.  Buy video
+B.  Not buy video
+
+Students in the experiment group were given a slightly modified option B:
+
+A.  Buy video
+B.  Not buy this video. *Keep the \$14.99 for other purchases*.
+
+The goal is to use the ideas learned in the above explorations to create the relevant confidence interval and interpret it in context.
+
+1.  ***(4 pts)*** Generate 500 bootstrap differences that can be used to create the relevant confidence interval. Be sure to use the `infer` package functions (`specify()`, `generate()`, and `calculate()`) as illustrated above and save this data as **bootstrap_diffs**.
+2.  ***(2 pts)*** Create a histogram to visualize the distribution of the bootstrap differences generated in #1 above. Describe any patterns apparent in the histogram making sure to state its approximate center and the reason for the location of the center.
+3.  ***(2 pts)*** Use the `get_ci()` function to create the relevant 95% confidence interval.
+4.  ***(2 pts)*** Interpret the confidence interval in context. Does the confidence interval support the conclusion reached under hypothesis testing in lab 6? Explain.

@@ -1,0 +1,296 @@
+---
+categories: "Lab 3"
+title: "Lab 3: Data Visualization with ggplot2"
+execute:
+  eval: true
+format:
+  html:
+    code-link: true #Supposed to create a link to documentation but its not, for some reason.
+   # code-block-bg: true # "lightblue" Does not work well with dark mode.
+    code-block-border-left: "#31BAE9"
+    code-fold: show #also try true OR false and decide if you like it.
+    code-tools: false
+    code-copy: true
+---
+
+```{r, include=FALSE}
+library(openintro)
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## [Introduction]{style="color:#4166f5;"}
+
+In this lab, we introduce a popular package called `ggplot2` used for data visualization. This package is contained within the `tidyverse` package (already installed) so we do not need to install it separately. The term `ggplot` stands for "Grammar of Graphics Plot" which is a system for declaratively creating graphics. It provides a programmatic interface for specifying **what variables to plot**, how they are **displayed**, and general **visual properties**. The package allows users to create a wide variety of high-quality and customizable statistical graphs, making it a valuable tool for exploratory data analysis and presentation.
+
+## [Creating your Quarto File]{style="color:#4166f5;"}
+
+Go to posit cloud (<https://posit.cloud>) and open the MATH 144 project. Use the brush tool to clear the console and environment areas of your workspace. Close any open files that you don't need.
+
+Next, create your new quarto file as follows:
+
+- File\>New File \> Quarto document. In the title field use `Data Visulaization with ggplot2` then write your name under the `Author` field. Change the output option to `pdf`.
+
+- Next, click on save and use the `Lab_3` as the document name. If you did everything correctly, a new file named `Lab_3.qmd` should appear under the files section.
+
+Delete any text in the document except the YAML header. This leaves a clean document ready for you to write your work.
+
+## [Packages]{style="color:#4166f5;"}
+
+We will need `openintro` and `tidyverse` packages in this lab. Create a level 2 header and call it Packages. Under this, create a new code chunk and load the two packages as using the library function as follows:
+
+``` toml
+library(openintro)
+library(tidyverse)
+```
+
+Now, click on render to generate a PDF document. If the PDF renders successfully, you will notice that there is some extra text that may not make much sense for most readers. We can suppress this output using the option `include = FALSE` within the curly braces containing `r` as follows:
+
+{r, include=FALSE}.
+
+## [Loading the Data]{style="color:#4166f5;"}
+
+We will need the`duke_forest` and the `loan50` datasets contained in the `openintro` package. Load the data sets as shown below:
+
+```{r}
+data(duke_forest)
+data(loan50)
+```
+
+We have used both of these data sets before, but you can run the query `?duke_forest` and `?loan50` in case you need to remember what these data sets were about.
+
+## [Data Visualization for numerical Variables]{style="color:#4166f5;"}
+
+### [Single Numerical Variable]{style="color:#4166f5;"}
+
+In `Lab 2`, we computed numerical summary statistics such as *mean*, *median*, *quartiles, etc.* for the numerical variable `price` from the `duke_forest` dataset. Recall that we used both ***base R*** and the ***Tidyverse*** approaches to compute the statistics.
+
+In this lab, we use the `ggplot2` package to create various visualizations for the `price` variable.
+
+#### [Dot Plot]{style="color:#4166f5;"}
+
+There are three basic steps for creating a visualization using functions from the `ggplot2` package.
+
+Below are the steps as applied for the dot plot. The function is called `ggplot()` and can be applied in the following steps to create a dot plot:
+
+- ***Step 1:*** Add the data argument and set the value to the data set name (in this case `duke_forest`). Use the code below:
+
+```{r}
+ggplot(data = duke_forest)
+```
+
+- ***Step 2:*** Next, add variables using the `mapping` argument and the sub function `aes` (aesthetics). This step defines how variables should be mapped on the axes. Since we are dealing with one variable (price), we will just use the $x-axis$. Notice that we begin the *mapping* on a new line to separate it from the data argument. This makes the code easier to read.
+
+```{r}
+ggplot(data = duke_forest, 
+       mapping = aes(x = price))
+```
+
+- ***Step 3:*** Set the visual properties by *adding* the `geom_dotplot()` function. Recall that functions must have a parenthesis at the end even if you don't add any arguments in them. See code below:
+
+```{r}
+ggplot(data = duke_forest, 
+       mapping = aes(x = price))+ 
+       geom_dotplot()
+```
+
+#### [Histogram]{style="color:#4166f5;"}
+
+Another tool we can use to visualize the distribution of a single numerical variable is a histogram. To create a histogram for the `price` variable, we follow the exact same steps as above but only change the `geom_dotplot` part to `geom_histogram`. Notice also that you can do all the three steps in one step as shown below:
+
+```{r}
+ggplot(data=duke_forest, 
+       mapping = aes(x = price)) +
+       geom_histogram()
+```
+
+#### [Boxplot]{style="color:#4166f5;"}
+
+We can also create a boxplot in the same way but change the geometry to `geom_boxplot`. See below:
+
+```{r}
+ggplot(data = duke_forest, 
+       mapping = aes(x=price)) + 
+       geom_boxplot()
+```
+
+***Questions:***
+
+- By examining the tools created above, how would you describe the distribution of the prices? What is the advantages of dot plot over the histogram? What about the box plot over the histogram?
+- In Lab 2, we computed the mean as one of the numerical summary statistics for the price. Do you think the mean is a good measure of the typical house price in Duke Forest? Why or why not?
+
+### [Two Numerical Variables]{style="color:#4166f5;"}
+
+#### [Scatter Plots]{style="color:#4166f5;"}
+
+A scatter plot is the most commonly used visualization tool for examining association between two numerical variables. To create a scatter plot using the `ggplot2()` function, you have to specify the variable on the $x-axis$ and the one on the $y-axis$. In addition, you will use `geom_point()` to set the dots, but these can be changed using further arguments.
+
+Below is the code for creating a scatter plot for the variables `price` and `area`. from the `duke_forest` dataset.
+
+```{r}
+ggplot(data = duke_forest, 
+       mapping = aes(x = area, y = price)) + 
+       geom_point()
+```
+
+***Question*** - What pattern do you notice from the above scatter plot? Is this what you expected?
+
+You can add some layer of complexity to the scatter plot to allow you compare three variables. For example, you may want to compare the relationship between price and area by cooling. To do this, you use the color argument inside the `aes()` function as shown below. Notice that a legend pops up automatically to tell the reader what each color represents.
+
+```{r}
+ggplot(data = duke_forest, 
+       mapping = aes(x=area, y = price, color = cooling))+ 
+       geom_point()
+```
+
+***Question*** - What insights do you get from this new scatter plot?
+
+## [Data Visualization for Categorical Variables]{style="color:#4166f5;"}
+
+### [Single Categorical Variable]{style="color:#4166f5;"}
+
+You can visualize a single categorical variable using tools such as simple bar plots and pie charts. For this section, we will use the loan50 data set which contains 50 observations of 10 variables related to loans. You can use the help query `?loan50` to pull the documentation for this data set.
+
+### [Simple Bar Plot]{style="color:#4166f5;"}
+
+One of the categorical variables in the `loan50` data set is `loan_purpose` (e.g., car, debt consolidation, etc.). Suppose we want to visualize the distribution of the `loan_purpose` variable. We follow the same steps as for creating a dot plot, but change the geometry to `geom_bar()`. See code below:
+
+```{r}
+ggplot(data = loan50, 
+       mapping = aes(x = loan_purpose)) + 
+       geom_bar()
+```
+
+Notice that the horizontal scale labels overlap each other. One way to fix this is to place the `loan_purpose` variable on the y-axis as shown below:
+
+```{r}
+ggplot(data = loan50, 
+       mapping = aes(y = loan_purpose))+ 
+       geom_bar()
+```
+
+This bar plot shows that most loans were taken for debt consolidation while small business and renewable energy had among the least frequency.
+
+In case you want to color the bars, you can use the `fill` argument inside the `aes` function as shown below:
+
+```{r}
+ggplot(data = loan50, 
+       mapping = aes(y = loan_purpose, fill=loan_purpose)) + 
+       geom_bar()
+```
+
+### [Two Categorical Variables]{style="color:#4166f5;"}
+
+Another variable in the `loan50` data set is `loan_status`. The variable which tells us whether a loan is **fully paid** or **current**. We can visualize the two categorical variable using a stacked bar plot or a side-by-side bar plot. To do this, we can `fill` the `loan_purpose` bars with the `loan_status` as shown below:
+
+```{r}
+ggplot(data=loan50, 
+       mapping = aes(y = loan_purpose, fill = loan_status)
+       ) +
+       geom_bar()
+```
+
+It can be difficult to discern the quantities from the stacked bar plot. A side-by-side (or dodged) bar plot can be a better option here. You can use the `position` argument inside the `geom_bar()` function as shown below:
+
+```{r}
+ggplot(data = loan50, 
+       mapping = aes(y = loan_purpose, fill = loan_status)
+       ) +
+       geom_bar(position = "dodge")
+```
+
+## [Visualizing a Numerical variable by Category]{style="color:#4166f5;"}
+
+In some cases, you may want to visualize the distribution of a numerical variable across levels of a categorical variable. For example, suppose we want to see the distribution of price of homes based on type of heating. We can achieve this using `side-by-side` box plots as shown below:
+
+```{r}
+ggplot(data = duke_forest, 
+       mapping = aes(x = cooling, y = price)
+       ) +
+       geom_boxplot()
+```
+
+Again, you can color the box plots by cooling, or any other categorical variable. See code below that colors the box plots by cooling:
+
+```{r}
+ggplot(data = duke_forest, 
+       mapping = aes(x = cooling, y = price, fill = cooling)
+       ) +
+       geom_boxplot()
+```
+
+## [Exercises]{style="color:#4166f5;"}
+
+You will need the `loan50` data set for this lab. Create a new header called **Lab 3 Exercises** and answer the questions below. When you are done, render the document to generate a PDF. Download the document and submit it on Canvas under Lab 3. The lab will be graded out of 20. Ten points will be awarded for the above explorations and the remaining 10 points will be awarded for the exercises.
+
+### Question One
+
+**(1.5 pts)** Create a ***dot plot*** to visualize the distribution of the variable `loan_amount` from the `loan50` data set. Are there any outliers? What is the typical loan amount based on this plot?
+
+### Question Two 
+
+**(1.5 pts)** Create a ***box plot*** to visualize the distribution of the variable `interest_rate` from the `laon50` data set. Comment on the distribution of this variable. Are there any outliers?
+
+### Question Two
+
+**(1.5 pts)** Create a simple ***bar plot*** to visualize the distribution of the variable `homeownership` in the `loan50` data set. What insights can you draw from the plot?
+
+### Question Three
+
+**(1.5 pts)** Create a scatter plot to visualize the association between the variables`total_income` and `loan_amount`. Describe the relationship between these variables. Be sure to comment on the strength, direction, and form of the relationship.
+
+### Question Four
+
+**(2 pts)** Color the dots on the ***scatter plot*** in number 4 above categorical variable `has_second_income` (i.e., whether someone has a second income or not). What new insights, if any, do you get from this scatter plot?
+
+### Question Five
+
+**(2 pts)** Create side-by-side box plots to visualize the distribution of `annual_income` based on `homeownership` (place `homeownership` on the x-axis). What insights can you draw from the plot? Why do you think there is such a pattern?
+
+````{=html}
+<!-- Here is the key to the exercises above.
+
+Visualize loan_amount using a dot plot.
+```{r}
+ggplot(data = loan50, 
+       mapping = aes(x = loan_amount)
+       ) + 
+       geom_dotplot()
+```
+
+Box plot for interest_rate
+```{r}
+ggplot(data = loan50, 
+       mapping = aes(x = interest_rate)
+       ) + 
+       geom_boxplot()
+```
+
+Bar plot for loan_purpose
+
+```{r}
+ggplot(data = loan50, 
+       mapping = aes(y = loan_purpose)
+       ) + 
+       geom_bar()
+```
+
+Scatter plot for total_income vs loan_amount
+```{r}
+ggplot(data = loan50, 
+       mapping = aes(x = total_income, y = loan_amount)
+       ) + 
+       geom_point()
+```
+
+
+
+Scatter plot colored by has_second_income
+```{r}
+ggplot(data = loan50, 
+       mapping = aes(x = total_income, y = loan_amount, color = has_second_income)
+       ) + 
+       geom_point()
+```
+-->
+````

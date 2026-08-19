@@ -1,0 +1,17 @@
+{
+  "hash": "01720958b758d64d85d78d41c9a44ccd",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Project Title Here\"\nauthor: \"Group Member Names\"\nformat: pdf\neditor: visual\n---\n\n\n\n\n\n## Abstract\n\nDelete this text and write the abstract for your paper here.\n\n## Introduction\n\nPlease delete this text and write your introduction here. Please follow the instructions on the project description on the \\[course website\\]().\n\n### Research Questions & Hypotheses\n\nWe sought to answer the following research questions:\n\n1.  \n\n2.  \n\nThese are the research hypotheses:\n\n1.  \n\n2.  \n\n## Literature Review\n\nWrite your literature review here including in-text citations. See the project description on the course website for further details.\n\n## Methodology\n\n### Sample and Data Collection Methods\n\nDescribe your sample and sampling methods used. Provide details.\n\nDescribe how the data may have been collected (e.g., surveys, etc). See project description for more details.\n\n### Description of Data Analysis Techniques\n\nDescribe how you analysed data for your study. Please see project description on the course website for details of what goes here.\n\n## Data Analysis\n\n### Exploratory Analyses\n\nRun your exploratory analyses here. Include interpretations of software output.\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n\n### Inferential Analyses\n\nRun your inferential analyses here for each research question. Include interpretations of software output. Add more code chunks if necessary.\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n\n## Conclusion\n\nWrite the conclusion here. Be sure to look at the project description.\n\n## References\n\nHave a list of sources cited in your work. This could be journal articles, books, websites, conference proceedings, etc.\n",
+    "supporting": [
+      "Final_Project_Template_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

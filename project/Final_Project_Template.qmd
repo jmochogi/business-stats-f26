@@ -1,0 +1,99 @@
+---
+title: "Project Title Here"
+author: "Group Member Names"
+format: pdf
+editor: visual
+---
+
+```{r,include=FALSE}
+library(tidyverse)
+library(openintro)
+library(Stat2Data)
+library(infer)
+
+```
+
+## Abstract
+
+Delete this text and write the abstract for your paper here.
+
+## Introduction
+
+Please delete this text and write your introduction here. Please follow the instructions on the project description on the \[course website\]().
+
+### Research Questions & Hypotheses
+
+We sought to answer the following research questions:
+
+1.  
+
+2.  
+
+These are the research hypotheses:
+
+1.  
+
+2.  
+
+## Literature Review
+
+Write your literature review here including in-text citations. See the project description on the course website for further details.
+
+## Methodology
+
+### Sample and Data Collection Methods
+
+Describe your sample and sampling methods used. Provide details.
+
+Describe how the data may have been collected (e.g., surveys, etc). See project description for more details.
+
+### Description of Data Analysis Techniques
+
+Describe how you analysed data for your study. Please see project description on the course website for details of what goes here.
+
+## Data Analysis
+
+### Exploratory Analyses
+
+Run your exploratory analyses here. Include interpretations of software output.
+
+```{r, echo=FALSE}
+
+```
+
+```{r, echo=FALSE}
+
+```
+
+```{r, echo=FALSE}
+
+```
+
+### Inferential Analyses
+
+Run your inferential analyses here for each research question. Include interpretations of software output. Add more code chunks if necessary.
+
+```{r, echo=FALSE}
+
+
+
+```
+
+```{r, echo=FALSE}
+
+
+
+```
+
+```{r, echo=FALSE}
+
+
+```
+
+## Conclusion
+
+Write the conclusion here. Be sure to look at the project description.
+
+## References
+
+Have a list of sources cited in your work. This could be journal articles, books, websites, conference proceedings, etc.
