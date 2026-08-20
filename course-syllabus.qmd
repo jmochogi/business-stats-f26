@@ -1,6 +1,6 @@
 ---
-title: "MATH 14400 Business Statistics"
-subtitle: "Fall 2026 Syllabus"
+title: "MATH 14400 Statistics for Business, Management & Economics"
+subtitle: "Ithaca College, Fall 2026"
 format:
   html: default
   pdf: default
@@ -32,7 +32,6 @@ format:
 | Wednesday | Williams Hall 317 | 10:00 - 10:50 am |
 | Thursday  | Williams Hall 320 | 10:00 - 10:50 am |
 | Friday    | Williams Hall 317 | 10:00 - 10:50 am |
-
 
 ### [Catalog Description]{style="color:#003f5c;"}
 
@@ -125,8 +124,6 @@ The lowest two CPA grades will be dropped at the end of the semester.
 ### [Online Homework - MyOpenMath]{style="color:#003f5c;"}
 
 MyOpenMath is a free online homework system that allows you to complete homework online and grades your answers automatically. There will be about 5 homeworks over the course of the semester. The homework assignments will be based on the material covered in class and in the readings/vidoes. You are expected to complete all homework assignments by the due date (indicated on Canvas).
-
-The lowest homework grade will be dropped at the end of the semester.
 
 ### [Labs]{style="color:#003f5c;"}
 

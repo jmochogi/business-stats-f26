@@ -6,15 +6,14 @@ A first course in statistics covering descriptive statistical techniques; introd
 
 ## Course Objectives
 
--   Implement the model-simulate-evaluate process to address data-driven questions on real-world topics.
+- Implement the model-simulate-evaluate process to address data-driven questions on real-world topics.
 
--   Choose and use various statistical analysis techniques (exploratory and inferential) in a variety of “real life” business contexts.
+- Choose and use various statistical analysis techniques (exploratory and inferential) in a variety of “real life” business contexts.
 
--   Critically analyze the use of statistics in research, in the media, and in various day-to-day life situations.
+- Critically analyze the use of statistics in research, in the media, and in various day-to-day life situations.
 
--   Communicate statistical ideas effectively and in context without relying on statistical jargon.
+- Communicate statistical ideas effectively and in context without relying on statistical jargon.
 
--   Use R statistical software to perform statistical explorations and manipulations.
+- Use R statistical software to perform statistical explorations and manipulations.
 
--   Effectively collaborate with peers on projects and presentations.
-
+- Effectively collaborate with peers on projects and presentations.
