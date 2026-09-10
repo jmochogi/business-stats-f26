@@ -28,10 +28,10 @@ format:
 
 | Day       | Room/Hall         | Time             |
 |-----------|-------------------|------------------|
-| Monday    | Williams Hall 202 | 10:00 - 10:50 am |
-| Wednesday | Williams Hall 202 | 10:00 - 10:50 am |
-| Thursday  | Williams Hall 319 | 10:00 - 10:50 am |
-| Friday    | Williams Hall 202 | 10:00 - 10:50 am |
+| Monday    | Williams Hall 319 | 10:00 - 10:50 am |
+| Wednesday | Williams Hall 319 | 10:00 - 10:50 am |
+| Thursday  | Williams Hall 202 | 10:00 - 10:50 am |
+| Friday    | Williams Hall 319 | 10:00 - 10:50 am |
 
 ### [Catalog Description]{style="color:#003f5c;"}
 
