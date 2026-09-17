@@ -59,6 +59,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../project/first-project.html" rel="next">
+<link href="../labs/lab_4.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 5: Basic Data Wrangling</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_5.html">Lab 5 (Special Lab)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -223,6 +225,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Lab 4</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab_5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 5 (Special Lab)</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -278,11 +286,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#drop_na" id="toc-drop_na" class="nav-link" data-scroll-target="#drop_na"><code>drop_na()</code></a></li>
   </ul>
 </li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span style="color:#4166f5;">Exercises</span></a></li>
+  <li>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span style="color:#4166f5;">Exercises</span></a>
+  <ul class="collapse">
+<li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_5.html">Lab 5 (Special Lab)</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">Lab 5: Basic Data Wrangling</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Lab 5</div>
@@ -392,16 +409,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Running the above code returns a new data set named <code>g</code>. Notice that <code>g</code> has the same number of observations as the original <code>duke_forest</code> data set because there are no missing values in the <code>price</code> column. All houses in the data set have a price.</p>
 </section></section><section id="exercises" class="level2"><h2 class="anchored" data-anchor-id="exercises"><span style="color:#4166f5;">Exercises</span></h2>
 <p>This lab uses the same data set (<code>duke_forest)</code> used in the explorations above. To start, create a new header called <strong>Lab 5 Exercises</strong>. Be sure to label each question in your responses. For example, you can use the header <strong>“Question 1”</strong> for the first question, <strong>“Question 2”</strong> for the second, etc. When you are done, render the document to generate a PDF. Download the document and submit it on Canvas under Lab 5. The lab will be graded out of 20 (ten points for exploration work above, and 10 for the exercises). Note that the explorations must have descriptive text or headers describing what each code chunk is achieving. Avoid copying and pasting without reading.</p>
-<ol type="1">
-<li><p><strong>(2 pts)</strong> Use the <code>select()</code> function to create a new data set that contains the variables <code>price</code> and <code>bed</code> only. Store this new data set as <code>a</code>.</p></li>
-<li><p><strong>(2 pts)</strong> Using data set <code>a</code> and the <code>mutate()</code> function, create a new column that converts the <code>price</code> into thousands (simply divide price by 1000). Store the new data set as <code>y</code> and name the new column <code>price_thousands</code>.</p></li>
-<li><p><strong>(2 pts)</strong> Use the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> function to create a new data set that contains only houses built before the year 2000. How many houses in the data set were built before 2000?</p></li>
-<li><p><strong>(2 pts)</strong> What is the average price of all 4-bedroom houses? What about the 3-bedroom houses? <strong>HINT:</strong> You may use the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> and <code>summarize()</code> functions for this question.</p></li>
-<li><p><strong>(2 pts)</strong> What does the variable <code>hoa</code> in the <code>duke_forest</code> data set represent? Use the <code>drop_na()</code> function to drop all cases with <strong><em>NA</em></strong> (missing values) in the <code>hoa</code> column. How many cases are left after dropping all cases with <em><strong>NA</strong> in the</em> <code>hoa</code> column?</p></li>
-</ol>
+<section id="question-1" class="level3"><h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<p><strong>(2 pts)</strong> Use the <code>select()</code> function to create a new data set that contains the variables <code>price</code> and <code>bed</code> only. Store this new data set as <code>a</code>.</p>
+</section><section id="question-2" class="level3"><h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<p><strong>(2 pts)</strong> Using data set <code>a</code> and the <code>mutate()</code> function, create a new column that converts the <code>price</code> into thousands (simply divide price by 1000). Store the new data set as <code>y</code> and name the new column <code>price_thousands</code>.</p>
+</section><section id="question-3" class="level3"><h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<p><strong>(2 pts)</strong> Use the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> function to create a new data set that contains only houses built before the year 2000. How many houses in the data set were built before 2000?</p>
+</section><section id="question-4" class="level3"><h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<p><strong>(2 pts)</strong> What is the average price of all 4-bedroom houses? What about the 3-bedroom houses? <strong>HINT:</strong> You may use the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> and <code>summarize()</code> functions for this question.</p>
+</section><section id="question-5" class="level3"><h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p><strong>(2 pts)</strong> What does the variable <code>hoa</code> in the <code>duke_forest</code> data set represent? Use the <code>drop_na()</code> function to drop all cases with <strong><em>NA</em></strong> (missing values) in the <code>hoa</code> column. How many cases are left after dropping all cases with <em><strong>NA</strong> in the</em> <code>hoa</code> column?</p>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -961,7 +981,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../labs/lab_4.html" class="pagination-link" aria-label="Lab 4">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 4</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../project/first-project.html" class="pagination-link" aria-label="Project 1">
+        <span class="nav-page-text">Project 1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">

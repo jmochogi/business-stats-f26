@@ -32,11 +32,11 @@ Go to posit cloud (<https://posit.cloud>) and open the MATH 144 project. Once yo
 
 Next, create your new quarto file as follows:
 
--   File \> New File \> Quarto document. Use the file name `Lab_4`. Do not delete the `.qmd` extension.
+- File \> New File \> Quarto document. Use the file name `Lab_4`. Do not delete the `.qmd` extension.
 
--   Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field and set the title to "`Basic Data Wrangling"`.
+- Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field and set the title to "`Basic Data Wrangling"`.
 
--   Change the output option to `pdf` then click on `render`. A PDF document with your name and document title should pop up.
+- Change the output option to `pdf` then click on `render`. A PDF document with your name and document title should pop up.
 
 ## [Packages]{style="color:#4166f5;"}
 
@@ -164,12 +164,21 @@ Running the above code returns a new data set named `g`. Notice that `g` has the
 
 This lab uses the same data set (`duke_forest)` used in the explorations above. To start, create a new header called **Lab 5 Exercises**. Be sure to label each question in your responses. For example, you can use the header **"Question 1"** for the first question, **"Question 2"** for the second, etc. When you are done, render the document to generate a PDF. Download the document and submit it on Canvas under Lab 5. The lab will be graded out of 20 (ten points for exploration work above, and 10 for the exercises). Note that the explorations must have descriptive text or headers describing what each code chunk is achieving. Avoid copying and pasting without reading.
 
-1.  **(2 pts)** Use the `select()` function to create a new data set that contains the variables `price` and `bed` only. Store this new data set as `a`.
+### Question 1
+**(2 pts)** Use the `select()` function to create a new data set that contains the variables `price` and `bed` only. Store this new data set as `a`.
 
-2.  **(2 pts)** Using data set `a` and the `mutate()` function, create a new column that converts the `price` into thousands (simply divide price by 1000). Store the new data set as `y` and name the new column `price_thousands`.
+### Question 2
 
-3.  **(2 pts)** Use the `filter()` function to create a new data set that contains only houses built before the year 2000. How many houses in the data set were built before 2000?
+**(2 pts)** Using data set `a` and the `mutate()` function, create a new column that converts the `price` into thousands (simply divide price by 1000). Store the new data set as `y` and name the new column `price_thousands`.
 
-4.  **(2 pts)** What is the average price of all 4-bedroom houses? What about the 3-bedroom houses? **HINT:** You may use the `filter()` and `summarize()` functions for this question.
+### Question 3
+ 
+ **(2 pts)** Use the `filter()` function to create a new data set that contains only houses built before the year 2000. How many houses in the data set were built before 2000?
 
-5.  **(2 pts)** What does the variable `hoa` in the `duke_forest` data set represent? Use the `drop_na()` function to drop all cases with ***NA*** (missing values) in the `hoa` column. How many cases are left after dropping all cases with ***NA** in the* `hoa` column?
+### Question 4
+
+**(2 pts)** What is the average price of all 4-bedroom houses? What about the 3-bedroom houses? **HINT:** You may use the `filter()` and `summarize()` functions for this question.
+
+### Question 5
+
+**(2 pts)** What does the variable `hoa` in the `duke_forest` data set represent? Use the `drop_na()` function to drop all cases with ***NA*** (missing values) in the `hoa` column. How many cases are left after dropping all cases with ***NA** in the* `hoa` column?

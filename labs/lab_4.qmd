@@ -1,6 +1,7 @@
 ---
-categories: "Lab 4"
-title: "Lab 4: Introduction to Linear Regression"
+categories: "Lab 6"
+title: "Lab 6: Introduction to Inference - Hypothesis Testing"
+subtitle: "Inference for Difference in Two Proportions"
 execute:
   eval: true
 format:
@@ -15,197 +16,246 @@ format:
 ```{r, include=FALSE, echo=F}
 library(tidyverse)
 library(openintro)
-library(broom)
+library(infer)
+data(sex_discrimination)
+data(opportunity_cost)
+
 ```
 
 ```{r, include=F, echo=F}
 data(duke_forest)
-data("cars04")
 ```
 
-## [Introduction]{style="color:#666633;"}
+## [Introduction]{style="color:#4166f5;"}
 
-In this lab, we will explore the concept of simple linear regression, a fundamental statistical technique used to model the relationship between a predictor (aka independent) and a response (dependent) variable. We call this **simple linear regression** because it involves only one predictor variable and one response variable. The term linear suggests that we will consider relationships that show a linear pattern. Statistical techniques for modelling non-linear relationships and/or that use multiple variables (predictor and even response) do exist but are beyond the scope of this course. Linear regression is widely used in various fields, including economics, biology, engineering, and social sciences, to make predictions and understand relationships between variables.
+In this lab, we will introduce statistical inference using a popular package known as `infer` (short form for inference). Specifically, we will conduct a hypothesis test for **difference in two proportions** via a *randomization test*.
 
-## [Creating a quarto file]{style="color:#666633;"}
+## [Creating a quarto file]{style="color:#4166f5;"}
 
-Go to posit cloud (<https://posit.cloud>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment area. You may also want to close all open files.
+Go to posit cloud (<https://posit.cloud>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and data sets that you don't need. Use the brush tools to clean up your console, and environment panels.
 
 Next, create your new quarto file as follows:
 
 - File \> New File \> Quarto document. Use the file name `Lab_4`. Do not delete the `.qmd` extension.
 
-- Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field (`author: "Student Name"`) and set the title to "`Simple Linear Regression"`.
+- Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field and set the title to "`Introduction to Statistical Inference - Hypothesis Testing"`.
 
-- Change the output option to `pdf` then click on `render`. A PDF document with your name and document title should pop up.
+- Change the output value to `pdf` then click on `render`. At this point, a popup blocker may show up on your screen. If this happens, just click "try again". A PDF document with your name and title should pop up on a new browser tab. As you work through the lab, it is good practice to render from time to time to make sure everything is working as expected.
 
-## [Packages]{style="color:#666633;"}
+## [Research Question & Scenario]{style="color:#4166f5;"}
 
-You will need `openintro`, `tidyverse`, and `broom` packages for this lab. We have not installed the `broom` package before, so you will need to do that first. To do this, you can run the code `install.packages("broom")` in **the console**. After installing the `broom` package, create a level 2 header and call it Packages. Under this, insert a new code chunk and load the three packages using the `library()` function as follows:
+***Here is the Context/Scenario:***
+
+Forty eight male bank supervisors were each given identical resumes to decide whether the candidate should be promoted or not. Twenty four of the files were labelled as male, meaning the applicant was male, while the other 24 were labelled as female.
+
+We seek to answer the following research question via hypothesis testing:
+
+***Research Question:*** "Are individuals who identify as female discriminated against in promotion decisions made by hiring managers who identify as male?”
+
+## [Packages and Data]{style="color:#4166f5;"}
+
+The data set is called `sex_discrimination` and is available in the `openintro` package. Apart from `openintro`, we will need the `tidyverse` and `infer` packages. The `infer` package contains a wide range of functions including functions for running simulations and calculating statistics. Since we have installed `openintro` and `tidyverse` before, we only need to install `infer`. Run the code below in the console to install the `infer` package:
 
 ``` toml
-library(openintro)
-library(tidyverse)
-library(broom)
+install.packages("infer")
 ```
 
-Be sure to run this chunk to make sure the packages were successfully loaded. For a cleaner looking document, use `include = FALSE` in the code chunk to prevent the output of this chunk.
-
-You may use the following alternative way of deactivating the chunk output. If you use this, delete the first package code chunk.
+After installing `infer` , insert a new code chunk and use the code below to load packages and the data set called `sex_discrimination`.
 
 ``` toml
 #| include: false
-library(openintro)
 library(tidyverse)
-library(broom)
+library(openintro)
+library(infer)
+data(sex_discrimination)
 ```
 
-## [Loading the Data]{style="color:#666633;"}
+Run the above code. If everything runs correctly, a new object named `sex_discrimination` will pop up in the environment area. This is the data set. Open the data set and examine it before you proceed. Check what the cases are and how many they are. Check the variables and determine the **predictor** and **response** variables making sure this aligns with the research question.
 
-We will continue using the `duke_forest` data set contained in the `openintro` package. Insert a new code chunk and load the data using the code below:
+## [Hypotheses Statements]{style="color:#4166f5;"}
+
+We write the null and alternative hypothesis in words and in symbols as follows:
+
+***Null Hypothesis in words:*** There is no difference in promotion rates (proportions) between male and female candidates *in the population* (i.e., There is no discrimination against female candidates in promotion decisions and any observed difference in our sample is due to random chance).
+
+In symbols, we write the null hypothesis as
+
+$$H_0 : p_M-p_F=0$$
+
+where, $p_M$= proportion of male candidates that would be promoted in the population, and $p_F$= proportion of female candidates that would be promoted.
+
+***Alternative Hypothesis in words:*** There is a difference in promotion rates between male and female candidates in favor for males (i.e., There is discrimination against female candidates in the population).
+
+In symbols, we write the alternative hypothesis as
+
+$$H_A : p_M-p_F>0$$
+
+We will run a hypothesis test to see if the sample data provides strong enough evidence to reject the null hypothesis.
+
+## [Visualizing the Data]{style="color:#4166f5;"}
+
+Since these are two categorical variables (gender and decision), we can visualize the distribution of the data using a side-by-side bar plot as shown below:
 
 ```{r}
-data(duke_forest)
+sex_discrimination |>
+  ggplot(aes(x = sex, fill = decision)) +
+  geom_bar(position = "dodge")
 ```
 
-This data were used in previous labs, but you can refresh your memory by running the query `?duke_forest`. It is **very important** that you examine this data set first if you don't remember it well.
+:::{.callout-tip title="Checkpoint"}
+How would you describe the distribution of the data based on the bar plot above? Compare the promotion rates for male and female candidates. Which group has the higher promotion rate, and approximately how much higher is it?
+:::
 
-## [Exploring Relationships]{style="color:#666633;"}
+## [The Observed Statistic]{style="color:#4166f5;"}
 
-We are interested in the variables `price` (given in US dollars) and `area` of the home (in square feet). Specifically, we want to explore the relationship between the two variables and create linear regression model with `area` as the predictor variable and `price` as the response variable.
+The observed statistic in this scenario is the difference in proportion of promotions between the male and female candidates observed in the sample. Since these are statistics (not parameters), we use $\hat{p_M}$ (read as p-hat) to denote the proportion of promoted males and $\hat{p}_F$ to denote the proportion of promoted females. The **observed statistic** is the difference in the two sample proportions:
 
-Below is a scatter plot showing the relationship between `price` and `area`:
+$$Obs\_Stat=\hat{p}_M-\hat{p}_F$$
+
+In R, we can use the `count()` and `group_by()` functions to create a summary table as shown below:
 
 ```{r}
-ggplot(data = duke_forest) +
-  aes(x = area, y = price) +
-  geom_point()
+sex_discrimination |>       #get your data
+  count(sex, decision) |>   #count cases in both variables
+  group_by(sex) |>          #group cases by sex (predictor)
+  mutate(prop = n / sum(n)) #calculates the proportions
 ```
 
-**Question:** Describe the relationship between `price` and `area` based on the scatter plot. Be sure to talk about the direction, strength, and form of the relationship. Are there any unusual observations? What might be a reasonable explanation for these unusual observations?
+From the table, we can compute the observed statistic as follows:
 
-**Model Answer:** The relationship between `price` and `area` appears to be positive — large homes are generally more expensive and vice versa. The overall relationship appears to be linear and moderately strong, suggesting that a linear regression model may be appropriate for this data. There seems to be a few unusual observations (lower right), particularly homes with very low prices relative to their area. These outliers could be due to factors such as location, amenities, or unique features of the homes that are not captured by the scatter plot.
+\begin{align}
+\hat{p}_{diff}&=\hat{p_M}-\hat{p_F}\\
+&=0.875-0.5833\\
+&\approx  0.292
+\end{align}
 
-## [Correlation coefficient]{style="color:#666633;"}
+## [Running Simulations]{style="color:#4166f5;"}
 
-To quantify the strength and direction of the linear relationship between `price` and `area`, we use a statistic known as the correlation coefficient (abbreviated as $r$\$r\$. We calculate this in R using the `cor()` function as shown below:
+There are 4 main functions in the `infer package` that we will use over and over in coming days and weeks. The functions are:
+
+- `specify()`***:*** this allows you to specify the variables and the relationship you are interested in. In the sex discrimination study, `sex` is the predictor and `decision` is the response.
+
+- `hypothesize()`***:*** This is where you specify the nature of the null hypothesis.
+
+- `generate()`***:*** runs the simulations that you are interested in. We will set this to `permute`. The files will be randomly assigned to each group (male and female) ignoring the observed difference. This is where the name *randomization test* comes from.
+
+- `calculate()`***:*** allows you to calculate statistic of interest for each simulation. In this case `diff in props` (difference in proportions).
+
+Let us now use the infer package to run the simulations for the sex discrimination case study. We save the simulated data as ***simulated_diffs***. We will need this data in later stages.
 
 ```{r}
-duke_forest |>
-  summarize(cor(price, area))
+simulated_diffs <- sex_discrimination |>
+		      specify(decision ~ sex, success = "promoted") |>
+			    hypothesize(null = "independence") |>
+			    generate(reps = 1000, type = "permute") |>
+			    calculate(stat = "diff in props", order = c("male", "female"))
 ```
 
-**Note:** The correlation value of 0.67 confirms our earlier assessment of the relationship from the scatter plot.
 
-## [Visualizing the Model]{style="color:#666633;"}
+>> Under specify(), the order is response\~predictor, and the success level is set to "promoted".
+>
+>> Under hypothesize(), we set null to "independence" because our null hypothesis assumes the two variables are not associated.
+>
+>> Under generate(), we want to do 1000 repeats, and the type of shuffling is called "permute".
+>
+>> Under calculate(), we state the statistic we want and the order in which we want the difference done.
 
-If you want to see the **least squares regression line**, you simply add the `geom_smooth()` function to the scatter plot created earlier. You will also use the argument `method` and set it to `"lm"` as shown below:
+After running the above code, a new object named `simulated_diffs`  will pop up in the environment area. This object is our null distribution and it models what the distribution looks like assuming the null hypothesis were true. Double click on the object to view it or use the `head()` function to view the first few rows of the data set.
 
 ```{r}
-ggplot(data=duke_forest, aes(x=area, y=price))+
-  geom_point()+
-  geom_smooth(method="lm") # this adds the line
+head(simulated_diffs)
 ```
 
-## 
+## [Visualizing the Null Distribution]{style="color:#4166f5;"}
 
-## [Finding the Regression Equation]{style="color:#666633;"}
+Next, we want to use `ggplot2` package to create a histogram to visualize the distribution of the differences computed above. Remember we stored the differences as `simulated_diffs`. We will also place a vertical line on the histogram to see the location of the **observed statistic** (the original difference of 0.292) relative to the graph. We use the code below:
 
-To find the equation of the line, we can use the `lm()` function as shown below. The first argument takes the form `y ~ x,` where `y` is the response variable and `x` is the predictor variable.
+```{r, message=F}
+			ggplot(data=simulated_diffs, aes(x = stat)) + 
+			geom_histogram()+
+			geom_vline(aes(xintercept = .292), color = "red")
+```
+
+Note that this `null distribution` histogram is centered around 0 because under the null hypothesis, we expect no difference in promotion rates between the sexes.
+
+## [Getting the P-Value]{style="color:#4166f5;"}
+
+The **P-value** is the proportion of simulated differences that are at least as extreme as the observed statistic (i.e., the red line and beyond). It is the probability of observing a difference as extreme as 0.292 or more extreme assuming that the null hypothesis were true (i.e., that there is no discrimination going on). 
+
+The infer package comes with a function known as `get-p-value()` for computing the **p-value** from the ***null distribution***. See code below:
 
 ```{r}
-lm(price~area, data=duke_forest)
-
+simulated_diffs |>
+			get_p_value(obs_stat = 0.292, direction = "greater")
 ```
 
-It is helpful to save the model as an object so that when you need it, you don't write new code. The code below saves the model as `model` and also prints the model right under:
+Here, the argument `obs_stat` is used to set the observed statistic, while `direction` is for specifying the alternative hypothesis. Since our observed statistic is to the right of the center, and our alternative hypothesis is directional, we set the direction argument to "greater". If the alternative hypothesis was bidirectional or two-sided (i.e., $p_M-p_F \neq 0$), we would set direction to `two-sided`, which means we would be looking for values that are as extreme as 0.2917 in either direction (both left and right tails of the distribution). This would essentially double the P-value.
 
-```{r}
-model <- lm(price~area, data=duke_forest) # save model
-print(model) # to show model
-```
+## [Conclusion in Context]{style="color:#4166f5;"}
 
-We can write the equation of the model for predicting price as follows:
+The P-value obtained is 0.003 (or 0.3%) is very small. This means that if there was no discrimination going on (i.e., null hypothesis were true), we would would expect to see a difference of at least 0.292 about 0.3% of the time. This low probability indicates that observing such a large difference from chance alone is very rare.
 
-$$\widehat{price} = 159.5\times (area) + 116,652.3$$
+At this point, you may be wondering how small a P-value needs to be to reject the null hypothesis. The commonly used cu off mark is 0.05 (or 5%). We call this cutoff the ***discernibility level***. Anything below this is considered rare. 
 
-**Interpretation of slope and intercept**
+Here is how to write the conclusion for your hypothesis test in context:
 
-- ***Intercept:*** The intercept is 116,652.3 and its units are dollars. It means that on average, homes with 0 square feet area would cost \$116,652.3. This does not have any practical interpretation in this context since you cannot have a home measuring 0 square feet.
-- ***Slope:*** The slope is 159.5 and its units are ***dollars per square feet***. The slope means that on average, an additional square foot in home area results to a \$159.5 increase in sale price.
+:::{.callout-tip title="Conclusion in Context"}
+The difference in promotion rates between male and female candidates in the sample was 0.292 (or 29.2%). A hypothesis test of the difference produced a P-value of 0.003 which is less than the discernibility level of 0.05. Therefore, we reject the null hypothesis and conclude that the data provides strong evidence that discrimination is likely going on against female candidates in the organization.
+:::
 
-## [Model Evaluation]{style="color:#666633;"}
+## [Exercises]{style="color:#4166f5;"}
 
-We can use our model to make predictions. For example, if we wanted to predict the sale price of a 2,000 square feet home, we can use the equation as follows:
+Create a new level 2 header called **Lab 4 Exercises** and answer the questions below. Each question should be labelled appropriately (e.g., **Question 1**, **Question 2**) using level 3 headers. There is no need to retype or copy and paste the questions, just your responses. When you are done, render the document to generate a PDF, download it and submit to Canvas under Lab 4. The lab will be graded out of 20 (Ten points for exploration work above, and 10 for the exercises). The lab exploration work must have headers and descriptive text describing what each code chunk is achieving. Avoid copying and pasting without reading.
 
-$$\widehat{price} = 116,652.3+159.5\times 2000 = \$436,652.3$$
+***Scenario:***
 
-Our model predicts that a home with 2,000 square feet in the same area where the data were collected would sell for approximately \$436,652.3.
+One-hundred and fifty students were recruited in a study that aimed to understand whether reminding college students about saving money for later would make them more thriftier. The students were split into 2 equal groups (control and experiment). Each student was given the following prompt:
 
-The `augment()` function can be used to calculate the predictions (estimated home price) for each home in the data for which the area is available. The head function is used to view the first few rows of the new object.
+*"Imagine that you have been saving some extra money on the side to make some purchases, and on your most recent visit to the video store you come across a special sale on a new video. This video is one with your favorite actor or actress, and your favorite type of movie (such as a comedy, drama, thriller, etc.). This particular video that you are considering is one you have been thinking about buying for a long time. It is available for a special sale price of \$14.99. What would you do in this situation? Buy video or Not buy video?"*
 
-```{r}
-predictions <- augment(model)
-head(predictions)
-```
+Students in the control group were given the following two options:
 
-We are concerned with `.fitted` and `.resid` columns only. The `.fitted` column show the prices calculated based on the model (the predictions) while the `.resid` column shows the difference between `actual` and `predicted` prices. Residuals are used in model evaluation. A small residual indicates that the model's prediction is close to the actual value, while a large residual indicates a poor prediction.
+A.  Buy video
+B.  Not buy video
 
-To visualize the residuals, we can create a residual plot. A residual plot displays the residuals on the y-axis and the predictor variable (in this case, `area`) on the x-axis. Ideally, we want to see a random scatter of points around the horizontal line at 0, which indicates that our model is appropriate for the data. If we see patterns in the residuals, it may suggest that our model is not capturing all the information in the data.
+Students in the experiment group were given a slightly modified option B:
 
-```{r}
-ggplot(data=predictions, aes(x=area, y=.resid))+
-  geom_point()+
-  geom_hline(yintercept=0, linetype="dashed", color="red")
-```
+A.  Buy video
+B.  Not buy this video. *Keep the \$14.99 for other purchases*.
 
-We can also create a histogram of the residuals to check if they are approximately normally distributed. This is another assumption of linear regression.
+**Research Question:** Does reminding students about saving money for later make them more thriftier (i.e., less likely to buy the video)?
 
-```{r}
-ggplot(data=predictions, aes(x=.resid))+
-  geom_histogram()+
-  labs(title="Histogram of Residuals", x="Residuals", y="Frequency")
-```
+The goal is to try and answer this research question using a hypothesis test for difference in two proportions.
 
-A histogram that is roughly bell-shaped suggests that the residuals are approximately normally distributed, which is a good sign for our linear regression model. If the histogram shows a skewed distribution or has multiple peaks, it may indicate that our model is not appropriate for the data.
+The data set is called `opportunity_cost` and is available in the `openintro` package.
 
-In summary, certain assumptions/conditions need to be checked when performing linear regression. These include:
 
-- ***Linearity:*** The relationship between the predictor and response variable should be roughly linear. This can be checked using the scatter plot.
-- ***Independence:*** The residuals should be independent of each other. This is generally assumed if the data were collected randomly.
-- ***Homoscedasticity:*** The residuals should have constant variance across all levels of the predictor variable. This can be checked using the residual plot. The residual plot above does not show serious violations of this assumption.
-- ***Normality:*** The residuals should be approximately normally distributed. This can be checked using the histogram of residuals.
+### Question One  
+**(1 pt)** Load the `opportunity_cost` data set into your work space. Identify the predictor and response variables. Be sure to write down the variable names exactly as they are appear in the data set.
 
-## [In the Literature]{style="color:#666633;"}
+### Question Two
 
-Have a section here illustrating how analyses are reported in the literature. Can use the APA format because that is what the projects require.
+**(1 pt)** State the appropriate null and alternative hypotheses (in words) that you would test.
 
-## [Summary]{style="color:#666633;"}
+### Question Three  
 
-In this lab, we explored the concept of simple linear regression using the `duke_forest` data set. We created a scatter plot to visualize the relationship between `price` and `area`, calculated the correlation coefficient to quantify the strength and direction of the relationship, fitted a linear regression model, visualized the model, and evaluated its performance using residuals. Linear regression is a powerful tool for understanding relationships between variables and making predictions based on those relationships.
+**(2 pts)** Create a side-by-side bar graph to visualize the variables of interest in the study.  
 
-## [Exercises]{style="color:#666633;"}
-Create a new header called **Lab 4 Exercises** and answer the questions below. When you are done, render the document to generate a PDF. Download the document and submit it on Canvas under Lab 4. The lab will be graded out of 20 (Ten points for exploration work above, and 10 for the exercises).
+### Question Four
 
-### [Question One]{style="color:#666633;"}
+**(2 pts)** Calculate the relevant ***observed statistic*** in the scenario above. Be sure to show your work and include the R code used.
 
-**(1 pt)** The data set `cars04` is in the openintro package. Load the data set into your work space. What are the cases in this data set and how many are they? What do the variables `weight` and `eng_size` represent, and what are the units for these variables?
+### Question Five
 
-### [Question Two]{style="color:#666633;"}
+**(2 pts)** Use the `infer` package functions to run 500 simulations under the null hypothesis and save the results as ***null distribution***. Be sure to specify the correct variables and relationship under `specify()`, the correct nature of the null hypothesis under `hypothesize()`, the correct type of shuffling under `generate()`, and the correct statistic under `calculate()`.
 
-**(2 pts)** Create a scatter plot to visualize the relationship between `eng_size` (x-axis) and `weight` (y-axis). Describe the relationship between the two variables, making sure to talk about the direction, strength, and form of the relationship. State if there are any unusual observations and provide a reasonable explanation for the unusual observations.
+### Question Six
 
-### [Question Three]{style="color:#666633;"}
+**(2 pts)** Create a histogram to visualize the ***null distribution*** from question 5 above. Be sure to place a vertical line to show the location of the ***observed statistic*** from #4 above. Describe the shape of the distribution and explain why it is centered around 0.
 
-**(1 pt)** Calculate the correlation coefficient between `eng_size` and `weight`. Comment on this statistic.
+### Question Seven
 
-### [Question Four]{style="color:#666633;"}
+**(2 pts)** Use the `get-p-value()` function to find the P-value then write an interpretation of the result in context.
 
-**(3 pts)** Generate a linear regression model for predicting `weight` based on `eng_size` (predictor). Write the equation of the model and interpret the `slope` and `intercept` in the context of the data. Be sure to state the units of the `slope` and `intercept`.
 
-### [Question Five]{style="color:#666633;"}
 
-**(1 pt)** Use your model from #4 above to estimate the weight of a car with an engine size of 3.4 liters. Explain/show work.
-
-### [Question Six]{style="color:#666633;"}
-**(2 pts)** What's the residual for the first case in the data set? For this case, does the model overestimate or underestimate the weight of the car? Explain how you know this.

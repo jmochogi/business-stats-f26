@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Lab 4: Introduction to Linear Regression – MATH 144 - Business Statistics</title>
+<title>Lab 6: Introduction to Inference - Hypothesis Testing – MATH 144 - Business Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../project/first-project.html" rel="next">
+<link href="../labs/lab_5.html" rel="next">
 <link href="../labs/lab_3.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -123,14 +123,14 @@ window.Quarto = {
   typesetMath
 };
 </script>
-<meta property="og:title" content="Lab 4: Introduction to Linear Regression – MATH 144 - Business Statistics">
-<meta property="og:description" content="Homepage for MATH 144 - Business Statistics, Fall 2026.">
-<meta property="og:image" content="https://jmochogi.github.io/business-stats-f26/labs/lab_4_files/figure-html/unnamed-chunk-4-1.png">
+<meta property="og:title" content="Lab 6: Introduction to Inference - Hypothesis Testing – MATH 144 - Business Statistics">
+<meta property="og:description" content="Inference for Difference in Two Proportions">
+<meta property="og:image" content="https://jmochogi.github.io/business-stats-f26/labs/lab_4_files/figure-html/unnamed-chunk-3-1.png">
 <meta property="og:site_name" content="MATH 144 - Business Statistics">
 <meta property="og:image:height" content="960">
 <meta property="og:image:width" content="1344">
-<meta name="twitter:title" content="Lab 4: Introduction to Linear Regression – MATH 144 - Business Statistics">
-<meta name="twitter:description" content="Homepage for MATH 144 - Business Statistics, Fall 2026.">
+<meta name="twitter:title" content="Lab 6: Introduction to Inference - Hypothesis Testing – MATH 144 - Business Statistics">
+<meta name="twitter:description" content="Inference for Difference in Two Proportions">
 <meta name="twitter:image" content="https://jmochogi.github.io/business-stats-f26/labs/img/twitter-card.png">
 <meta name="twitter:creator" content="@jmochogi">
 <meta name="twitter:card" content="summary_large_image">
@@ -250,6 +250,12 @@ window.Quarto = {
  <span class="menu-text">Lab 4</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 5 (Special Lab)</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -291,36 +297,37 @@ window.Quarto = {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span style="color:#666633;">Introduction</span></a></li>
-  <li><a href="#creating-a-quarto-file" id="toc-creating-a-quarto-file" class="nav-link" data-scroll-target="#creating-a-quarto-file"><span style="color:#666633;">Creating a quarto file</span></a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages"><span style="color:#666633;">Packages</span></a></li>
-  <li><a href="#loading-the-data" id="toc-loading-the-data" class="nav-link" data-scroll-target="#loading-the-data"><span style="color:#666633;">Loading the Data</span></a></li>
-  <li><a href="#exploring-relationships" id="toc-exploring-relationships" class="nav-link" data-scroll-target="#exploring-relationships"><span style="color:#666633;">Exploring Relationships</span></a></li>
-  <li><a href="#correlation-coefficient" id="toc-correlation-coefficient" class="nav-link" data-scroll-target="#correlation-coefficient"><span style="color:#666633;">Correlation coefficient</span></a></li>
-  <li><a href="#visualizing-the-model" id="toc-visualizing-the-model" class="nav-link" data-scroll-target="#visualizing-the-model"><span style="color:#666633;">Visualizing the Model</span></a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#finding-the-regression-equation" id="toc-finding-the-regression-equation" class="nav-link" data-scroll-target="#finding-the-regression-equation"><span style="color:#666633;">Finding the Regression Equation</span></a></li>
-  <li><a href="#model-evaluation" id="toc-model-evaluation" class="nav-link" data-scroll-target="#model-evaluation"><span style="color:#666633;">Model Evaluation</span></a></li>
-  <li><a href="#in-the-literature" id="toc-in-the-literature" class="nav-link" data-scroll-target="#in-the-literature"><span style="color:#666633;">In the Literature</span></a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span style="color:#666633;">Summary</span></a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span style="color:#4166f5;">Introduction</span></a></li>
+  <li><a href="#creating-a-quarto-file" id="toc-creating-a-quarto-file" class="nav-link" data-scroll-target="#creating-a-quarto-file"><span style="color:#4166f5;">Creating a quarto file</span></a></li>
+  <li><a href="#research-question-scenario" id="toc-research-question-scenario" class="nav-link" data-scroll-target="#research-question-scenario"><span style="color:#4166f5;">Research Question &amp; Scenario</span></a></li>
+  <li><a href="#packages-and-data" id="toc-packages-and-data" class="nav-link" data-scroll-target="#packages-and-data"><span style="color:#4166f5;">Packages and Data</span></a></li>
+  <li><a href="#hypotheses-statements" id="toc-hypotheses-statements" class="nav-link" data-scroll-target="#hypotheses-statements"><span style="color:#4166f5;">Hypotheses Statements</span></a></li>
+  <li><a href="#visualizing-the-data" id="toc-visualizing-the-data" class="nav-link" data-scroll-target="#visualizing-the-data"><span style="color:#4166f5;">Visualizing the Data</span></a></li>
+  <li><a href="#the-observed-statistic" id="toc-the-observed-statistic" class="nav-link" data-scroll-target="#the-observed-statistic"><span style="color:#4166f5;">The Observed Statistic</span></a></li>
+  <li><a href="#running-simulations" id="toc-running-simulations" class="nav-link" data-scroll-target="#running-simulations"><span style="color:#4166f5;">Running Simulations</span></a></li>
+  <li><a href="#visualizing-the-null-distribution" id="toc-visualizing-the-null-distribution" class="nav-link" data-scroll-target="#visualizing-the-null-distribution"><span style="color:#4166f5;">Visualizing the Null Distribution</span></a></li>
+  <li><a href="#getting-the-p-value" id="toc-getting-the-p-value" class="nav-link" data-scroll-target="#getting-the-p-value"><span style="color:#4166f5;">Getting the P-Value</span></a></li>
+  <li><a href="#conclusion-in-context" id="toc-conclusion-in-context" class="nav-link" data-scroll-target="#conclusion-in-context"><span style="color:#4166f5;">Conclusion in Context</span></a></li>
   <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span style="color:#666633;">Exercises</span></a>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span style="color:#4166f5;">Exercises</span></a>
   <ul class="collapse">
-<li><a href="#question-one" id="toc-question-one" class="nav-link" data-scroll-target="#question-one"><span style="color:#666633;">Question One</span></a></li>
-  <li><a href="#question-two" id="toc-question-two" class="nav-link" data-scroll-target="#question-two"><span style="color:#666633;">Question Two</span></a></li>
-  <li><a href="#question-three" id="toc-question-three" class="nav-link" data-scroll-target="#question-three"><span style="color:#666633;">Question Three</span></a></li>
-  <li><a href="#question-four" id="toc-question-four" class="nav-link" data-scroll-target="#question-four"><span style="color:#666633;">Question Four</span></a></li>
-  <li><a href="#question-five" id="toc-question-five" class="nav-link" data-scroll-target="#question-five"><span style="color:#666633;">Question Five</span></a></li>
-  <li><a href="#question-six" id="toc-question-six" class="nav-link" data-scroll-target="#question-six"><span style="color:#666633;">Question Six</span></a></li>
+<li><a href="#question-one" id="toc-question-one" class="nav-link" data-scroll-target="#question-one">Question One</a></li>
+  <li><a href="#question-two" id="toc-question-two" class="nav-link" data-scroll-target="#question-two">Question Two</a></li>
+  <li><a href="#question-three" id="toc-question-three" class="nav-link" data-scroll-target="#question-three">Question Three</a></li>
+  <li><a href="#question-four" id="toc-question-four" class="nav-link" data-scroll-target="#question-four">Question Four</a></li>
+  <li><a href="#question-five" id="toc-question-five" class="nav-link" data-scroll-target="#question-five">Question Five</a></li>
+  <li><a href="#question-six" id="toc-question-six" class="nav-link" data-scroll-target="#question-six">Question Six</a></li>
+  <li><a href="#question-seven" id="toc-question-seven" class="nav-link" data-scroll-target="#question-seven">Question Seven</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_4.html">Lab 4</a></li></ol></nav><div class="quarto-title">
-<h1 class="title">Lab 4: Introduction to Linear Regression</h1>
+<h1 class="title">Lab 6: Introduction to Inference - Hypothesis Testing</h1>
+<p class="subtitle lead">Inference for Difference in Two Proportions</p>
   <div class="quarto-categories">
-    <div class="quarto-category">Lab 4</div>
+    <div class="quarto-category">Lab 6</div>
   </div>
   </div>
 
@@ -335,192 +342,218 @@ window.Quarto = {
   
 
 
-</header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction"><span style="color:#666633;">Introduction</span></h2>
-<p>In this lab, we will explore the concept of simple linear regression, a fundamental statistical technique used to model the relationship between a predictor (aka independent) and a response (dependent) variable. We call this <strong>simple linear regression</strong> because it involves only one predictor variable and one response variable. The term linear suggests that we will consider relationships that show a linear pattern. Statistical techniques for modelling non-linear relationships and/or that use multiple variables (predictor and even response) do exist but are beyond the scope of this course. Linear regression is widely used in various fields, including economics, biology, engineering, and social sciences, to make predictions and understand relationships between variables.</p>
-</section><section id="creating-a-quarto-file" class="level2"><h2 class="anchored" data-anchor-id="creating-a-quarto-file"><span style="color:#666633;">Creating a quarto file</span></h2>
-<p>Go to posit cloud (<a href="https://posit.cloud" class="uri">https://posit.cloud</a>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment area. You may also want to close all open files.</p>
+</header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction"><span style="color:#4166f5;">Introduction</span></h2>
+<p>In this lab, we will introduce statistical inference using a popular package known as <code>infer</code> (short form for inference). Specifically, we will conduct a hypothesis test for <strong>difference in two proportions</strong> via a <em>randomization test</em>.</p>
+</section><section id="creating-a-quarto-file" class="level2"><h2 class="anchored" data-anchor-id="creating-a-quarto-file"><span style="color:#4166f5;">Creating a quarto file</span></h2>
+<p>Go to posit cloud (<a href="https://posit.cloud" class="uri">https://posit.cloud</a>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and data sets that you don’t need. Use the brush tools to clean up your console, and environment panels.</p>
 <p>Next, create your new quarto file as follows:</p>
 <ul>
 <li><p>File &gt; New File &gt; Quarto document. Use the file name <code>Lab_4</code>. Do not delete the <code>.qmd</code> extension.</p></li>
-<li><p>Add the <code>author</code> and <code>title</code> keys to the <code>YAML</code> section. Write your name (in quotes) in the author field (<code>author: "Student Name"</code>) and set the title to “<code>Simple Linear Regression"</code>.</p></li>
-<li><p>Change the output option to <code>pdf</code> then click on <code>render</code>. A PDF document with your name and document title should pop up.</p></li>
-</ul></section><section id="packages" class="level2"><h2 class="anchored" data-anchor-id="packages"><span style="color:#666633;">Packages</span></h2>
-<p>You will need <code>openintro</code>, <code>tidyverse</code>, and <code>broom</code> packages for this lab. We have not installed the <code>broom</code> package before, so you will need to do that first. To do this, you can run the code <code>install.packages("broom")</code> in <strong>the console</strong>. After installing the <code>broom</code> package, create a level 2 header and call it Packages. Under this, insert a new code chunk and load the three packages using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">openintro</span><span class="er">)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">tidyverse</span><span class="er">)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">broom</span><span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Be sure to run this chunk to make sure the packages were successfully loaded. For a cleaner looking document, use <code>include = FALSE</code> in the code chunk to prevent the output of this chunk.</p>
-<p>You may use the following alternative way of deactivating the chunk output. If you use this, delete the first package code chunk.</p>
+<li><p>Add the <code>author</code> and <code>title</code> keys to the <code>YAML</code> section. Write your name (in quotes) in the author field and set the title to “<code>Introduction to Statistical Inference - Hypothesis Testing"</code>.</p></li>
+<li><p>Change the output value to <code>pdf</code> then click on <code>render</code>. At this point, a popup blocker may show up on your screen. If this happens, just click “try again”. A PDF document with your name and title should pop up on a new browser tab. As you work through the lab, it is good practice to render from time to time to make sure everything is working as expected.</p></li>
+</ul></section><section id="research-question-scenario" class="level2"><h2 class="anchored" data-anchor-id="research-question-scenario"><span style="color:#4166f5;">Research Question &amp; Scenario</span></h2>
+<p><strong><em>Here is the Context/Scenario:</em></strong></p>
+<p>Forty eight male bank supervisors were each given identical resumes to decide whether the candidate should be promoted or not. Twenty four of the files were labelled as male, meaning the applicant was male, while the other 24 were labelled as female.</p>
+<p>We seek to answer the following research question via hypothesis testing:</p>
+<p><strong><em>Research Question:</em></strong> “Are individuals who identify as female discriminated against in promotion decisions made by hiring managers who identify as male?”</p>
+</section><section id="packages-and-data" class="level2"><h2 class="anchored" data-anchor-id="packages-and-data"><span style="color:#4166f5;">Packages and Data</span></h2>
+<p>The data set is called <code>sex_discrimination</code> and is available in the <code>openintro</code> package. Apart from <code>openintro</code>, we will need the <code>tidyverse</code> and <code>infer</code> packages. The <code>infer</code> package contains a wide range of functions including functions for running simulations and calculating statistics. Since we have installed <code>openintro</code> and <code>tidyverse</code> before, we only need to install <code>infer</code>. Run the code below in the console to install the <code>infer</code> package:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">install.packages</span><span class="er">(</span><span class="dt">"infer"</span><span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After installing <code>infer</code> , insert a new code chunk and use the code below to load packages and the data set called <code>sex_discrimination</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">openintro</span><span class="er">)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">tidyverse</span><span class="er">)</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">broom</span><span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section><section id="loading-the-data" class="level2"><h2 class="anchored" data-anchor-id="loading-the-data"><span style="color:#666633;">Loading the Data</span></h2>
-<p>We will continue using the <code>duke_forest</code> data set contained in the <code>openintro</code> package. Insert a new code chunk and load the data using the code below:</p>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">tidyverse</span><span class="er">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">openintro</span><span class="er">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">infer</span><span class="er">)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">data</span><span class="er">(</span><span class="dt">sex_discrimination</span><span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run the above code. If everything runs correctly, a new object named <code>sex_discrimination</code> will pop up in the environment area. This is the data set. Open the data set and examine it before you proceed. Check what the cases are and how many they are. Check the variables and determine the <strong>predictor</strong> and <strong>response</strong> variables making sure this aligns with the research question.</p>
+</section><section id="hypotheses-statements" class="level2"><h2 class="anchored" data-anchor-id="hypotheses-statements"><span style="color:#4166f5;">Hypotheses Statements</span></h2>
+<p>We write the null and alternative hypothesis in words and in symbols as follows:</p>
+<p><strong><em>Null Hypothesis in words:</em></strong> There is no difference in promotion rates (proportions) between male and female candidates <em>in the population</em> (i.e., There is no discrimination against female candidates in promotion decisions and any observed difference in our sample is due to random chance).</p>
+<p>In symbols, we write the null hypothesis as</p>
+<p><span class="math display">\[H_0 : p_M-p_F=0\]</span></p>
+<p>where, <span class="math inline">\(p_M\)</span>= proportion of male candidates that would be promoted in the population, and <span class="math inline">\(p_F\)</span>= proportion of female candidates that would be promoted.</p>
+<p><strong><em>Alternative Hypothesis in words:</em></strong> There is a difference in promotion rates between male and female candidates in favor for males (i.e., There is discrimination against female candidates in the population).</p>
+<p>In symbols, we write the alternative hypothesis as</p>
+<p><span class="math display">\[H_A : p_M-p_F&gt;0\]</span></p>
+<p>We will run a hypothesis test to see if the sample data provides strong enough evidence to reject the null hypothesis.</p>
+</section><section id="visualizing-the-data" class="level2"><h2 class="anchored" data-anchor-id="visualizing-the-data"><span style="color:#4166f5;">Visualizing the Data</span></h2>
+<p>Since these are two categorical variables (gender and decision), we can visualize the distribution of the data using a side-by-side bar plot as shown below:</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">duke_forest</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sex_discrimination</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">decision</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_bar</span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="lab_4_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Checkpoint">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Checkpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How would you describe the distribution of the data based on the bar plot above? Compare the promotion rates for male and female candidates. Which group has the higher promotion rate, and approximately how much higher is it?</p>
+</div>
+</div>
+</section><section id="the-observed-statistic" class="level2"><h2 class="anchored" data-anchor-id="the-observed-statistic"><span style="color:#4166f5;">The Observed Statistic</span></h2>
+<p>The observed statistic in this scenario is the difference in proportion of promotions between the male and female candidates observed in the sample. Since these are statistics (not parameters), we use <span class="math inline">\(\hat{p_M}\)</span> (read as p-hat) to denote the proportion of promoted males and <span class="math inline">\(\hat{p}_F\)</span> to denote the proportion of promoted females. The <strong>observed statistic</strong> is the difference in the two sample proportions:</p>
+<p><span class="math display">\[Obs\_Stat=\hat{p}_M-\hat{p}_F\]</span></p>
+<p>In R, we can use the <code>count()</code> and <code>group_by()</code> functions to create a summary table as shown below:</p>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sex_discrimination</span> <span class="op">|&gt;</span>       <span class="co">#get your data</span></span>
+<span>  <span class="fu">count</span><span class="op">(</span><span class="va">sex</span>, <span class="va">decision</span><span class="op">)</span> <span class="op">|&gt;</span>   <span class="co">#count cases in both variables</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span>          <span class="co">#group cases by sex (predictor)</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>prop <span class="op">=</span> <span class="va">n</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="co">#calculates the proportions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+# Groups:   sex [2]
+  sex    decision         n  prop
+  &lt;fct&gt;  &lt;fct&gt;        &lt;int&gt; &lt;dbl&gt;
+1 male   promoted        21 0.875
+2 male   not promoted     3 0.125
+3 female promoted        14 0.583
+4 female not promoted    10 0.417</code></pre>
+</div>
+</div>
+<p>From the table, we can compute the observed statistic as follows:</p>
+<p><span class="math display">\[\begin{align}
+\hat{p}_{diff}&amp;=\hat{p_M}-\hat{p_F}\\
+&amp;=0.875-0.5833\\
+&amp;\approx  0.292
+\end{align}\]</span></p>
+</section><section id="running-simulations" class="level2"><h2 class="anchored" data-anchor-id="running-simulations"><span style="color:#4166f5;">Running Simulations</span></h2>
+<p>There are 4 main functions in the <code>infer package</code> that we will use over and over in coming days and weeks. The functions are:</p>
+<ul>
+<li><p><code>specify()</code><strong><em>:</em></strong> this allows you to specify the variables and the relationship you are interested in. In the sex discrimination study, <code>sex</code> is the predictor and <code>decision</code> is the response.</p></li>
+<li><p><code>hypothesize()</code><strong><em>:</em></strong> This is where you specify the nature of the null hypothesis.</p></li>
+<li><p><code>generate()</code><strong><em>:</em></strong> runs the simulations that you are interested in. We will set this to <code>permute</code>. The files will be randomly assigned to each group (male and female) ignoring the observed difference. This is where the name <em>randomization test</em> comes from.</p></li>
+<li><p><code>calculate()</code><strong><em>:</em></strong> allows you to calculate statistic of interest for each simulation. In this case <code>diff in props</code> (difference in proportions).</p></li>
+</ul>
+<p>Let us now use the infer package to run the simulations for the sex discrimination case study. We save the simulated data as <strong><em>simulated_diffs</em></strong>. We will need this data in later stages.</p>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">simulated_diffs</span> <span class="op">&lt;-</span> <span class="va">sex_discrimination</span> <span class="op">|&gt;</span></span>
+<span>              <span class="fu">specify</span><span class="op">(</span><span class="va">decision</span> <span class="op">~</span> <span class="va">sex</span>, success <span class="op">=</span> <span class="st">"promoted"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">hypothesize</span><span class="op">(</span>null <span class="op">=</span> <span class="st">"independence"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">generate</span><span class="op">(</span>reps <span class="op">=</span> <span class="fl">1000</span>, type <span class="op">=</span> <span class="st">"permute"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">calculate</span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"diff in props"</span>, order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>This data were used in previous labs, but you can refresh your memory by running the query <code>?duke_forest</code>. It is <strong>very important</strong> that you examine this data set first if you don’t remember it well.</p>
-</section><section id="exploring-relationships" class="level2"><h2 class="anchored" data-anchor-id="exploring-relationships"><span style="color:#666633;">Exploring Relationships</span></h2>
-<p>We are interested in the variables <code>price</code> (given in US dollars) and <code>area</code> of the home (in square feet). Specifically, we want to explore the relationship between the two variables and create linear regression model with <code>area</code> as the predictor variable and <code>price</code> as the response variable.</p>
-<p>Below is a scatter plot showing the relationship between <code>price</code> and <code>area</code>:</p>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>Under specify(), the order is response~predictor, and the success level is set to “promoted”.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Under hypothesize(), we set null to “independence” because our null hypothesis assumes the two variables are not associated.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Under generate(), we want to do 1000 repeats, and the type of shuffling is called “permute”.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Under calculate(), we state the statistic we want and the order in which we want the difference done.</p>
+</blockquote>
+</blockquote>
+<p>After running the above code, a new object named <code>simulated_diffs</code> will pop up in the environment area. This object is our null distribution and it models what the distribution looks like assuming the null hypothesis were true. Double click on the object to view it or use the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function to view the first few rows of the data set.</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">duke_forest</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">area</span>, y <span class="op">=</span> <span class="va">price</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">simulated_diffs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>Response: decision (factor)
+Explanatory: sex (factor)
+Null Hypothesis: indepe...
+# A tibble: 6 × 2
+  replicate    stat
+      &lt;int&gt;   &lt;dbl&gt;
+1         1 -0.125 
+2         2 -0.0417
+3         3  0.208 
+4         4  0.0417
+5         5 -0.125 
+6         6 -0.0417</code></pre>
+</div>
+</div>
+</section><section id="visualizing-the-null-distribution" class="level2"><h2 class="anchored" data-anchor-id="visualizing-the-null-distribution"><span style="color:#4166f5;">Visualizing the Null Distribution</span></h2>
+<p>Next, we want to use <code>ggplot2</code> package to create a histogram to visualize the distribution of the differences computed above. Remember we stored the differences as <code>simulated_diffs</code>. We will also place a vertical line on the histogram to see the location of the <strong>observed statistic</strong> (the original difference of 0.292) relative to the graph. We use the code below:</p>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span>            <span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">simulated_diffs</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">stat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>            <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>            <span class="fu">geom_vline</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">.292</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="lab_4_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="lab_4_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><strong>Question:</strong> Describe the relationship between <code>price</code> and <code>area</code> based on the scatter plot. Be sure to talk about the direction, strength, and form of the relationship. Are there any unusual observations? What might be a reasonable explanation for these unusual observations?</p>
-<p><strong>Model Answer:</strong> The relationship between <code>price</code> and <code>area</code> appears to be positive — large homes are generally more expensive and vice versa. The overall relationship appears to be linear and moderately strong, suggesting that a linear regression model may be appropriate for this data. There seems to be a few unusual observations (lower right), particularly homes with very low prices relative to their area. These outliers could be due to factors such as location, amenities, or unique features of the homes that are not captured by the scatter plot.</p>
-</section><section id="correlation-coefficient" class="level2"><h2 class="anchored" data-anchor-id="correlation-coefficient"><span style="color:#666633;">Correlation coefficient</span></h2>
-<p>To quantify the strength and direction of the linear relationship between <code>price</code> and <code>area</code>, we use a statistic known as the correlation coefficient (abbreviated as <span class="math inline">\(r\)</span>$r$. We calculate this in R using the <code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code> function as shown below:</p>
+<p>Note that this <code>null distribution</code> histogram is centered around 0 because under the null hypothesis, we expect no difference in promotion rates between the sexes.</p>
+</section><section id="getting-the-p-value" class="level2"><h2 class="anchored" data-anchor-id="getting-the-p-value"><span style="color:#4166f5;">Getting the P-Value</span></h2>
+<p>The <strong>P-value</strong> is the proportion of simulated differences that are at least as extreme as the observed statistic (i.e., the red line and beyond). It is the probability of observing a difference as extreme as 0.292 or more extreme assuming that the null hypothesis were true (i.e., that there is no discrimination going on).</p>
+<p>The infer package comes with a function known as <code>get-p-value()</code> for computing the <strong>p-value</strong> from the <strong><em>null distribution</em></strong>. See code below:</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">duke_forest</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">summarize</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">price</span>, <span class="va">area</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">simulated_diffs</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu">get_p_value</span><span class="op">(</span>obs_stat <span class="op">=</span> <span class="fl">0.292</span>, direction <span class="op">=</span> <span class="st">"greater"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
-  `cor(price, area)`
-               &lt;dbl&gt;
-1              0.667</code></pre>
+  p_value
+    &lt;dbl&gt;
+1   0.005</code></pre>
 </div>
 </div>
-<p><strong>Note:</strong> The correlation value of 0.67 confirms our earlier assessment of the relationship from the scatter plot.</p>
-</section><section id="visualizing-the-model" class="level2"><h2 class="anchored" data-anchor-id="visualizing-the-model"><span style="color:#666633;">Visualizing the Model</span></h2>
-<p>If you want to see the <strong>least squares regression line</strong>, you simply add the <code>geom_smooth()</code> function to the scatter plot created earlier. You will also use the argument <code>method</code> and set it to <code>"lm"</code> as shown below:</p>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">duke_forest</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">area</span>, y<span class="op">=</span><span class="va">price</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method<span class="op">=</span><span class="st">"lm"</span><span class="op">)</span> <span class="co"># this adds the line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+<p>Here, the argument <code>obs_stat</code> is used to set the observed statistic, while <code>direction</code> is for specifying the alternative hypothesis. Since our observed statistic is to the right of the center, and our alternative hypothesis is directional, we set the direction argument to “greater”. If the alternative hypothesis was bidirectional or two-sided (i.e., <span class="math inline">\(p_M-p_F \neq 0\)</span>), we would set direction to <code>two-sided</code>, which means we would be looking for values that are as extreme as 0.2917 in either direction (both left and right tails of the distribution). This would essentially double the P-value.</p>
+</section><section id="conclusion-in-context" class="level2"><h2 class="anchored" data-anchor-id="conclusion-in-context"><span style="color:#4166f5;">Conclusion in Context</span></h2>
+<p>The P-value obtained is 0.003 (or 0.3%) is very small. This means that if there was no discrimination going on (i.e., null hypothesis were true), we would would expect to see a difference of at least 0.292 about 0.3% of the time. This low probability indicates that observing such a large difference from chance alone is very rare.</p>
+<p>At this point, you may be wondering how small a P-value needs to be to reject the null hypothesis. The commonly used cu off mark is 0.05 (or 5%). We call this cutoff the <strong><em>discernibility level</em></strong>. Anything below this is considered rare.</p>
+<p>Here is how to write the conclusion for your hypothesis test in context:</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Conclusion in Context">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="lab_4_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="callout-title-container flex-fill">
+Conclusion in Context
 </div>
 </div>
-</div>
-</section><section id="section" class="level2"><h2 class="anchored" data-anchor-id="section"></h2>
-</section><section id="finding-the-regression-equation" class="level2"><h2 class="anchored" data-anchor-id="finding-the-regression-equation"><span style="color:#666633;">Finding the Regression Equation</span></h2>
-<p>To find the equation of the line, we can use the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function as shown below. The first argument takes the form <code>y ~ x,</code> where <code>y</code> is the response variable and <code>x</code> is the predictor variable.</p>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">price</span><span class="op">~</span><span class="va">area</span>, data<span class="op">=</span><span class="va">duke_forest</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = price ~ area, data = duke_forest)
-
-Coefficients:
-(Intercept)         area  
-   116652.3        159.5  </code></pre>
+<div class="callout-body-container callout-body">
+<p>The difference in promotion rates between male and female candidates in the sample was 0.292 (or 29.2%). A hypothesis test of the difference produced a P-value of 0.003 which is less than the discernibility level of 0.05. Therefore, we reject the null hypothesis and conclude that the data provides strong evidence that discrimination is likely going on against female candidates in the organization.</p>
 </div>
 </div>
-<p>It is helpful to save the model as an object so that when you need it, you don’t write new code. The code below saves the model as <code>model</code> and also prints the model right under:</p>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">price</span><span class="op">~</span><span class="va">area</span>, data<span class="op">=</span><span class="va">duke_forest</span><span class="op">)</span> <span class="co"># save model</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="co"># to show model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = price ~ area, data = duke_forest)
-
-Coefficients:
-(Intercept)         area  
-   116652.3        159.5  </code></pre>
-</div>
-</div>
-<p>We can write the equation of the model for predicting price as follows:</p>
-<p><span class="math display">\[\widehat{price} = 159.5\times (area) + 116,652.3\]</span></p>
-<p><strong>Interpretation of slope and intercept</strong></p>
-<ul>
-<li>
-<strong><em>Intercept:</em></strong> The intercept is 116,652.3 and its units are dollars. It means that on average, homes with 0 square feet area would cost $116,652.3. This does not have any practical interpretation in this context since you cannot have a home measuring 0 square feet.</li>
-<li>
-<strong><em>Slope:</em></strong> The slope is 159.5 and its units are <strong><em>dollars per square feet</em></strong>. The slope means that on average, an additional square foot in home area results to a $159.5 increase in sale price.</li>
-</ul></section><section id="model-evaluation" class="level2"><h2 class="anchored" data-anchor-id="model-evaluation"><span style="color:#666633;">Model Evaluation</span></h2>
-<p>We can use our model to make predictions. For example, if we wanted to predict the sale price of a 2,000 square feet home, we can use the equation as follows:</p>
-<p><span class="math display">\[\widehat{price} = 116,652.3+159.5\times 2000 = \$436,652.3\]</span></p>
-<p>Our model predicts that a home with 2,000 square feet in the same area where the data were collected would sell for approximately $436,652.3.</p>
-<p>The <code>augment()</code> function can be used to calculate the predictions (estimated home price) for each home in the data for which the area is available. The head function is used to view the first few rows of the new object.</p>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">predictions</span> <span class="op">&lt;-</span> <span class="fu">augment</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">predictions</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 8
-    price  area  .fitted  .resid   .hat  .sigma  .cooksd .std.resid
-    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
-1 1520000  6040 1079931. 440069. 0.133  162605. 0.604         2.80 
-2 1030000  4475  830340. 199660. 0.0435 168386. 0.0333        1.21 
-3  420000  1745  394951.  25049. 0.0226 169664. 0.000260      0.150
-4  680000  2091  450132. 229868. 0.0157 168011. 0.0150        1.37 
-5  428500  1772  399257.  29243. 0.0220 169657. 0.000345      0.175
-6  456000  1950  427645.  28355. 0.0182 169659. 0.000266      0.170</code></pre>
-</div>
-</div>
-<p>We are concerned with <code>.fitted</code> and <code>.resid</code> columns only. The <code>.fitted</code> column show the prices calculated based on the model (the predictions) while the <code>.resid</code> column shows the difference between <code>actual</code> and <code>predicted</code> prices. Residuals are used in model evaluation. A small residual indicates that the model’s prediction is close to the actual value, while a large residual indicates a poor prediction.</p>
-<p>To visualize the residuals, we can create a residual plot. A residual plot displays the residuals on the y-axis and the predictor variable (in this case, <code>area</code>) on the x-axis. Ideally, we want to see a random scatter of points around the horizontal line at 0, which indicates that our model is appropriate for the data. If we see patterns in the residuals, it may suggest that our model is not capturing all the information in the data.</p>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">predictions</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">area</span>, y<span class="op">=</span><span class="va">.resid</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_hline</span><span class="op">(</span>yintercept<span class="op">=</span><span class="fl">0</span>, linetype<span class="op">=</span><span class="st">"dashed"</span>, color<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="lab_4_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We can also create a histogram of the residuals to check if they are approximately normally distributed. This is another assumption of linear regression.</p>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data<span class="op">=</span><span class="va">predictions</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">.resid</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span>title<span class="op">=</span><span class="st">"Histogram of Residuals"</span>, x<span class="op">=</span><span class="st">"Residuals"</span>, y<span class="op">=</span><span class="st">"Frequency"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="lab_4_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A histogram that is roughly bell-shaped suggests that the residuals are approximately normally distributed, which is a good sign for our linear regression model. If the histogram shows a skewed distribution or has multiple peaks, it may indicate that our model is not appropriate for the data.</p>
-<p>In summary, certain assumptions/conditions need to be checked when performing linear regression. These include:</p>
-<ul>
-<li>
-<strong><em>Linearity:</em></strong> The relationship between the predictor and response variable should be roughly linear. This can be checked using the scatter plot.</li>
-<li>
-<strong><em>Independence:</em></strong> The residuals should be independent of each other. This is generally assumed if the data were collected randomly.</li>
-<li>
-<strong><em>Homoscedasticity:</em></strong> The residuals should have constant variance across all levels of the predictor variable. This can be checked using the residual plot. The residual plot above does not show serious violations of this assumption.</li>
-<li>
-<strong><em>Normality:</em></strong> The residuals should be approximately normally distributed. This can be checked using the histogram of residuals.</li>
-</ul></section><section id="in-the-literature" class="level2"><h2 class="anchored" data-anchor-id="in-the-literature"><span style="color:#666633;">In the Literature</span></h2>
-<p>Have a section here illustrating how analyses are reported in the literature. Can use the APA format because that is what the projects require.</p>
-</section><section id="summary" class="level2"><h2 class="anchored" data-anchor-id="summary"><span style="color:#666633;">Summary</span></h2>
-<p>In this lab, we explored the concept of simple linear regression using the <code>duke_forest</code> data set. We created a scatter plot to visualize the relationship between <code>price</code> and <code>area</code>, calculated the correlation coefficient to quantify the strength and direction of the relationship, fitted a linear regression model, visualized the model, and evaluated its performance using residuals. Linear regression is a powerful tool for understanding relationships between variables and making predictions based on those relationships.</p>
-</section><section id="exercises" class="level2"><h2 class="anchored" data-anchor-id="exercises"><span style="color:#666633;">Exercises</span></h2>
-<p>Create a new header called <strong>Lab 4 Exercises</strong> and answer the questions below. When you are done, render the document to generate a PDF. Download the document and submit it on Canvas under Lab 4. The lab will be graded out of 20 (Ten points for exploration work above, and 10 for the exercises).</p>
-<section id="question-one" class="level3"><h3 class="anchored" data-anchor-id="question-one"><span style="color:#666633;">Question One</span></h3>
-<p><strong>(1 pt)</strong> The data set <code>cars04</code> is in the openintro package. Load the data set into your work space. What are the cases in this data set and how many are they? What do the variables <code>weight</code> and <code>eng_size</code> represent, and what are the units for these variables?</p>
-</section><section id="question-two" class="level3"><h3 class="anchored" data-anchor-id="question-two"><span style="color:#666633;">Question Two</span></h3>
-<p><strong>(2 pts)</strong> Create a scatter plot to visualize the relationship between <code>eng_size</code> (x-axis) and <code>weight</code> (y-axis). Describe the relationship between the two variables, making sure to talk about the direction, strength, and form of the relationship. State if there are any unusual observations and provide a reasonable explanation for the unusual observations.</p>
-</section><section id="question-three" class="level3"><h3 class="anchored" data-anchor-id="question-three"><span style="color:#666633;">Question Three</span></h3>
-<p><strong>(1 pt)</strong> Calculate the correlation coefficient between <code>eng_size</code> and <code>weight</code>. Comment on this statistic.</p>
-</section><section id="question-four" class="level3"><h3 class="anchored" data-anchor-id="question-four"><span style="color:#666633;">Question Four</span></h3>
-<p><strong>(3 pts)</strong> Generate a linear regression model for predicting <code>weight</code> based on <code>eng_size</code> (predictor). Write the equation of the model and interpret the <code>slope</code> and <code>intercept</code> in the context of the data. Be sure to state the units of the <code>slope</code> and <code>intercept</code>.</p>
-</section><section id="question-five" class="level3"><h3 class="anchored" data-anchor-id="question-five"><span style="color:#666633;">Question Five</span></h3>
-<p><strong>(1 pt)</strong> Use your model from #4 above to estimate the weight of a car with an engine size of 3.4 liters. Explain/show work.</p>
-</section><section id="question-six" class="level3"><h3 class="anchored" data-anchor-id="question-six"><span style="color:#666633;">Question Six</span></h3>
-<p><strong>(2 pts)</strong> What’s the residual for the first case in the data set? For this case, does the model overestimate or underestimate the weight of the car? Explain how you know this.</p>
+</section><section id="exercises" class="level2"><h2 class="anchored" data-anchor-id="exercises"><span style="color:#4166f5;">Exercises</span></h2>
+<p>Create a new level 2 header called <strong>Lab 4 Exercises</strong> and answer the questions below. Each question should be labelled appropriately (e.g., <strong>Question 1</strong>, <strong>Question 2</strong>) using level 3 headers. There is no need to retype or copy and paste the questions, just your responses. When you are done, render the document to generate a PDF, download it and submit to Canvas under Lab 4. The lab will be graded out of 20 (Ten points for exploration work above, and 10 for the exercises). The lab exploration work must have headers and descriptive text describing what each code chunk is achieving. Avoid copying and pasting without reading.</p>
+<p><strong><em>Scenario:</em></strong></p>
+<p>One-hundred and fifty students were recruited in a study that aimed to understand whether reminding college students about saving money for later would make them more thriftier. The students were split into 2 equal groups (control and experiment). Each student was given the following prompt:</p>
+<p><em>“Imagine that you have been saving some extra money on the side to make some purchases, and on your most recent visit to the video store you come across a special sale on a new video. This video is one with your favorite actor or actress, and your favorite type of movie (such as a comedy, drama, thriller, etc.). This particular video that you are considering is one you have been thinking about buying for a long time. It is available for a special sale price of $14.99. What would you do in this situation? Buy video or Not buy video?”</em></p>
+<p>Students in the control group were given the following two options:</p>
+<ol type="A">
+<li>Buy video</li>
+<li>Not buy video</li>
+</ol>
+<p>Students in the experiment group were given a slightly modified option B:</p>
+<ol type="A">
+<li>Buy video</li>
+<li>Not buy this video. <em>Keep the $14.99 for other purchases</em>.</li>
+</ol>
+<p><strong>Research Question:</strong> Does reminding students about saving money for later make them more thriftier (i.e., less likely to buy the video)?</p>
+<p>The goal is to try and answer this research question using a hypothesis test for difference in two proportions.</p>
+<p>The data set is called <code>opportunity_cost</code> and is available in the <code>openintro</code> package.</p>
+<section id="question-one" class="level3"><h3 class="anchored" data-anchor-id="question-one">Question One</h3>
+<p><strong>(1 pt)</strong> Load the <code>opportunity_cost</code> data set into your work space. Identify the predictor and response variables. Be sure to write down the variable names exactly as they are appear in the data set.</p>
+</section><section id="question-two" class="level3"><h3 class="anchored" data-anchor-id="question-two">Question Two</h3>
+<p><strong>(1 pt)</strong> State the appropriate null and alternative hypotheses (in words) that you would test.</p>
+</section><section id="question-three" class="level3"><h3 class="anchored" data-anchor-id="question-three">Question Three</h3>
+<p><strong>(2 pts)</strong> Create a side-by-side bar graph to visualize the variables of interest in the study.</p>
+</section><section id="question-four" class="level3"><h3 class="anchored" data-anchor-id="question-four">Question Four</h3>
+<p><strong>(2 pts)</strong> Calculate the relevant <strong><em>observed statistic</em></strong> in the scenario above. Be sure to show your work and include the R code used.</p>
+</section><section id="question-five" class="level3"><h3 class="anchored" data-anchor-id="question-five">Question Five</h3>
+<p><strong>(2 pts)</strong> Use the <code>infer</code> package functions to run 500 simulations under the null hypothesis and save the results as <strong><em>null distribution</em></strong>. Be sure to specify the correct variables and relationship under <code>specify()</code>, the correct nature of the null hypothesis under <code>hypothesize()</code>, the correct type of shuffling under <code>generate()</code>, and the correct statistic under <code>calculate()</code>.</p>
+</section><section id="question-six" class="level3"><h3 class="anchored" data-anchor-id="question-six">Question Six</h3>
+<p><strong>(2 pts)</strong> Create a histogram to visualize the <strong><em>null distribution</em></strong> from question 5 above. Be sure to place a vertical line to show the location of the <strong><em>observed statistic</em></strong> from #4 above. Describe the shape of the distribution and explain why it is centered around 0.</p>
+</section><section id="question-seven" class="level3"><h3 class="anchored" data-anchor-id="question-seven">Question Seven</h3>
+<p><strong>(2 pts)</strong> Use the <code>get-p-value()</code> function to find the P-value then write an interpretation of the result in context.</p>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -1089,8 +1122,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../project/first-project.html" class="pagination-link" aria-label="Project 1">
-        <span class="nav-page-text">Project 1</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../labs/lab_5.html" class="pagination-link" aria-label="Lab 5 (Special Lab)">
+        <span class="nav-page-text">Lab 5 (Special Lab)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
