@@ -1,6 +1,6 @@
 ---
-categories: "Lab 6"
-title: "Lab 6: Introduction to Inference - Hypothesis Testing"
+categories: "Lab 4"
+title: "Lab 4: Introduction to Inference - Hypothesis Testing"
 subtitle: "Inference for Difference in Two Proportions"
 execute:
   eval: true

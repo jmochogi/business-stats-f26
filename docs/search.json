@@ -1010,7 +1010,7 @@
   {
     "objectID": "labs/lab_4.html",
     "href": "labs/lab_4.html",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "",
     "text": "In this lab, we will introduce statistical inference using a popular package known as infer (short form for inference). Specifically, we will conduct a hypothesis test for difference in two proportions via a randomization test.",
     "crumbs": [
@@ -1021,7 +1021,7 @@
   {
     "objectID": "labs/lab_4.html#introduction",
     "href": "labs/lab_4.html#introduction",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "",
     "text": "In this lab, we will introduce statistical inference using a popular package known as infer (short form for inference). Specifically, we will conduct a hypothesis test for difference in two proportions via a randomization test.",
     "crumbs": [
@@ -1032,7 +1032,7 @@
   {
     "objectID": "labs/lab_4.html#creating-a-quarto-file",
     "href": "labs/lab_4.html#creating-a-quarto-file",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Creating a quarto file",
     "text": "Creating a quarto file\nGo to posit cloud (https://posit.cloud) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and data sets that you don’t need. Use the brush tools to clean up your console, and environment panels.\nNext, create your new quarto file as follows:\n\nFile &gt; New File &gt; Quarto document. Use the file name Lab_4. Do not delete the .qmd extension.\nAdd the author and title keys to the YAML section. Write your name (in quotes) in the author field and set the title to “Introduction to Statistical Inference - Hypothesis Testing\".\nChange the output value to pdf then click on render. At this point, a popup blocker may show up on your screen. If this happens, just click “try again”. A PDF document with your name and title should pop up on a new browser tab. As you work through the lab, it is good practice to render from time to time to make sure everything is working as expected.",
     "crumbs": [
@@ -1043,7 +1043,7 @@
   {
     "objectID": "labs/lab_4.html#research-question-scenario",
     "href": "labs/lab_4.html#research-question-scenario",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Research Question & Scenario",
     "text": "Research Question & Scenario\nHere is the Context/Scenario:\nForty eight male bank supervisors were each given identical resumes to decide whether the candidate should be promoted or not. Twenty four of the files were labelled as male, meaning the applicant was male, while the other 24 were labelled as female.\nWe seek to answer the following research question via hypothesis testing:\nResearch Question: “Are individuals who identify as female discriminated against in promotion decisions made by hiring managers who identify as male?”",
     "crumbs": [
@@ -1054,7 +1054,7 @@
   {
     "objectID": "labs/lab_4.html#packages-and-data",
     "href": "labs/lab_4.html#packages-and-data",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Packages and Data",
     "text": "Packages and Data\nThe data set is called sex_discrimination and is available in the openintro package. Apart from openintro, we will need the tidyverse and infer packages. The infer package contains a wide range of functions including functions for running simulations and calculating statistics. Since we have installed openintro and tidyverse before, we only need to install infer. Run the code below in the console to install the infer package:\ninstall.packages(\"infer\")\nAfter installing infer , insert a new code chunk and use the code below to load packages and the data set called sex_discrimination.\n#| include: false\nlibrary(tidyverse)\nlibrary(openintro)\nlibrary(infer)\ndata(sex_discrimination)\nRun the above code. If everything runs correctly, a new object named sex_discrimination will pop up in the environment area. This is the data set. Open the data set and examine it before you proceed. Check what the cases are and how many they are. Check the variables and determine the predictor and response variables making sure this aligns with the research question.",
     "crumbs": [
@@ -1065,7 +1065,7 @@
   {
     "objectID": "labs/lab_4.html#hypotheses-statements",
     "href": "labs/lab_4.html#hypotheses-statements",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Hypotheses Statements",
     "text": "Hypotheses Statements\nWe write the null and alternative hypothesis in words and in symbols as follows:\nNull Hypothesis in words: There is no difference in promotion rates (proportions) between male and female candidates in the population (i.e., There is no discrimination against female candidates in promotion decisions and any observed difference in our sample is due to random chance).\nIn symbols, we write the null hypothesis as\n\\[H_0 : p_M-p_F=0\\]\nwhere, \\(p_M\\)= proportion of male candidates that would be promoted in the population, and \\(p_F\\)= proportion of female candidates that would be promoted.\nAlternative Hypothesis in words: There is a difference in promotion rates between male and female candidates in favor for males (i.e., There is discrimination against female candidates in the population).\nIn symbols, we write the alternative hypothesis as\n\\[H_A : p_M-p_F&gt;0\\]\nWe will run a hypothesis test to see if the sample data provides strong enough evidence to reject the null hypothesis.",
     "crumbs": [
@@ -1076,7 +1076,7 @@
   {
     "objectID": "labs/lab_4.html#visualizing-the-data",
     "href": "labs/lab_4.html#visualizing-the-data",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Visualizing the Data",
     "text": "Visualizing the Data\nSince these are two categorical variables (gender and decision), we can visualize the distribution of the data using a side-by-side bar plot as shown below:\n\nCodesex_discrimination |&gt;\n  ggplot(aes(x = sex, fill = decision)) +\n  geom_bar(position = \"dodge\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nHow would you describe the distribution of the data based on the bar plot above? Compare the promotion rates for male and female candidates. Which group has the higher promotion rate, and approximately how much higher is it?",
     "crumbs": [
@@ -1087,7 +1087,7 @@
   {
     "objectID": "labs/lab_4.html#the-observed-statistic",
     "href": "labs/lab_4.html#the-observed-statistic",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "The Observed Statistic",
     "text": "The Observed Statistic\nThe observed statistic in this scenario is the difference in proportion of promotions between the male and female candidates observed in the sample. Since these are statistics (not parameters), we use \\(\\hat{p_M}\\) (read as p-hat) to denote the proportion of promoted males and \\(\\hat{p}_F\\) to denote the proportion of promoted females. The observed statistic is the difference in the two sample proportions:\n\\[Obs\\_Stat=\\hat{p}_M-\\hat{p}_F\\]\nIn R, we can use the count() and group_by() functions to create a summary table as shown below:\n\nCodesex_discrimination |&gt;       #get your data\n  count(sex, decision) |&gt;   #count cases in both variables\n  group_by(sex) |&gt;          #group cases by sex (predictor)\n  mutate(prop = n / sum(n)) #calculates the proportions\n\n# A tibble: 4 × 4\n# Groups:   sex [2]\n  sex    decision         n  prop\n  &lt;fct&gt;  &lt;fct&gt;        &lt;int&gt; &lt;dbl&gt;\n1 male   promoted        21 0.875\n2 male   not promoted     3 0.125\n3 female promoted        14 0.583\n4 female not promoted    10 0.417\n\n\nFrom the table, we can compute the observed statistic as follows:\n\\[\\begin{align}\n\\hat{p}_{diff}&=\\hat{p_M}-\\hat{p_F}\\\\\n&=0.875-0.5833\\\\\n&\\approx  0.292\n\\end{align}\\]",
     "crumbs": [
@@ -1098,9 +1098,9 @@
   {
     "objectID": "labs/lab_4.html#running-simulations",
     "href": "labs/lab_4.html#running-simulations",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Running Simulations",
-    "text": "Running Simulations\nThere are 4 main functions in the infer package that we will use over and over in coming days and weeks. The functions are:\n\nspecify(): this allows you to specify the variables and the relationship you are interested in. In the sex discrimination study, sex is the predictor and decision is the response.\nhypothesize(): This is where you specify the nature of the null hypothesis.\ngenerate(): runs the simulations that you are interested in. We will set this to permute. The files will be randomly assigned to each group (male and female) ignoring the observed difference. This is where the name randomization test comes from.\ncalculate(): allows you to calculate statistic of interest for each simulation. In this case diff in props (difference in proportions).\n\nLet us now use the infer package to run the simulations for the sex discrimination case study. We save the simulated data as simulated_diffs. We will need this data in later stages.\n\nCodesimulated_diffs &lt;- sex_discrimination |&gt;\n              specify(decision ~ sex, success = \"promoted\") |&gt;\n                hypothesize(null = \"independence\") |&gt;\n                generate(reps = 1000, type = \"permute\") |&gt;\n                calculate(stat = \"diff in props\", order = c(\"male\", \"female\"))\n\n\n\n\nUnder specify(), the order is response~predictor, and the success level is set to “promoted”.\n\n\nUnder hypothesize(), we set null to “independence” because our null hypothesis assumes the two variables are not associated.\n\n\nUnder generate(), we want to do 1000 repeats, and the type of shuffling is called “permute”.\n\n\nUnder calculate(), we state the statistic we want and the order in which we want the difference done.\n\n\nAfter running the above code, a new object named simulated_diffs will pop up in the environment area. This object is our null distribution and it models what the distribution looks like assuming the null hypothesis were true. Double click on the object to view it or use the head() function to view the first few rows of the data set.\n\nCodehead(simulated_diffs)\n\nResponse: decision (factor)\nExplanatory: sex (factor)\nNull Hypothesis: indepe...\n# A tibble: 6 × 2\n  replicate    stat\n      &lt;int&gt;   &lt;dbl&gt;\n1         1 -0.125 \n2         2 -0.0417\n3         3  0.208 \n4         4  0.0417\n5         5 -0.125 \n6         6 -0.0417",
+    "text": "Running Simulations\nThere are 4 main functions in the infer package that we will use over and over in coming days and weeks. The functions are:\n\nspecify(): this allows you to specify the variables and the relationship you are interested in. In the sex discrimination study, sex is the predictor and decision is the response.\nhypothesize(): This is where you specify the nature of the null hypothesis.\ngenerate(): runs the simulations that you are interested in. We will set this to permute. The files will be randomly assigned to each group (male and female) ignoring the observed difference. This is where the name randomization test comes from.\ncalculate(): allows you to calculate statistic of interest for each simulation. In this case diff in props (difference in proportions).\n\nLet us now use the infer package to run the simulations for the sex discrimination case study. We save the simulated data as simulated_diffs. We will need this data in later stages.\n\nCodesimulated_diffs &lt;- sex_discrimination |&gt;\n              specify(decision ~ sex, success = \"promoted\") |&gt;\n                hypothesize(null = \"independence\") |&gt;\n                generate(reps = 1000, type = \"permute\") |&gt;\n                calculate(stat = \"diff in props\", order = c(\"male\", \"female\"))\n\n\n\n\nUnder specify(), the order is response~predictor, and the success level is set to “promoted”.\n\n\nUnder hypothesize(), we set null to “independence” because our null hypothesis assumes the two variables are not associated.\n\n\nUnder generate(), we want to do 1000 repeats, and the type of shuffling is called “permute”.\n\n\nUnder calculate(), we state the statistic we want and the order in which we want the difference done.\n\n\nAfter running the above code, a new object named simulated_diffs will pop up in the environment area. This object is our null distribution and it models what the distribution looks like assuming the null hypothesis were true. Double click on the object to view it or use the head() function to view the first few rows of the data set.\n\nCodehead(simulated_diffs)\n\nResponse: decision (factor)\nExplanatory: sex (factor)\nNull Hypothesis: indepe...\n# A tibble: 6 × 2\n  replicate    stat\n      &lt;int&gt;   &lt;dbl&gt;\n1         1 -0.0417\n2         2 -0.0417\n3         3  0.0417\n4         4 -0.0417\n5         5  0.0417\n6         6 -0.0417",
     "crumbs": [
       "Labs",
       "Lab 4"
@@ -1109,7 +1109,7 @@
   {
     "objectID": "labs/lab_4.html#visualizing-the-null-distribution",
     "href": "labs/lab_4.html#visualizing-the-null-distribution",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Visualizing the Null Distribution",
     "text": "Visualizing the Null Distribution\nNext, we want to use ggplot2 package to create a histogram to visualize the distribution of the differences computed above. Remember we stored the differences as simulated_diffs. We will also place a vertical line on the histogram to see the location of the observed statistic (the original difference of 0.292) relative to the graph. We use the code below:\n\nCode            ggplot(data=simulated_diffs, aes(x = stat)) + \n            geom_histogram()+\n            geom_vline(aes(xintercept = .292), color = \"red\")\n\n\n\n\n\n\n\nNote that this null distribution histogram is centered around 0 because under the null hypothesis, we expect no difference in promotion rates between the sexes.",
     "crumbs": [
@@ -1120,9 +1120,9 @@
   {
     "objectID": "labs/lab_4.html#getting-the-p-value",
     "href": "labs/lab_4.html#getting-the-p-value",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Getting the P-Value",
-    "text": "Getting the P-Value\nThe P-value is the proportion of simulated differences that are at least as extreme as the observed statistic (i.e., the red line and beyond). It is the probability of observing a difference as extreme as 0.292 or more extreme assuming that the null hypothesis were true (i.e., that there is no discrimination going on).\nThe infer package comes with a function known as get-p-value() for computing the p-value from the null distribution. See code below:\n\nCodesimulated_diffs |&gt;\n            get_p_value(obs_stat = 0.292, direction = \"greater\")\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1   0.005\n\n\nHere, the argument obs_stat is used to set the observed statistic, while direction is for specifying the alternative hypothesis. Since our observed statistic is to the right of the center, and our alternative hypothesis is directional, we set the direction argument to “greater”. If the alternative hypothesis was bidirectional or two-sided (i.e., \\(p_M-p_F \\neq 0\\)), we would set direction to two-sided, which means we would be looking for values that are as extreme as 0.2917 in either direction (both left and right tails of the distribution). This would essentially double the P-value.",
+    "text": "Getting the P-Value\nThe P-value is the proportion of simulated differences that are at least as extreme as the observed statistic (i.e., the red line and beyond). It is the probability of observing a difference as extreme as 0.292 or more extreme assuming that the null hypothesis were true (i.e., that there is no discrimination going on).\nThe infer package comes with a function known as get-p-value() for computing the p-value from the null distribution. See code below:\n\nCodesimulated_diffs |&gt;\n            get_p_value(obs_stat = 0.292, direction = \"greater\")\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1   0.004\n\n\nHere, the argument obs_stat is used to set the observed statistic, while direction is for specifying the alternative hypothesis. Since our observed statistic is to the right of the center, and our alternative hypothesis is directional, we set the direction argument to “greater”. If the alternative hypothesis was bidirectional or two-sided (i.e., \\(p_M-p_F \\neq 0\\)), we would set direction to two-sided, which means we would be looking for values that are as extreme as 0.2917 in either direction (both left and right tails of the distribution). This would essentially double the P-value.",
     "crumbs": [
       "Labs",
       "Lab 4"
@@ -1131,7 +1131,7 @@
   {
     "objectID": "labs/lab_4.html#conclusion-in-context",
     "href": "labs/lab_4.html#conclusion-in-context",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Conclusion in Context",
     "text": "Conclusion in Context\nThe P-value obtained is 0.003 (or 0.3%) is very small. This means that if there was no discrimination going on (i.e., null hypothesis were true), we would would expect to see a difference of at least 0.292 about 0.3% of the time. This low probability indicates that observing such a large difference from chance alone is very rare.\nAt this point, you may be wondering how small a P-value needs to be to reject the null hypothesis. The commonly used cu off mark is 0.05 (or 5%). We call this cutoff the discernibility level. Anything below this is considered rare.\nHere is how to write the conclusion for your hypothesis test in context:\n\n\n\n\n\n\nConclusion in Context\n\n\n\nThe difference in promotion rates between male and female candidates in the sample was 0.292 (or 29.2%). A hypothesis test of the difference produced a P-value of 0.003 which is less than the discernibility level of 0.05. Therefore, we reject the null hypothesis and conclude that the data provides strong evidence that discrimination is likely going on against female candidates in the organization.",
     "crumbs": [
@@ -1142,7 +1142,7 @@
   {
     "objectID": "labs/lab_4.html#exercises",
     "href": "labs/lab_4.html#exercises",
-    "title": "Lab 6: Introduction to Inference - Hypothesis Testing",
+    "title": "Lab 4: Introduction to Inference - Hypothesis Testing",
     "section": "Exercises",
     "text": "Exercises\nCreate a new level 2 header called Lab 4 Exercises and answer the questions below. Each question should be labelled appropriately (e.g., Question 1, Question 2) using level 3 headers. There is no need to retype or copy and paste the questions, just your responses. When you are done, render the document to generate a PDF, download it and submit to Canvas under Lab 4. The lab will be graded out of 20 (Ten points for exploration work above, and 10 for the exercises). The lab exploration work must have headers and descriptive text describing what each code chunk is achieving. Avoid copying and pasting without reading.\nScenario:\nOne-hundred and fifty students were recruited in a study that aimed to understand whether reminding college students about saving money for later would make them more thriftier. The students were split into 2 equal groups (control and experiment). Each student was given the following prompt:\n“Imagine that you have been saving some extra money on the side to make some purchases, and on your most recent visit to the video store you come across a special sale on a new video. This video is one with your favorite actor or actress, and your favorite type of movie (such as a comedy, drama, thriller, etc.). This particular video that you are considering is one you have been thinking about buying for a long time. It is available for a special sale price of $14.99. What would you do in this situation? Buy video or Not buy video?”\nStudents in the control group were given the following two options:\n\nBuy video\nNot buy video\n\nStudents in the experiment group were given a slightly modified option B:\n\nBuy video\nNot buy this video. Keep the $14.99 for other purchases.\n\nResearch Question: Does reminding students about saving money for later make them more thriftier (i.e., less likely to buy the video)?\nThe goal is to try and answer this research question using a hypothesis test for difference in two proportions.\nThe data set is called opportunity_cost and is available in the openintro package.\nQuestion One\n(1 pt) Load the opportunity_cost data set into your work space. Identify the predictor and response variables. Be sure to write down the variable names exactly as they are appear in the data set.\nQuestion Two\n(1 pt) State the appropriate null and alternative hypotheses (in words) that you would test.\nQuestion Three\n(2 pts) Create a side-by-side bar graph to visualize the variables of interest in the study.\nQuestion Four\n(2 pts) Calculate the relevant observed statistic in the scenario above. Be sure to show your work and include the R code used.\nQuestion Five\n(2 pts) Use the infer package functions to run 500 simulations under the null hypothesis and save the results as null distribution. Be sure to specify the correct variables and relationship under specify(), the correct nature of the null hypothesis under hypothesize(), the correct type of shuffling under generate(), and the correct statistic under calculate().\nQuestion Six\n(2 pts) Create a histogram to visualize the null distribution from question 5 above. Be sure to place a vertical line to show the location of the observed statistic from #4 above. Describe the shape of the distribution and explain why it is centered around 0.\nQuestion Seven\n(2 pts) Use the get-p-value() function to find the P-value then write an interpretation of the result in context.",
     "crumbs": [

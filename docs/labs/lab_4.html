@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Lab 6: Introduction to Inference - Hypothesis Testing – MATH 144 - Business Statistics</title>
+<title>Lab 4: Introduction to Inference - Hypothesis Testing – MATH 144 - Business Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,13 +123,13 @@ window.Quarto = {
   typesetMath
 };
 </script>
-<meta property="og:title" content="Lab 6: Introduction to Inference - Hypothesis Testing – MATH 144 - Business Statistics">
+<meta property="og:title" content="Lab 4: Introduction to Inference - Hypothesis Testing – MATH 144 - Business Statistics">
 <meta property="og:description" content="Inference for Difference in Two Proportions">
 <meta property="og:image" content="https://jmochogi.github.io/business-stats-f26/labs/lab_4_files/figure-html/unnamed-chunk-3-1.png">
 <meta property="og:site_name" content="MATH 144 - Business Statistics">
 <meta property="og:image:height" content="960">
 <meta property="og:image:width" content="1344">
-<meta name="twitter:title" content="Lab 6: Introduction to Inference - Hypothesis Testing – MATH 144 - Business Statistics">
+<meta name="twitter:title" content="Lab 4: Introduction to Inference - Hypothesis Testing – MATH 144 - Business Statistics">
 <meta name="twitter:description" content="Inference for Difference in Two Proportions">
 <meta name="twitter:image" content="https://jmochogi.github.io/business-stats-f26/labs/img/twitter-card.png">
 <meta name="twitter:creator" content="@jmochogi">
@@ -324,10 +324,10 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_4.html">Lab 4</a></li></ol></nav><div class="quarto-title">
-<h1 class="title">Lab 6: Introduction to Inference - Hypothesis Testing</h1>
+<h1 class="title">Lab 4: Introduction to Inference - Hypothesis Testing</h1>
 <p class="subtitle lead">Inference for Difference in Two Proportions</p>
   <div class="quarto-categories">
-    <div class="quarto-category">Lab 6</div>
+    <div class="quarto-category">Lab 4</div>
   </div>
   </div>
 
@@ -469,11 +469,11 @@ Null Hypothesis: indepe...
 # A tibble: 6 × 2
   replicate    stat
       &lt;int&gt;   &lt;dbl&gt;
-1         1 -0.125 
+1         1 -0.0417
 2         2 -0.0417
-3         3  0.208 
-4         4  0.0417
-5         5 -0.125 
+3         3  0.0417
+4         4 -0.0417
+5         5  0.0417
 6         6 -0.0417</code></pre>
 </div>
 </div>
@@ -501,7 +501,7 @@ Null Hypothesis: indepe...
 <pre><code># A tibble: 1 × 1
   p_value
     &lt;dbl&gt;
-1   0.005</code></pre>
+1   0.004</code></pre>
 </div>
 </div>
 <p>Here, the argument <code>obs_stat</code> is used to set the observed statistic, while <code>direction</code> is for specifying the alternative hypothesis. Since our observed statistic is to the right of the center, and our alternative hypothesis is directional, we set the direction argument to “greater”. If the alternative hypothesis was bidirectional or two-sided (i.e., <span class="math inline">\(p_M-p_F \neq 0\)</span>), we would set direction to <code>two-sided</code>, which means we would be looking for values that are as extreme as 0.2917 in either direction (both left and right tails of the distribution). This would essentially double the P-value.</p>
