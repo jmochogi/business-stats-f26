@@ -1,6 +1,6 @@
 ---
-categories: "Lab 7"
-title: "Lab 7: Introduction to Inference - Confidence Intervals"
+categories: "Lab 6"
+title: "Lab 6: Introduction to Inference - Confidence Intervals"
 execute:
   eval: true
 format:
@@ -21,25 +21,25 @@ data("sex_discrimination")
 
 ## [Introduction]{style="color:#4166f5;"}
 
-In the previous lab (lab 6), we ran a hypothesis test for difference in two proportions via a simulation process known as randomization. The goal was to test ***whether or not*** female candidates were discriminated against in promotion decisions. We generated 1000 differences and found a small P-value which lead to the conclusion that discrimination was likely going on in the company (the population).
+In the previous lab (lab 4), we ran a hypothesis test for difference in two proportions via a simulation process known as randomization. The goal was to test ***whether or not*** the data provide evidence that female candidates were discriminated against in promotion decisions. We generated 1000 differences and found a small P-value which led to the conclusion that discrimination was likely going on (in the population).
 
-In this lab, we will create a confidence interval for the same scenario used in lab 6. Unlike a hypothesis test, a confidence interval estimates the ***"magnitude of the discrimination"*** by providing a range of values within which we may expect the true population parameter to be. We will do this using a simulation process known as ***bootstrapping***.
+In this lab, we will create a confidence interval for the same scenario used in lab 4. Unlike a hypothesis test, a confidence interval estimates the ***"magnitude of the discrimination"*** by providing a range of values within which we may expect the true population parameter (in this case difference in promotion proportions) to be. We will do this using a simulation process known as ***bootstrapping***.
 
 ## [Creating a quarto file]{style="color:#4166f5;"}
 
-Go to posit cloud (<https://posit.cloud>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and datasets that you don't need.
+Go to posit cloud (<https://posit.cloud>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and data sets that you don't need.
 
 Next, create your new quarto file as follows:
 
--   File \> New File \> Quarto document. Use the file name `Lab_7`. Do not delete the `.qmd` extension.
+- File \> New File \> Quarto document. Use the file name `Lab_6`. Do not delete the `.qmd` extension.
 
--   Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field and set the title to `Introduction to Statistical Inference - Confidence Intervals`.
+- Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field and set the title to `Introduction to Statistical Inference - Confidence Intervals`.
 
--   Change the output option to `pdf` then click on `render`. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.
+- Change the output option to `pdf` then click on `render`. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.
 
 ## [Packages and Data]{style="color:#4166f5;"}
 
-Add a new code chunk and and load the following packages (and data) at the beginning of your quarto file. Be sure to run the code chunk before you proceed:
+This lab needs the same libraries as the previous one:
 
 ``` toml
 library(openintro)
@@ -48,15 +48,15 @@ library(infer)
 data(sex_discrimination)
 ```
 
-After running the code chunk, the `sex_discrimination` dataset will be available for use in your analysis. You can click on the dataset in the environment area to view it.
+After running the code chunk, the `sex_discrimination` data set will be available for use. You can click on the data set in the environment area to view it.
 
 ## [The Observed Statistic]{style="color:#4166f5;"}
 
-Recall from lab 6, that the observed statustic was 0.2917, meaning the difference in promotion rates between males and females in the sample was about 29.2%.
+Recall from lab 4, that the observed statistic was 0.2917, meaning the difference in promotion rates between males and females **in the sample** was about 29.2%.
 
 ## [Bootstrap Simulations]{style="color:#4166f5;"}
 
-We want to run a simulation process known as bootsrapping to create a confidence interval for the true population parameter (the true difference in promotion rates between the sexes in the population).
+We want to run a simulation process known as bootstrapping to create a confidence interval for the true population parameter (the true difference in promotion rates between the sexes in the population).
 
 Examine and run the code below:
 
@@ -68,7 +68,7 @@ bootstrap_diffs <- sex_discrimination |>
   calculate(stat = "diff in props", order=c("male","female"))
 ```
 
-**Question:** What difference do you notice for the bootstrap code above compared to the randomization code from lab 6?
+**Question:** What differences do you notice in the code above compared to the randomization code from lab 4?
 
 ## [Visualizing the Bootstrap Distribution]{style="color:#4166f5;"}
 
@@ -87,7 +87,7 @@ The histogram above shows the distribution of the simulated difference in propor
 
 ## [Constructing the Confidence Interval]{style="color:#4166f5;"}
 
-To find the 95% confidence interval for the proportion of small cars, we can use the `get_ci()` function from the `infer` package. A 95% confidence interval means that we need 95% of the simulated data in the middle. This means that each tail (right and left) shares 2.5%. Therefore, the interval runs from 2.5th percentile and the 97.5th percentile. The get_ci() function from the `infer` package is used for this as shown below:
+To find the 95% confidence interval for the proportion of small cars, we use the `get_ci()` function from the `infer` package. A 95% confidence interval means that we need 95% of the simulated data in the middle. This means that each tail (right and left) shares 2.5%. Therefore, the interval runs from 2.5th percentile and the 97.5th percentile. The get_ci() function from the `infer` package is used for this as shown below:
 
 ```{r}
 bootstrap_diffs |>

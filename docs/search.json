@@ -313,95 +313,114 @@
     ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html",
-    "href": "labs/lab_8-Single-Prop.html",
-    "title": "Lab 8: Inference for a Single Proportion",
+    "objectID": "labs/lab_6.html",
+    "href": "labs/lab_6.html",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
     "section": "",
-    "text": "In the previous lab (lab 7), we created a confidence interval for a single proportion using the infer package. In this lab, we will perform a hypothesis test for a single proportion and also create a confidence interval and compare the results."
+    "text": "In the previous lab (lab 4), we ran a hypothesis test for difference in two proportions via a simulation process known as randomization. The goal was to test whether or not the data provide evidence that female candidates were discriminated against in promotion decisions. We generated 1000 differences and found a small P-value which led to the conclusion that discrimination was likely going on (in the population).\nIn this lab, we will create a confidence interval for the same scenario used in lab 4. Unlike a hypothesis test, a confidence interval estimates the “magnitude of the discrimination” by providing a range of values within which we may expect the true population parameter (in this case difference in promotion proportions) to be. We will do this using a simulation process known as bootstrapping.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html#introduction",
-    "href": "labs/lab_8-Single-Prop.html#introduction",
-    "title": "Lab 8: Inference for a Single Proportion",
+    "objectID": "labs/lab_6.html#introduction",
+    "href": "labs/lab_6.html#introduction",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
     "section": "",
-    "text": "In the previous lab (lab 7), we created a confidence interval for a single proportion using the infer package. In this lab, we will perform a hypothesis test for a single proportion and also create a confidence interval and compare the results."
+    "text": "In the previous lab (lab 4), we ran a hypothesis test for difference in two proportions via a simulation process known as randomization. The goal was to test whether or not the data provide evidence that female candidates were discriminated against in promotion decisions. We generated 1000 differences and found a small P-value which led to the conclusion that discrimination was likely going on (in the population).\nIn this lab, we will create a confidence interval for the same scenario used in lab 4. Unlike a hypothesis test, a confidence interval estimates the “magnitude of the discrimination” by providing a range of values within which we may expect the true population parameter (in this case difference in promotion proportions) to be. We will do this using a simulation process known as bootstrapping.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html#context-scenario",
-    "href": "labs/lab_8-Single-Prop.html#context-scenario",
-    "title": "Lab 8: Inference for a Single Proportion",
-    "section": "Context & Scenario",
-    "text": "Context & Scenario\nThe Development, Relief, and Education for Alien Minors Act (DREAM Act) is a legislative proposal in the United States that aims to provide a pathway to legal status for undocumented people who were brought to the U.S. as children. These people are often referred to as DREAMERS. The DREAM Act passed the House of Representatives in 2010 but failed to reach the 60-vote requirement in the Senate. The Act has been a topic of heated debate in U.S. politics for many years.\nA Gallup Poll conducted in 2010, reported that about 54% of Americans supported the DREAM act (Migration Policy Institute, 2010). The poll also found that the opinions on the DREAM Act vary by political leaning."
+    "objectID": "labs/lab_6.html#creating-a-quarto-file",
+    "href": "labs/lab_6.html#creating-a-quarto-file",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
+    "section": "Creating a quarto file",
+    "text": "Creating a quarto file\nGo to posit cloud (https://posit.cloud) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and data sets that you don’t need.\nNext, create your new quarto file as follows:\n\nFile &gt; New File &gt; Quarto document. Use the file name Lab_6. Do not delete the .qmd extension.\nAdd the author and title keys to the YAML section. Write your name (in quotes) in the author field and set the title to Introduction to Statistical Inference - Confidence Intervals.\nChange the output option to pdf then click on render. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html#research-question-and-hypotheses",
-    "href": "labs/lab_8-Single-Prop.html#research-question-and-hypotheses",
-    "title": "Lab 8: Inference for a Single Proportion",
-    "section": "Research Question and Hypotheses",
-    "text": "Research Question and Hypotheses\nWe want to use statistical inference (hypothesis test and a confidence interval) to answer the research question:\nResearch Question: Is the proportion of Americans who supported the DREAM Act in 2012 different from 0.54 (or 54%).\nNull Hypothesis: The proportion of Americans who supported the DREAM Act in 2012 is equal to 0.54.\n\\[H_0: p = 0.54.\\]\nAlternative Hypothesis: The proportion of Americans who supported the DREAM Act in 2012 is different from 0.54.\n\\[H_0: p \\neq 0.54.\\]"
-  },
-  {
-    "objectID": "labs/lab_8-Single-Prop.html#creating-your-quarto-file",
-    "href": "labs/lab_8-Single-Prop.html#creating-your-quarto-file",
-    "title": "Lab 8: Inference for a Single Proportion",
-    "section": "Creating your quarto file",
-    "text": "Creating your quarto file\nCreate a new quarto document with the title Inference for a Single Proportion and save the file as lab_8_Explo. Please check previous labs (e.g., lab 4) if you are unsure how to do this. Be sure to delete all the default text in the new file before you start the lab exploration."
-  },
-  {
-    "objectID": "labs/lab_8-Single-Prop.html#packages-and-data",
-    "href": "labs/lab_8-Single-Prop.html#packages-and-data",
-    "title": "Lab 8: Inference for a Single Proportion",
+    "objectID": "labs/lab_6.html#packages-and-data",
+    "href": "labs/lab_6.html#packages-and-data",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
     "section": "Packages and Data",
-    "text": "Packages and Data\nThe dataset we will use is called dream and is available in the openintro package. We will also use the infer and tidyverse packages. Use the following code to load the packages and the data:\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(infer)\ndata(dream)\nAfter running the code chunk, the dream dataset should appear in the environment area. Open it and examine the cases and variables. be available for use in your analysis. You can run the code chunk below to view the first few rows of the dataset:\n\nCodehead(dream)\n\n# A tibble: 6 × 2\n  ideology     stance\n  &lt;fct&gt;        &lt;fct&gt; \n1 Conservative Yes   \n2 Conservative Yes   \n3 Conservative Yes   \n4 Conservative Yes   \n5 Conservative Yes   \n6 Conservative Yes   \n\n\nThere are two variables in this dataset - ideology (conservative, liberal, moderate) and stance (Yes, No, Note sure). Since we are interested in a single proportion (proportion of Americans who supported the DREAM Act), we will focus on the stance variable only."
+    "text": "Packages and Data\nThis lab needs the same libraries as the previous one:\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(infer)\ndata(sex_discrimination)\nAfter running the code chunk, the sex_discrimination data set will be available for use. You can click on the data set in the environment area to view it.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html#the-observed-statistic",
-    "href": "labs/lab_8-Single-Prop.html#the-observed-statistic",
-    "title": "Lab 8: Inference for a Single Proportion",
+    "objectID": "labs/lab_6.html#the-observed-statistic",
+    "href": "labs/lab_6.html#the-observed-statistic",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
     "section": "The Observed Statistic",
-    "text": "The Observed Statistic\nNotice that the stance variable has 3 levels - Yes, No, Not sure. In order to run inference for a single proportion, we need the stance variable to have only two levels. To do this, we can group No and Not sure together and call them Not Yes. See the code below:\n\nCodedream_filtered &lt;- dream |&gt;\n  mutate(stance = if_else(stance == \"Yes\", \"Yes\", \"Not Yes\"))\n\n\nThen, we create the summary table again using the filtered dataset:\n\nCodedream_filtered |&gt;\n  group_by(stance) |&gt;\n  summarize(count = n()) |&gt;\n  mutate(proportion = count / sum(count))\n\n# A tibble: 2 × 3\n  stance  count proportion\n  &lt;chr&gt;   &lt;int&gt;      &lt;dbl&gt;\n1 Not Yes   436      0.479\n2 Yes       474      0.521\n\n\nThus, the observed statistic is 0.521 (or 52.1%). This is the proportion of Americans in the sample that supported the DREAM Act in 2012."
+    "text": "The Observed Statistic\nRecall from lab 4, that the observed statistic was 0.2917, meaning the difference in promotion rates between males and females in the sample was about 29.2%.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html#running-simulations",
-    "href": "labs/lab_8-Single-Prop.html#running-simulations",
-    "title": "Lab 8: Inference for a Single Proportion",
-    "section": "Running Simulations",
-    "text": "Running Simulations\nNext, we want to run simulations to see the distribution of the observed statistic under the null hypothesis. We will use the infer package to do this. Run the code below:\n\nCodeset.seed(1234) # Prevents simulated data from changing.\ndream_sim &lt;- dream_filtered |&gt;\n  specify(response = stance, success = \"Yes\") |&gt;\n  hypothesize(null = \"point\", p = 0.54) |&gt;\n  generate(reps = 500, type = \"draw\") |&gt;\n  calculate(stat = \"prop\")\n\n\nThe code should run without errors. The dream_sim object (see environment) contains 500 simulated proportions under the null hypothesis."
+    "objectID": "labs/lab_6.html#bootstrap-simulations",
+    "href": "labs/lab_6.html#bootstrap-simulations",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
+    "section": "Bootstrap Simulations",
+    "text": "Bootstrap Simulations\nWe want to run a simulation process known as bootstrapping to create a confidence interval for the true population parameter (the true difference in promotion rates between the sexes in the population).\nExamine and run the code below:\n\nCodeset.seed(123) #This prevents simulated data from changing.\nbootstrap_diffs &lt;- sex_discrimination |&gt;\n  specify(decision~sex, success = \"promoted\") |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  calculate(stat = \"diff in props\", order=c(\"male\",\"female\"))\n\n\nQuestion: What differences do you notice in the code above compared to the randomization code from lab 4?",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html#visualizing-the-null-distribution",
-    "href": "labs/lab_8-Single-Prop.html#visualizing-the-null-distribution",
-    "title": "Lab 8: Inference for a Single Proportion",
-    "section": "Visualizing the Null Distribution",
-    "text": "Visualizing the Null Distribution\nWe can visualize the null distribution of the proportions using a histogram. We also indicate the location of observed statistic. See code below:\n\nCodedream_sim |&gt;\n  ggplot(aes(x = stat)) +\n  geom_histogram(bins=45)+\n  geom_vline(xintercept = 0.521, color = \"red\", linetype = \"dashed\") \n\n\n\n\n\n\n\nNote that the center of the null distribution is around 0.54, which is expected since that is the value we specified in the null hypothesis. The observed statistic appears to be close to the null value (0.54)."
+    "objectID": "labs/lab_6.html#visualizing-the-bootstrap-distribution",
+    "href": "labs/lab_6.html#visualizing-the-bootstrap-distribution",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
+    "section": "Visualizing the Bootstrap Distribution",
+    "text": "Visualizing the Bootstrap Distribution\nWe can visualize the bootstrap distribution of the proportions using a histogram. See code below:\n\nCodebootstrap_diffs |&gt;\n  ggplot(aes(x = stat)) +\n  geom_histogram(binwidth = 0.05, fill = \"#4963D4\", color = \"white\") +\n  labs(title = \"Bootstrap Distribution of Differences\",\n       x = \"Simulated Differences in Proportions\",\n       y = \"Frequency\")\n\n\n\n\n\n\n\nThe histogram above shows the distribution of the simulated difference in proportions. This distribution gives us an idea of the variability of the observed statistic. The 95% confidence interval will be constructed using this distribution, which will provide a range of plausible values for the true difference in promotion rates.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html#calculating-the-p-value",
-    "href": "labs/lab_8-Single-Prop.html#calculating-the-p-value",
-    "title": "Lab 8: Inference for a Single Proportion",
-    "section": "Calculating the P-value",
-    "text": "Calculating the P-value\nThe P-value is the fraction of values at or more extreme than the observed statistic in the null distribution. Since we are doing a two-tailed test, we need to consider both tails of the distribution. We can use the get_p_value() function from the infer package to calculate the P-value as shown below:\n\nCodep_value &lt;- dream_sim |&gt;\n  get_p_value(obs_stat = 0.521, direction = \"two-sided\")\np_value\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1    0.22"
+    "objectID": "labs/lab_6.html#constructing-the-confidence-interval",
+    "href": "labs/lab_6.html#constructing-the-confidence-interval",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
+    "section": "Constructing the Confidence Interval",
+    "text": "Constructing the Confidence Interval\nTo find the 95% confidence interval for the proportion of small cars, we use the get_ci() function from the infer package. A 95% confidence interval means that we need 95% of the simulated data in the middle. This means that each tail (right and left) shares 2.5%. Therefore, the interval runs from 2.5th percentile and the 97.5th percentile. The get_ci() function from the infer package is used for this as shown below:\n\nCodebootstrap_diffs |&gt;\n  get_ci(level = 0.95)\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1   0.0490    0.522\n\n\nThe output above shows the lower (2.5th percentile) and upper (97.5th percentile) bounds of the 95% confidence interval.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html#interpretation-conclusion",
-    "href": "labs/lab_8-Single-Prop.html#interpretation-conclusion",
-    "title": "Lab 8: Inference for a Single Proportion",
+    "objectID": "labs/lab_6.html#interpretation-conclusion",
+    "href": "labs/lab_6.html#interpretation-conclusion",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
     "section": "Interpretation & Conclusion",
-    "text": "Interpretation & Conclusion\nThe P-value we obtained is approximately 0.22 (or 22%). Based on the 5% discenibility level, we do not have enough evidence to reject the null hypothesis. Therefore, we conclude that there is not enough evidence to suggest that the proportion of Americans that supported the DREAM Act in 2012 is different from 54%."
+    "text": "Interpretation & Conclusion\nWe can interpret the interval as follows: We are 95% confident that the true difference in proportion of promotions between male and female candidates lies between 0.049 (4.9%) and 0.522 (52.2%). This means that the true difference in promotion rates could be as low as 4.9% or as high as 52.2%, but it is unlikely to be outside of this range. Since the interval does not contain 0, we can conclude that there is likely a significant difference in promotion. This interval further supports the conclusion from lab 6 that there is likely discrimination against female candidates in the promotion decisions at the company.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
-    "objectID": "labs/lab_8-Single-Prop.html#confidence-interval",
-    "href": "labs/lab_8-Single-Prop.html#confidence-interval",
-    "title": "Lab 8: Inference for a Single Proportion",
-    "section": "Confidence Interval",
-    "text": "Confidence Interval\nTo create a 95% confidence interval, we use our filtered data to run bootstrap simulations to create several bootstrap samples:\n\nCodeset.seed(12) # Prevents simulated data from changing.\ndream_boot &lt;- dream_filtered |&gt;\n  specify(response = stance, success = \"Yes\") |&gt;\n  generate(reps = 500, type = \"bootstrap\") |&gt;\n  calculate(stat = \"prop\")\n\n\nWe can visualize the bootstrap distribution using a histogram:\n\nCodedream_boot |&gt;\n  ggplot(aes(x = stat)) +\n  geom_histogram(bins=55)\n\n\n\n\n\n\n\nNotice that the bootstrap distribution is centered around the observed statistic (approx. 0.52). Next, we can use the get_ci() function to create a 95% confidence interval as shown below:\n\nCodedream_boot |&gt;\n  get_ci(level = 0.95, type = \"percentile\")\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    0.488    0.552\n\n\nThe 95% confidence interval is approximately (0.488 to 0.552) or 48.8% to 55.2%. This means that we are 95% confident that the true proportion of Americans who supported the DREAM Act in 2012 is between 48.8% and 55.2%. This interval further supports the conclusion reached for the hypothesis test since the value of 54% falls inside this confidence interval."
-  },
-  {
-    "objectID": "labs/lab_8-Single-Prop.html#exercises",
-    "href": "labs/lab_8-Single-Prop.html#exercises",
-    "title": "Lab 8: Inference for a Single Proportion",
+    "objectID": "labs/lab_6.html#exercises",
+    "href": "labs/lab_6.html#exercises",
+    "title": "Lab 6: Introduction to Inference - Confidence Intervals",
     "section": "Exercises",
-    "text": "Exercises\nIn this lab exercises, you will use the same dataset (dream) used in the exploration above.  Create a new quarto file and title it Inference for a Single proportion. Save the document as Lab_8_Exe. Load the following packages:\n#| include: false\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(infer)\ndata(dream)\nScenario: A Gallup poll conducted in 2010 indicated that 35% of Americans identified as Moderate when it comes to political ideology. The goal is for you to use the dream dataset (collected in 2012) and statistical inference ideas to examine whether the proportion of Americans who identified as Moderate in 2012 was different from 0.35 (35%).\n\n(2 pts) What does the variable ideology in the dream dataset represent? What are the levels of this variable?\n(2 pts) State the null and alternative hypotheses to test whether the proportion of Americans who identified as Moderate in 2012 is different from 0.35 (or 35%).\n(4 pts) What would be the observed statistic in this scenario? Compute it.  (Hint: You may want to modify the variable ideology so that it has two levels only)).\n(4 pts) Run 1000 simulations to create the null distribution. Visualize this distribution using a histogram and indicate the location of the observed statistic. Why is this distribution centered around 0.35?\n(4 pts) Use the get_p_value() function to find the P-value, then write the conclusion of your hypothesis test in context of the data.\n(4 pts) Create a 95% confidence interval for the proportion of Americans who identified as moderate in 2012. Write the interpretation of this interval in context of the data and indicate whether your conclusion from the hypothesis test is supported by this interval."
+    "text": "Exercises\nOne-hundred and fifty students were recruited in a study that aimed to understand whether reminding college students about saving money for later would make them more thriftier. The students were split into 2 equal groups (control and experiment). Each student was given the following prompt:\n“Imagine that you have been saving some extra money on the side to make some purchases, and on your most recent visit to the video store you come across a special sale on a new video. This video is one with your favorite actor or actress, and your favorite type of movie (such as a comedy, drama, thriller, etc.). This particular video that you are considering is one you have been thinking about buying for a long time. It is available for a special sale price of $14.99. What would you do in this situation? Buy video or Not buy video?”\nStudents in the control group were given the following two options:\n\nBuy video\nNot buy video\n\nStudents in the experiment group were given a slightly modified option B:\n\nBuy video\nNot buy this video. Keep the $14.99 for other purchases.\n\nThe goal is to use the ideas learned in the above explorations to create the relevant confidence interval and interpret it in context.\n\n\n(4 pts) Generate 500 bootstrap differences that can be used to create the relevant confidence interval. Be sure to use the infer package functions (specify(), generate(), and calculate()) as illustrated above and save this data as bootstrap_diffs.\n\n(2 pts) Create a histogram to visualize the distribution of the bootstrap differences generated in #1 above. Describe any patterns apparent in the histogram making sure to state its approximate center and the reason for the location of the center.\n\n(2 pts) Use the get_ci() function to create the relevant 95% confidence interval.\n\n(2 pts) Interpret the confidence interval in context. Does the confidence interval support the conclusion reached under hypothesis testing in lab 6? Explain.",
+    "crumbs": [
+      "Labs",
+      "Lab 6"
+    ]
   },
   {
     "objectID": "labs/lab_3.html",
@@ -938,74 +957,95 @@
     ]
   },
   {
-    "objectID": "labs/lab_7.html",
-    "href": "labs/lab_7.html",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
+    "objectID": "labs/lab_8-Single-Prop.html",
+    "href": "labs/lab_8-Single-Prop.html",
+    "title": "Lab 8: Inference for a Single Proportion",
     "section": "",
-    "text": "In the previous lab (lab 6), we ran a hypothesis test for difference in two proportions via a simulation process known as randomization. The goal was to test whether or not female candidates were discriminated against in promotion decisions. We generated 1000 differences and found a small P-value which lead to the conclusion that discrimination was likely going on in the company (the population).\nIn this lab, we will create a confidence interval for the same scenario used in lab 6. Unlike a hypothesis test, a confidence interval estimates the “magnitude of the discrimination” by providing a range of values within which we may expect the true population parameter to be. We will do this using a simulation process known as bootstrapping."
+    "text": "In the previous lab (lab 7), we created a confidence interval for a single proportion using the infer package. In this lab, we will perform a hypothesis test for a single proportion and also create a confidence interval and compare the results."
   },
   {
-    "objectID": "labs/lab_7.html#introduction",
-    "href": "labs/lab_7.html#introduction",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
+    "objectID": "labs/lab_8-Single-Prop.html#introduction",
+    "href": "labs/lab_8-Single-Prop.html#introduction",
+    "title": "Lab 8: Inference for a Single Proportion",
     "section": "",
-    "text": "In the previous lab (lab 6), we ran a hypothesis test for difference in two proportions via a simulation process known as randomization. The goal was to test whether or not female candidates were discriminated against in promotion decisions. We generated 1000 differences and found a small P-value which lead to the conclusion that discrimination was likely going on in the company (the population).\nIn this lab, we will create a confidence interval for the same scenario used in lab 6. Unlike a hypothesis test, a confidence interval estimates the “magnitude of the discrimination” by providing a range of values within which we may expect the true population parameter to be. We will do this using a simulation process known as bootstrapping."
+    "text": "In the previous lab (lab 7), we created a confidence interval for a single proportion using the infer package. In this lab, we will perform a hypothesis test for a single proportion and also create a confidence interval and compare the results."
   },
   {
-    "objectID": "labs/lab_7.html#creating-a-quarto-file",
-    "href": "labs/lab_7.html#creating-a-quarto-file",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
-    "section": "Creating a quarto file",
-    "text": "Creating a quarto file\nGo to posit cloud (https://posit.cloud) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and datasets that you don’t need.\nNext, create your new quarto file as follows:\n\nFile &gt; New File &gt; Quarto document. Use the file name Lab_7. Do not delete the .qmd extension.\nAdd the author and title keys to the YAML section. Write your name (in quotes) in the author field and set the title to Introduction to Statistical Inference - Confidence Intervals.\nChange the output option to pdf then click on render. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again."
+    "objectID": "labs/lab_8-Single-Prop.html#context-scenario",
+    "href": "labs/lab_8-Single-Prop.html#context-scenario",
+    "title": "Lab 8: Inference for a Single Proportion",
+    "section": "Context & Scenario",
+    "text": "Context & Scenario\nThe Development, Relief, and Education for Alien Minors Act (DREAM Act) is a legislative proposal in the United States that aims to provide a pathway to legal status for undocumented people who were brought to the U.S. as children. These people are often referred to as DREAMERS. The DREAM Act passed the House of Representatives in 2010 but failed to reach the 60-vote requirement in the Senate. The Act has been a topic of heated debate in U.S. politics for many years.\nA Gallup Poll conducted in 2010, reported that about 54% of Americans supported the DREAM act (Migration Policy Institute, 2010). The poll also found that the opinions on the DREAM Act vary by political leaning."
   },
   {
-    "objectID": "labs/lab_7.html#packages-and-data",
-    "href": "labs/lab_7.html#packages-and-data",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
+    "objectID": "labs/lab_8-Single-Prop.html#research-question-and-hypotheses",
+    "href": "labs/lab_8-Single-Prop.html#research-question-and-hypotheses",
+    "title": "Lab 8: Inference for a Single Proportion",
+    "section": "Research Question and Hypotheses",
+    "text": "Research Question and Hypotheses\nWe want to use statistical inference (hypothesis test and a confidence interval) to answer the research question:\nResearch Question: Is the proportion of Americans who supported the DREAM Act in 2012 different from 0.54 (or 54%).\nNull Hypothesis: The proportion of Americans who supported the DREAM Act in 2012 is equal to 0.54.\n\\[H_0: p = 0.54.\\]\nAlternative Hypothesis: The proportion of Americans who supported the DREAM Act in 2012 is different from 0.54.\n\\[H_0: p \\neq 0.54.\\]"
+  },
+  {
+    "objectID": "labs/lab_8-Single-Prop.html#creating-your-quarto-file",
+    "href": "labs/lab_8-Single-Prop.html#creating-your-quarto-file",
+    "title": "Lab 8: Inference for a Single Proportion",
+    "section": "Creating your quarto file",
+    "text": "Creating your quarto file\nCreate a new quarto document with the title Inference for a Single Proportion and save the file as lab_8_Explo. Please check previous labs (e.g., lab 4) if you are unsure how to do this. Be sure to delete all the default text in the new file before you start the lab exploration."
+  },
+  {
+    "objectID": "labs/lab_8-Single-Prop.html#packages-and-data",
+    "href": "labs/lab_8-Single-Prop.html#packages-and-data",
+    "title": "Lab 8: Inference for a Single Proportion",
     "section": "Packages and Data",
-    "text": "Packages and Data\nAdd a new code chunk and and load the following packages (and data) at the beginning of your quarto file. Be sure to run the code chunk before you proceed:\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(infer)\ndata(sex_discrimination)\nAfter running the code chunk, the sex_discrimination dataset will be available for use in your analysis. You can click on the dataset in the environment area to view it."
+    "text": "Packages and Data\nThe dataset we will use is called dream and is available in the openintro package. We will also use the infer and tidyverse packages. Use the following code to load the packages and the data:\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(infer)\ndata(dream)\nAfter running the code chunk, the dream dataset should appear in the environment area. Open it and examine the cases and variables. be available for use in your analysis. You can run the code chunk below to view the first few rows of the dataset:\n\nCodehead(dream)\n\n# A tibble: 6 × 2\n  ideology     stance\n  &lt;fct&gt;        &lt;fct&gt; \n1 Conservative Yes   \n2 Conservative Yes   \n3 Conservative Yes   \n4 Conservative Yes   \n5 Conservative Yes   \n6 Conservative Yes   \n\n\nThere are two variables in this dataset - ideology (conservative, liberal, moderate) and stance (Yes, No, Note sure). Since we are interested in a single proportion (proportion of Americans who supported the DREAM Act), we will focus on the stance variable only."
   },
   {
-    "objectID": "labs/lab_7.html#the-observed-statistic",
-    "href": "labs/lab_7.html#the-observed-statistic",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
+    "objectID": "labs/lab_8-Single-Prop.html#the-observed-statistic",
+    "href": "labs/lab_8-Single-Prop.html#the-observed-statistic",
+    "title": "Lab 8: Inference for a Single Proportion",
     "section": "The Observed Statistic",
-    "text": "The Observed Statistic\nRecall from lab 6, that the observed statustic was 0.2917, meaning the difference in promotion rates between males and females in the sample was about 29.2%."
+    "text": "The Observed Statistic\nNotice that the stance variable has 3 levels - Yes, No, Not sure. In order to run inference for a single proportion, we need the stance variable to have only two levels. To do this, we can group No and Not sure together and call them Not Yes. See the code below:\n\nCodedream_filtered &lt;- dream |&gt;\n  mutate(stance = if_else(stance == \"Yes\", \"Yes\", \"Not Yes\"))\n\n\nThen, we create the summary table again using the filtered dataset:\n\nCodedream_filtered |&gt;\n  group_by(stance) |&gt;\n  summarize(count = n()) |&gt;\n  mutate(proportion = count / sum(count))\n\n# A tibble: 2 × 3\n  stance  count proportion\n  &lt;chr&gt;   &lt;int&gt;      &lt;dbl&gt;\n1 Not Yes   436      0.479\n2 Yes       474      0.521\n\n\nThus, the observed statistic is 0.521 (or 52.1%). This is the proportion of Americans in the sample that supported the DREAM Act in 2012."
   },
   {
-    "objectID": "labs/lab_7.html#bootstrap-simulations",
-    "href": "labs/lab_7.html#bootstrap-simulations",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
-    "section": "Bootstrap Simulations",
-    "text": "Bootstrap Simulations\nWe want to run a simulation process known as bootsrapping to create a confidence interval for the true population parameter (the true difference in promotion rates between the sexes in the population).\nExamine and run the code below:\n\nCodeset.seed(123) #This prevents simulated data from changing.\nbootstrap_diffs &lt;- sex_discrimination |&gt;\n  specify(decision~sex, success = \"promoted\") |&gt;\n  generate(reps = 1000, type = \"bootstrap\") |&gt;\n  calculate(stat = \"diff in props\", order=c(\"male\",\"female\"))\n\n\nQuestion: What difference do you notice for the bootstrap code above compared to the randomization code from lab 6?"
+    "objectID": "labs/lab_8-Single-Prop.html#running-simulations",
+    "href": "labs/lab_8-Single-Prop.html#running-simulations",
+    "title": "Lab 8: Inference for a Single Proportion",
+    "section": "Running Simulations",
+    "text": "Running Simulations\nNext, we want to run simulations to see the distribution of the observed statistic under the null hypothesis. We will use the infer package to do this. Run the code below:\n\nCodeset.seed(1234) # Prevents simulated data from changing.\ndream_sim &lt;- dream_filtered |&gt;\n  specify(response = stance, success = \"Yes\") |&gt;\n  hypothesize(null = \"point\", p = 0.54) |&gt;\n  generate(reps = 500, type = \"draw\") |&gt;\n  calculate(stat = \"prop\")\n\n\nThe code should run without errors. The dream_sim object (see environment) contains 500 simulated proportions under the null hypothesis."
   },
   {
-    "objectID": "labs/lab_7.html#visualizing-the-bootstrap-distribution",
-    "href": "labs/lab_7.html#visualizing-the-bootstrap-distribution",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
-    "section": "Visualizing the Bootstrap Distribution",
-    "text": "Visualizing the Bootstrap Distribution\nWe can visualize the bootstrap distribution of the proportions using a histogram. See code below:\n\nCodebootstrap_diffs |&gt;\n  ggplot(aes(x = stat)) +\n  geom_histogram(binwidth = 0.05, fill = \"#4963D4\", color = \"white\") +\n  labs(title = \"Bootstrap Distribution of Differences\",\n       x = \"Simulated Differences in Proportions\",\n       y = \"Frequency\")\n\n\n\n\n\n\n\nThe histogram above shows the distribution of the simulated difference in proportions. This distribution gives us an idea of the variability of the observed statistic. The 95% confidence interval will be constructed using this distribution, which will provide a range of plausible values for the true difference in promotion rates."
+    "objectID": "labs/lab_8-Single-Prop.html#visualizing-the-null-distribution",
+    "href": "labs/lab_8-Single-Prop.html#visualizing-the-null-distribution",
+    "title": "Lab 8: Inference for a Single Proportion",
+    "section": "Visualizing the Null Distribution",
+    "text": "Visualizing the Null Distribution\nWe can visualize the null distribution of the proportions using a histogram. We also indicate the location of observed statistic. See code below:\n\nCodedream_sim |&gt;\n  ggplot(aes(x = stat)) +\n  geom_histogram(bins=45)+\n  geom_vline(xintercept = 0.521, color = \"red\", linetype = \"dashed\") \n\n\n\n\n\n\n\nNote that the center of the null distribution is around 0.54, which is expected since that is the value we specified in the null hypothesis. The observed statistic appears to be close to the null value (0.54)."
   },
   {
-    "objectID": "labs/lab_7.html#constructing-the-confidence-interval",
-    "href": "labs/lab_7.html#constructing-the-confidence-interval",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
-    "section": "Constructing the Confidence Interval",
-    "text": "Constructing the Confidence Interval\nTo find the 95% confidence interval for the proportion of small cars, we can use the get_ci() function from the infer package. A 95% confidence interval means that we need 95% of the simulated data in the middle. This means that each tail (right and left) shares 2.5%. Therefore, the interval runs from 2.5th percentile and the 97.5th percentile. The get_ci() function from the infer package is used for this as shown below:\n\nCodebootstrap_diffs |&gt;\n  get_ci(level = 0.95)\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1   0.0490    0.522\n\n\nThe output above shows the lower (2.5th percentile) and upper (97.5th percentile) bounds of the 95% confidence interval."
+    "objectID": "labs/lab_8-Single-Prop.html#calculating-the-p-value",
+    "href": "labs/lab_8-Single-Prop.html#calculating-the-p-value",
+    "title": "Lab 8: Inference for a Single Proportion",
+    "section": "Calculating the P-value",
+    "text": "Calculating the P-value\nThe P-value is the fraction of values at or more extreme than the observed statistic in the null distribution. Since we are doing a two-tailed test, we need to consider both tails of the distribution. We can use the get_p_value() function from the infer package to calculate the P-value as shown below:\n\nCodep_value &lt;- dream_sim |&gt;\n  get_p_value(obs_stat = 0.521, direction = \"two-sided\")\np_value\n\n# A tibble: 1 × 1\n  p_value\n    &lt;dbl&gt;\n1    0.22"
   },
   {
-    "objectID": "labs/lab_7.html#interpretation-conclusion",
-    "href": "labs/lab_7.html#interpretation-conclusion",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
+    "objectID": "labs/lab_8-Single-Prop.html#interpretation-conclusion",
+    "href": "labs/lab_8-Single-Prop.html#interpretation-conclusion",
+    "title": "Lab 8: Inference for a Single Proportion",
     "section": "Interpretation & Conclusion",
-    "text": "Interpretation & Conclusion\nWe can interpret the interval as follows: We are 95% confident that the true difference in proportion of promotions between male and female candidates lies between 0.049 (4.9%) and 0.522 (52.2%). This means that the true difference in promotion rates could be as low as 4.9% or as high as 52.2%, but it is unlikely to be outside of this range. Since the interval does not contain 0, we can conclude that there is likely a significant difference in promotion. This interval further supports the conclusion from lab 6 that there is likely discrimination against female candidates in the promotion decisions at the company."
+    "text": "Interpretation & Conclusion\nThe P-value we obtained is approximately 0.22 (or 22%). Based on the 5% discenibility level, we do not have enough evidence to reject the null hypothesis. Therefore, we conclude that there is not enough evidence to suggest that the proportion of Americans that supported the DREAM Act in 2012 is different from 54%."
   },
   {
-    "objectID": "labs/lab_7.html#exercises",
-    "href": "labs/lab_7.html#exercises",
-    "title": "Lab 7: Introduction to Inference - Confidence Intervals",
+    "objectID": "labs/lab_8-Single-Prop.html#confidence-interval",
+    "href": "labs/lab_8-Single-Prop.html#confidence-interval",
+    "title": "Lab 8: Inference for a Single Proportion",
+    "section": "Confidence Interval",
+    "text": "Confidence Interval\nTo create a 95% confidence interval, we use our filtered data to run bootstrap simulations to create several bootstrap samples:\n\nCodeset.seed(12) # Prevents simulated data from changing.\ndream_boot &lt;- dream_filtered |&gt;\n  specify(response = stance, success = \"Yes\") |&gt;\n  generate(reps = 500, type = \"bootstrap\") |&gt;\n  calculate(stat = \"prop\")\n\n\nWe can visualize the bootstrap distribution using a histogram:\n\nCodedream_boot |&gt;\n  ggplot(aes(x = stat)) +\n  geom_histogram(bins=55)\n\n\n\n\n\n\n\nNotice that the bootstrap distribution is centered around the observed statistic (approx. 0.52). Next, we can use the get_ci() function to create a 95% confidence interval as shown below:\n\nCodedream_boot |&gt;\n  get_ci(level = 0.95, type = \"percentile\")\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    0.488    0.552\n\n\nThe 95% confidence interval is approximately (0.488 to 0.552) or 48.8% to 55.2%. This means that we are 95% confident that the true proportion of Americans who supported the DREAM Act in 2012 is between 48.8% and 55.2%. This interval further supports the conclusion reached for the hypothesis test since the value of 54% falls inside this confidence interval."
+  },
+  {
+    "objectID": "labs/lab_8-Single-Prop.html#exercises",
+    "href": "labs/lab_8-Single-Prop.html#exercises",
+    "title": "Lab 8: Inference for a Single Proportion",
     "section": "Exercises",
-    "text": "Exercises\nOne-hundred and fifty students were recruited in a study that aimed to understand whether reminding college students about saving money for later would make them more thriftier. The students were split into 2 equal groups (control and experiment). Each student was given the following prompt:\n“Imagine that you have been saving some extra money on the side to make some purchases, and on your most recent visit to the video store you come across a special sale on a new video. This video is one with your favorite actor or actress, and your favorite type of movie (such as a comedy, drama, thriller, etc.). This particular video that you are considering is one you have been thinking about buying for a long time. It is available for a special sale price of $14.99. What would you do in this situation? Buy video or Not buy video?”\nStudents in the control group were given the following two options:\n\nBuy video\nNot buy video\n\nStudents in the experiment group were given a slightly modified option B:\n\nBuy video\nNot buy this video. Keep the $14.99 for other purchases.\n\nThe goal is to use the ideas learned in the above explorations to create the relevant confidence interval and interpret it in context.\n\n\n(4 pts) Generate 500 bootstrap differences that can be used to create the relevant confidence interval. Be sure to use the infer package functions (specify(), generate(), and calculate()) as illustrated above and save this data as bootstrap_diffs.\n\n(2 pts) Create a histogram to visualize the distribution of the bootstrap differences generated in #1 above. Describe any patterns apparent in the histogram making sure to state its approximate center and the reason for the location of the center.\n\n(2 pts) Use the get_ci() function to create the relevant 95% confidence interval.\n\n(2 pts) Interpret the confidence interval in context. Does the confidence interval support the conclusion reached under hypothesis testing in lab 6? Explain."
+    "text": "Exercises\nIn this lab exercises, you will use the same dataset (dream) used in the exploration above.  Create a new quarto file and title it Inference for a Single proportion. Save the document as Lab_8_Exe. Load the following packages:\n#| include: false\nlibrary(openintro)\nlibrary(tidyverse)\nlibrary(infer)\ndata(dream)\nScenario: A Gallup poll conducted in 2010 indicated that 35% of Americans identified as Moderate when it comes to political ideology. The goal is for you to use the dream dataset (collected in 2012) and statistical inference ideas to examine whether the proportion of Americans who identified as Moderate in 2012 was different from 0.35 (35%).\n\n(2 pts) What does the variable ideology in the dream dataset represent? What are the levels of this variable?\n(2 pts) State the null and alternative hypotheses to test whether the proportion of Americans who identified as Moderate in 2012 is different from 0.35 (or 35%).\n(4 pts) What would be the observed statistic in this scenario? Compute it.  (Hint: You may want to modify the variable ideology so that it has two levels only)).\n(4 pts) Run 1000 simulations to create the null distribution. Visualize this distribution using a histogram and indicate the location of the observed statistic. Why is this distribution centered around 0.35?\n(4 pts) Use the get_p_value() function to find the P-value, then write the conclusion of your hypothesis test in context of the data.\n(4 pts) Create a 95% confidence interval for the proportion of Americans who identified as moderate in 2012. Write the interpretation of this interval in context of the data and indicate whether your conclusion from the hypothesis test is supported by this interval."
   },
   {
     "objectID": "labs/lab_4.html",

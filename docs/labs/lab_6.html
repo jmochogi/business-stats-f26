@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Lab 7: Introduction to Inference - Confidence Intervals – MATH 144 - Business Statistics</title>
+<title>Lab 6: Introduction to Inference - Confidence Intervals – MATH 144 - Business Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,6 +59,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../project/first-project.html" rel="next">
+<link href="../labs/lab_5.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -96,13 +98,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<meta property="og:title" content="Lab 7: Introduction to Inference - Confidence Intervals – MATH 144 - Business Statistics">
+<meta property="og:title" content="Lab 6: Introduction to Inference - Confidence Intervals – MATH 144 - Business Statistics">
 <meta property="og:description" content="Homepage for MATH 144 - Business Statistics, Fall 2026.">
-<meta property="og:image" content="https://jmochogi.github.io/business-stats-f26/labs/lab_7_files/figure-html/unnamed-chunk-3-1.png">
+<meta property="og:image" content="https://jmochogi.github.io/business-stats-f26/labs/lab_6_files/figure-html/unnamed-chunk-3-1.png">
 <meta property="og:site_name" content="MATH 144 - Business Statistics">
 <meta property="og:image:height" content="960">
 <meta property="og:image:width" content="1344">
-<meta name="twitter:title" content="Lab 7: Introduction to Inference - Confidence Intervals – MATH 144 - Business Statistics">
+<meta name="twitter:title" content="Lab 6: Introduction to Inference - Confidence Intervals – MATH 144 - Business Statistics">
 <meta name="twitter:description" content="Homepage for MATH 144 - Business Statistics, Fall 2026.">
 <meta name="twitter:image" content="https://jmochogi.github.io/business-stats-f26/labs/img/twitter-card.png">
 <meta name="twitter:creator" content="@jmochogi">
@@ -115,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 7: Introduction to Inference - Confidence Intervals</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_6.html">Lab 6</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -229,6 +231,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Lab 5 (Special Lab)</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab_6.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 6</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -282,10 +290,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Lab 7: Introduction to Inference - Confidence Intervals</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_6.html">Lab 6</a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Lab 6: Introduction to Inference - Confidence Intervals</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Lab 7</div>
+    <div class="quarto-category">Lab 6</div>
   </div>
   </div>
 
@@ -301,26 +309,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction"><span style="color:#4166f5;">Introduction</span></h2>
-<p>In the previous lab (lab 6), we ran a hypothesis test for difference in two proportions via a simulation process known as randomization. The goal was to test <strong><em>whether or not</em></strong> female candidates were discriminated against in promotion decisions. We generated 1000 differences and found a small P-value which lead to the conclusion that discrimination was likely going on in the company (the population).</p>
-<p>In this lab, we will create a confidence interval for the same scenario used in lab 6. Unlike a hypothesis test, a confidence interval estimates the <strong><em>“magnitude of the discrimination”</em></strong> by providing a range of values within which we may expect the true population parameter to be. We will do this using a simulation process known as <strong><em>bootstrapping</em></strong>.</p>
+<p>In the previous lab (lab 4), we ran a hypothesis test for difference in two proportions via a simulation process known as randomization. The goal was to test <strong><em>whether or not</em></strong> the data provide evidence that female candidates were discriminated against in promotion decisions. We generated 1000 differences and found a small P-value which led to the conclusion that discrimination was likely going on (in the population).</p>
+<p>In this lab, we will create a confidence interval for the same scenario used in lab 4. Unlike a hypothesis test, a confidence interval estimates the <strong><em>“magnitude of the discrimination”</em></strong> by providing a range of values within which we may expect the true population parameter (in this case difference in promotion proportions) to be. We will do this using a simulation process known as <strong><em>bootstrapping</em></strong>.</p>
 </section><section id="creating-a-quarto-file" class="level2"><h2 class="anchored" data-anchor-id="creating-a-quarto-file"><span style="color:#4166f5;">Creating a quarto file</span></h2>
-<p>Go to posit cloud (<a href="https://posit.cloud" class="uri">https://posit.cloud</a>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and datasets that you don’t need.</p>
+<p>Go to posit cloud (<a href="https://posit.cloud" class="uri">https://posit.cloud</a>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and data sets that you don’t need.</p>
 <p>Next, create your new quarto file as follows:</p>
 <ul>
-<li><p>File &gt; New File &gt; Quarto document. Use the file name <code>Lab_7</code>. Do not delete the <code>.qmd</code> extension.</p></li>
+<li><p>File &gt; New File &gt; Quarto document. Use the file name <code>Lab_6</code>. Do not delete the <code>.qmd</code> extension.</p></li>
 <li><p>Add the <code>author</code> and <code>title</code> keys to the <code>YAML</code> section. Write your name (in quotes) in the author field and set the title to <code>Introduction to Statistical Inference - Confidence Intervals</code>.</p></li>
 <li><p>Change the output option to <code>pdf</code> then click on <code>render</code>. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.</p></li>
 </ul></section><section id="packages-and-data" class="level2"><h2 class="anchored" data-anchor-id="packages-and-data"><span style="color:#4166f5;">Packages and Data</span></h2>
-<p>Add a new code chunk and and load the following packages (and data) at the beginning of your quarto file. Be sure to run the code chunk before you proceed:</p>
+<p>This lab needs the same libraries as the previous one:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">openintro</span><span class="er">)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">tidyverse</span><span class="er">)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">infer</span><span class="er">)</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">data</span><span class="er">(</span><span class="dt">sex_discrimination</span><span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>After running the code chunk, the <code>sex_discrimination</code> dataset will be available for use in your analysis. You can click on the dataset in the environment area to view it.</p>
+<p>After running the code chunk, the <code>sex_discrimination</code> data set will be available for use. You can click on the data set in the environment area to view it.</p>
 </section><section id="the-observed-statistic" class="level2"><h2 class="anchored" data-anchor-id="the-observed-statistic"><span style="color:#4166f5;">The Observed Statistic</span></h2>
-<p>Recall from lab 6, that the observed statustic was 0.2917, meaning the difference in promotion rates between males and females in the sample was about 29.2%.</p>
+<p>Recall from lab 4, that the observed statistic was 0.2917, meaning the difference in promotion rates between males and females <strong>in the sample</strong> was about 29.2%.</p>
 </section><section id="bootstrap-simulations" class="level2"><h2 class="anchored" data-anchor-id="bootstrap-simulations"><span style="color:#4166f5;">Bootstrap Simulations</span></h2>
-<p>We want to run a simulation process known as bootsrapping to create a confidence interval for the true population parameter (the true difference in promotion rates between the sexes in the population).</p>
+<p>We want to run a simulation process known as bootstrapping to create a confidence interval for the true population parameter (the true difference in promotion rates between the sexes in the population).</p>
 <p>Examine and run the code below:</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span> <span class="co">#This prevents simulated data from changing.</span></span>
@@ -330,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu">calculate</span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"diff in props"</span>, order<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>,<span class="st">"female"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p><strong>Question:</strong> What difference do you notice for the bootstrap code above compared to the randomization code from lab 6?</p>
+<p><strong>Question:</strong> What differences do you notice in the code above compared to the randomization code from lab 4?</p>
 </section><section id="visualizing-the-bootstrap-distribution" class="level2"><h2 class="anchored" data-anchor-id="visualizing-the-bootstrap-distribution"><span style="color:#4166f5;">Visualizing the Bootstrap Distribution</span></h2>
 <p>We can visualize the bootstrap distribution of the proportions using a histogram. See code below:</p>
 <div class="cell">
@@ -342,14 +350,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>       y <span class="op">=</span> <span class="st">"Frequency"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="lab_7_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="lab_6_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The histogram above shows the distribution of the simulated difference in proportions. This distribution gives us an idea of the variability of the observed statistic. The 95% confidence interval will be constructed using this distribution, which will provide a range of plausible values for the true difference in promotion rates.</p>
 </section><section id="constructing-the-confidence-interval" class="level2"><h2 class="anchored" data-anchor-id="constructing-the-confidence-interval"><span style="color:#4166f5;">Constructing the Confidence Interval</span></h2>
-<p>To find the 95% confidence interval for the proportion of small cars, we can use the <code>get_ci()</code> function from the <code>infer</code> package. A 95% confidence interval means that we need 95% of the simulated data in the middle. This means that each tail (right and left) shares 2.5%. Therefore, the interval runs from 2.5th percentile and the 97.5th percentile. The get_ci() function from the <code>infer</code> package is used for this as shown below:</p>
+<p>To find the 95% confidence interval for the proportion of small cars, we use the <code>get_ci()</code> function from the <code>infer</code> package. A 95% confidence interval means that we need 95% of the simulated data in the middle. This means that each tail (right and left) shares 2.5%. Therefore, the interval runs from 2.5th percentile and the 97.5th percentile. The get_ci() function from the <code>infer</code> package is used for this as shown below:</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bootstrap_diffs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">get_ci</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -949,7 +957,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../labs/lab_5.html" class="pagination-link" aria-label="Lab 5 (Special Lab)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 5 (Special Lab)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../project/first-project.html" class="pagination-link" aria-label="Project 1">
+        <span class="nav-page-text">Project 1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
