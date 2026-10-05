@@ -1195,14 +1195,33 @@
     "href": "course-downloads/templates.html",
     "title": "Templates",
     "section": "",
-    "text": "Project templates provide a structured way to organize the various sections of your project report to ensure consistency with the project requirements. Once downloaded, the templates can be uploaded to posit cloud or opened in your local device if you have R and RStudio installed. Download the templates from the links below:\nFirst Project Template\nFinal Project Template"
+    "text": "Project templates provide a structured way to organize the various sections of your project report to ensure consistency with the project requirements. Once downloaded, the templates can be uploaded to posit cloud or opened in your local device if you have R and RStudio installed. Download the templates from the links below:\nFirst Project Template\nFinal Project Template",
+    "crumbs": [
+      "Downloads",
+      "Templates"
+    ]
   },
   {
-    "objectID": "course-downloads/templates.html#project-templates",
-    "href": "course-downloads/templates.html#project-templates",
+    "objectID": "course-downloads/templates.html#quarto-templates-for-projects",
+    "href": "course-downloads/templates.html#quarto-templates-for-projects",
     "title": "Templates",
     "section": "",
-    "text": "Project templates provide a structured way to organize the various sections of your project report to ensure consistency with the project requirements. Once downloaded, the templates can be uploaded to posit cloud or opened in your local device if you have R and RStudio installed. Download the templates from the links below:\nFirst Project Template\nFinal Project Template"
+    "text": "Project templates provide a structured way to organize the various sections of your project report to ensure consistency with the project requirements. Once downloaded, the templates can be uploaded to posit cloud or opened in your local device if you have R and RStudio installed. Download the templates from the links below:\nFirst Project Template\nFinal Project Template",
+    "crumbs": [
+      "Downloads",
+      "Templates"
+    ]
+  },
+  {
+    "objectID": "course-downloads/templates.html#sample-completed-projects",
+    "href": "course-downloads/templates.html#sample-completed-projects",
+    "title": "Templates",
+    "section": "Sample Completed Projects",
+    "text": "Sample Completed Projects\nSample Project One",
+    "crumbs": [
+      "Downloads",
+      "Templates"
+    ]
   },
   {
     "objectID": "index.html",

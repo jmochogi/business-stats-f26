@@ -115,8 +115,8 @@ website:
       
       - section: "Downloads"
         contents:
-          #- href: course-downloads/datasets.qmd
-           # text: Datasets
+          - href: course-downloads/datasets.qmd
+            text: Datasets
           - href: course-downloads/templates.qmd
             text: Templates
   page-footer:
