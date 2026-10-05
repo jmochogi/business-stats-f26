@@ -117,8 +117,8 @@ website:
         contents:
           #- href: course-downloads/datasets.qmd
            # text: Datasets
-          #- href: course-downloads/templates.qmd
-            #text: Templates
+          - href: course-downloads/templates.qmd
+            text: Templates
   page-footer:
     right: 'This page is built with [Quarto](https://quarto.org/).'
     left: "&copy; Copyright 2026, Joash Geteregechi"
