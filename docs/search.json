@@ -1246,25 +1246,48 @@
     ]
   },
   {
-    "objectID": "exam-review/exam-1-review.html#question-1",
-    "href": "exam-review/exam-1-review.html#question-1",
-    "title": "Exam 1 Review",
+    "objectID": "exam-review/exam-1-review.html#question-1---data-study-design",
+    "href": "exam-review/exam-1-review.html#question-1---data-study-design",
+    "title": "MATH 144 Fall 2026",
     "section": "",
-    "text": "A prominent investment firm based in the US wants to evaluate the portfolio management efficiency of its financial analysts. To conduct the study, 150 financial analysts were randomly selected from the firm’s workforce. Among those sampled, 65 were classified as junior analysts, having less than five years of experience, while the remaining 85 were classified as senior analysts, with five or more years of experience. The analysts were responsible for managing investments across three key market sectors: technology, energy, and financial services.\nThe firm’s primary focus was on how quickly analysts were able to generate a profitable return on a trade. On average, junior analysts required 3 days to close a profitable trade, whereas senior analysts were able to do so in about 2 days on average. Beyond trade execution speed, the firm also gathered additional information on each analyst, including their gender (male/female), their highesl level of education, and the average total value (in millions of dollars) of the portfolios under their management.\n\nClassify this scenario as an observational or experimental study. Give a reason for your classification. \nIdentify the sample and the population of interest. \nWhat are the cases/observational units in this study and how many are they? \nIdentify any one parameter and its associated statistic in this study, stating the specific values for each if given.\nList all the variables in the study and identify each variable as numerical or categorical. For each numerical variable state whether it is discrete or continuous. For each categorical variable state whether it is nominal or ordinal. \nIdentify a variable (or variable set if more than one) that can be reasonably visualized using:\n\nA simple bar plot \nA simple histogram \nSimple box plot \nSide-by-side box plots \nSide-by-side bar plots \nScatter plot"
+    "text": "A prominent investment firm based in the US wants to evaluate the portfolio management efficiency of its financial analysts. To conduct the study, 150 financial analysts were randomly selected from the firm’s workforce. Among those sampled, 65 were classified as junior analysts, having less than five years of experience, while the remaining 85 were classified as senior analysts, with five or more years of experience. The analysts were responsible for managing investments across three key market sectors: technology, energy, and financial services.\nThe firm’s primary focus was on how quickly analysts were able to generate a profitable return on a trade. On average, junior analysts required 3 days to close a profitable trade, whereas senior analysts were able to do so in about 2 days on average. Beyond trade execution speed, the firm also gathered additional information on each analyst, including their gender (male/female), their highesl level of education, and the average total value (in millions of dollars) of the portfolios under their management.\n\nClassify this scenario as an observational or experimental study. Give a reason for your classification. \nIdentify the sample and the population of interest. \nWhat are the cases/observational units in this study and how many are they? \nIdentify any one parameter and its associated statistic in this study, stating the specific values for each if given.\nList all the variables in the study and identify each variable as numerical or categorical. For each numerical variable state whether it is discrete or continuous. For each categorical variable state whether it is nominal or ordinal. \nIdentify a variable (or variable set if more than one) that can be reasonably visualized using:\n\nA simple bar plot \nA simple histogram \nSimple box plot \nSide-by-side box plots \nSide-by-side bar plots \nScatter plot",
+    "crumbs": [
+      "Exam Review",
+      "Exam 1"
+    ]
   },
   {
-    "objectID": "exam-review/exam-1-review.html#question-2",
-    "href": "exam-review/exam-1-review.html#question-2",
-    "title": "Exam 1 Review",
-    "section": "Question 2",
-    "text": "Question 2\nBelow are weights (in pounds) of 6 randomly sampled patients who visited St. Joseph’s Clinic on a certain day.\n\\[182, 186, 177, 185, 183, 181\\]\n\nFind the 5-number summary for the weights then sketch a box plot to visualize their distribution. \nUse the \\(1.5\\times IQR\\) rule to determine if there are any suspected outliers among the six weights.\n\n\nCalculate the standard deviation for the weights and interpret its meaning. Show/explain your work. \nSuppose a nurse notices an error in the data entry. The weight entered as 186 lbs should have been 168 lbs. Without doing any calculations, state whether each of the following statistics will increase, decrease, or stay the same if the 186 is changed to 168. Explain your reasoning.\n\nmean \nmedian \nstandard deviation \ninterquartile range \nRange"
+    "objectID": "exam-review/exam-1-review.html#question-2---data-summarization",
+    "href": "exam-review/exam-1-review.html#question-2---data-summarization",
+    "title": "MATH 144 Fall 2026",
+    "section": "Question 2 - Data Summarization",
+    "text": "Question 2 - Data Summarization\nBelow are weights (in pounds) of 6 randomly sampled patients who visited St. Joseph’s Clinic on a certain day.\n\\[182, 186, 177, 185, 183, 181\\]\n\nFind the 5-number summary for the weights then sketch a box plot to visualize their distribution. \nUse the \\(1.5\\times IQR\\) rule to determine if there are any suspected outliers among the six weights.\n\n\nCalculate the standard deviation for the weights and interpret its meaning. Show/explain your work. \nSuppose a nurse notices an error in the data entry. The weight entered as 186 lbs should have been 168 lbs. Without doing any calculations, state whether each of the following statistics will increase, decrease, or stay the same if the 186 is changed to 168. Explain your reasoning.\n\nmean \nmedian \nstandard deviation \ninterquartile range \nRange",
+    "crumbs": [
+      "Exam Review",
+      "Exam 1"
+    ]
   },
   {
-    "objectID": "exam-review/exam-1-review.html#question-3",
-    "href": "exam-review/exam-1-review.html#question-3",
-    "title": "Exam 1 Review",
-    "section": "Question 3",
-    "text": "Question 3\nA business analyst wants to perform statistical inference to answer the research question,\n\nDo arrival delay rates (proportions) differ between Delta and American Airlines?.\n\nThe Airlines data set from the Stat2Data package contains information on over 10,000 flights by Delta and American Airlines arriving at LaGuardia and O’Hare airports. These data are summarized as shown in the table below:\n\n\n\nAirline\nDelayed Arrivals\nOn-Time Arrivals\nTotal\n\n\n\n\nDelta\n659\n2344\n3003\n\n\nAmerican\n1450\n5880\n7330\n\n\nTotal\n2109\n8224\n10333\n\n\n\n\nIdentify the predictor and response variable in the above scenario. \nState the null and alternative hypotheses in words and in symbols. \nCalculate the observed statistic (i.e., the difference in delay proportions in the sample). Does the observed statistic suggest a difference in delay rates between the two airlines? \n\n\nThe histogram below shows the distribution of 400 simulated statistics under the null hypothesis.\n\n\n\n\n\n\n\n\n\n\n\nExplain why this distribution is centered around 0. \nUse the dot plot to estimate the p-value (show/explain work) then write your conclusion for the hypothesis test in context."
+    "objectID": "exam-review/exam-1-review.html#question-3---hypothesis-testing",
+    "href": "exam-review/exam-1-review.html#question-3---hypothesis-testing",
+    "title": "MATH 144 Fall 2026",
+    "section": "Question 3 - Hypothesis Testing",
+    "text": "Question 3 - Hypothesis Testing\nA business analyst wants to perform statistical inference to answer the research question,\n\nDo arrival delay rates (proportions) differ between Delta and American Airlines?.\n\nThe Airlines data set from the Stat2Data package contains information on over 10,000 flights by Delta and American Airlines arriving at LaGuardia and O’Hare airports. These data are summarized as shown in the table below:\n\n\n\nAirline\nDelayed Arrivals\nOn-Time Arrivals\nTotal\n\n\n\n\nDelta\n659\n2344\n3003\n\n\nAmerican\n1450\n5880\n7330\n\n\nTotal\n2109\n8224\n10333\n\n\n\n\nIdentify the predictor and response variable in the above scenario. \nState the null and alternative hypotheses in words and in symbols. \nCalculate the observed statistic (i.e., the difference in delay proportions in the sample). Does the observed statistic suggest a difference in delay rates between the two airlines? \n\n\nThe histogram below shows the distribution of 400 simulated statistics under the null hypothesis.\n\n\n\n\n\n\n\n\n\n\n\nExplain why this distribution is centered around 0. \nUse the dot plot to estimate the p-value (show/explain work) then write your conclusion for the hypothesis test in context.",
+    "crumbs": [
+      "Exam Review",
+      "Exam 1"
+    ]
+  },
+  {
+    "objectID": "exam-review/exam-1-review.html#question-4---confidence-interval",
+    "href": "exam-review/exam-1-review.html#question-4---confidence-interval",
+    "title": "MATH 144 Fall 2026",
+    "section": "Question 4 - Confidence Interval",
+    "text": "Question 4 - Confidence Interval\nThe histogram below shows the distribution of 400 statistics (differences in proportion of delays) generated by bootstrapping using the airlines data in problem #3 above (check out class activities if you need a refresher on bootstrapping). The number on top of each bin shows the frequency of statistics that fall within that bin and each bin is 0.005 units wide.\n\n\n\n\n\n\n\n\n\n\nExplain why this distribution is centered around 0.2. \nUse the histogram to estimate the 95% confidence interval. Show/explain your work. \nInterpret the confidence interval in context. \nState whether the interval you found supports the conclusion reached under the hypothesis testing part (question 3d). Explain.",
+    "crumbs": [
+      "Exam Review",
+      "Exam 1"
+    ]
   },
   {
     "objectID": "project/first-project.html",
@@ -1572,57 +1595,6 @@
     "crumbs": [
       "Course information",
       "Support"
-    ]
-  },
-  {
-    "objectID": "exam-review/exam-1-review.html#question-3-1",
-    "href": "exam-review/exam-1-review.html#question-3-1",
-    "title": "Exam 1 Review",
-    "section": "Question 3",
-    "text": "Question 3\nThe histogram below shows the distribution of 400 statistics (differences in proportion of delays) generated by bootstrapping using the airlines data in problem #3 above (check out class activities if you need a refresher on bootstrapping). The number on top of each bin shows the frequency of statistics that fall within that bin and each bin is 0.005 units wide.\n\n\n\n\n\n\n\n\n\n\nExplain why this distribution is centered around 0.2. \nUse the histogram to estimate the 95% confidence interval. Show/explain your work. \nInterpret the confidence interval in context. Does this interval support the findings under the hypothesis testing part? Explain."
-  },
-  {
-    "objectID": "exam-review/exam-1-review.html#question-1---data-study-design",
-    "href": "exam-review/exam-1-review.html#question-1---data-study-design",
-    "title": "MATH 144 Fall 2026",
-    "section": "",
-    "text": "A prominent investment firm based in the US wants to evaluate the portfolio management efficiency of its financial analysts. To conduct the study, 150 financial analysts were randomly selected from the firm’s workforce. Among those sampled, 65 were classified as junior analysts, having less than five years of experience, while the remaining 85 were classified as senior analysts, with five or more years of experience. The analysts were responsible for managing investments across three key market sectors: technology, energy, and financial services.\nThe firm’s primary focus was on how quickly analysts were able to generate a profitable return on a trade. On average, junior analysts required 3 days to close a profitable trade, whereas senior analysts were able to do so in about 2 days on average. Beyond trade execution speed, the firm also gathered additional information on each analyst, including their gender (male/female), their highesl level of education, and the average total value (in millions of dollars) of the portfolios under their management.\n\nClassify this scenario as an observational or experimental study. Give a reason for your classification. \nIdentify the sample and the population of interest. \nWhat are the cases/observational units in this study and how many are they? \nIdentify any one parameter and its associated statistic in this study, stating the specific values for each if given.\nList all the variables in the study and identify each variable as numerical or categorical. For each numerical variable state whether it is discrete or continuous. For each categorical variable state whether it is nominal or ordinal. \nIdentify a variable (or variable set if more than one) that can be reasonably visualized using:\n\nA simple bar plot \nA simple histogram \nSimple box plot \nSide-by-side box plots \nSide-by-side bar plots \nScatter plot",
-    "crumbs": [
-      "Exam Review",
-      "Exam 1"
-    ]
-  },
-  {
-    "objectID": "exam-review/exam-1-review.html#question-2---data-summarization",
-    "href": "exam-review/exam-1-review.html#question-2---data-summarization",
-    "title": "MATH 144 Fall 2026",
-    "section": "Question 2 - Data Summarization",
-    "text": "Question 2 - Data Summarization\nBelow are weights (in pounds) of 6 randomly sampled patients who visited St. Joseph’s Clinic on a certain day.\n\\[182, 186, 177, 185, 183, 181\\]\n\nFind the 5-number summary for the weights then sketch a box plot to visualize their distribution. \nUse the \\(1.5\\times IQR\\) rule to determine if there are any suspected outliers among the six weights.\n\n\nCalculate the standard deviation for the weights and interpret its meaning. Show/explain your work. \nSuppose a nurse notices an error in the data entry. The weight entered as 186 lbs should have been 168 lbs. Without doing any calculations, state whether each of the following statistics will increase, decrease, or stay the same if the 186 is changed to 168. Explain your reasoning.\n\nmean \nmedian \nstandard deviation \ninterquartile range \nRange",
-    "crumbs": [
-      "Exam Review",
-      "Exam 1"
-    ]
-  },
-  {
-    "objectID": "exam-review/exam-1-review.html#question-3---hypothesis-testing",
-    "href": "exam-review/exam-1-review.html#question-3---hypothesis-testing",
-    "title": "MATH 144 Fall 2026",
-    "section": "Question 3 - Hypothesis Testing",
-    "text": "Question 3 - Hypothesis Testing\nA business analyst wants to perform statistical inference to answer the research question,\n\nDo arrival delay rates (proportions) differ between Delta and American Airlines?.\n\nThe Airlines data set from the Stat2Data package contains information on over 10,000 flights by Delta and American Airlines arriving at LaGuardia and O’Hare airports. These data are summarized as shown in the table below:\n\n\n\nAirline\nDelayed Arrivals\nOn-Time Arrivals\nTotal\n\n\n\n\nDelta\n659\n2344\n3003\n\n\nAmerican\n1450\n5880\n7330\n\n\nTotal\n2109\n8224\n10333\n\n\n\n\nIdentify the predictor and response variable in the above scenario. \nState the null and alternative hypotheses in words and in symbols. \nCalculate the observed statistic (i.e., the difference in delay proportions in the sample). Does the observed statistic suggest a difference in delay rates between the two airlines? \n\n\nThe histogram below shows the distribution of 400 simulated statistics under the null hypothesis.\n\n\n\n\n\n\n\n\n\n\n\nExplain why this distribution is centered around 0. \nUse the dot plot to estimate the p-value (show/explain work) then write your conclusion for the hypothesis test in context.",
-    "crumbs": [
-      "Exam Review",
-      "Exam 1"
-    ]
-  },
-  {
-    "objectID": "exam-review/exam-1-review.html#question-4---confidence-interval",
-    "href": "exam-review/exam-1-review.html#question-4---confidence-interval",
-    "title": "MATH 144 Fall 2026",
-    "section": "Question 4 - Confidence Interval",
-    "text": "Question 4 - Confidence Interval\nThe histogram below shows the distribution of 400 statistics (differences in proportion of delays) generated by bootstrapping using the airlines data in problem #3 above (check out class activities if you need a refresher on bootstrapping). The number on top of each bin shows the frequency of statistics that fall within that bin and each bin is 0.005 units wide.\n\n\n\n\n\n\n\n\n\n\nExplain why this distribution is centered around 0.2. \nUse the histogram to estimate the 95% confidence interval. Show/explain your work. \nInterpret the confidence interval in context. \nState whether the interval you found supports the conclusion reached under the hypothesis testing part (question 3d). Explain.",
-    "crumbs": [
-      "Exam Review",
-      "Exam 1"
     ]
   }
 ]
