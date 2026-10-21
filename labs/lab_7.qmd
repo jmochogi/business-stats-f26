@@ -1,6 +1,6 @@
 ---
-categories: "Lab 8"
-title: "Lab 8: Inference for difference in two Means"
+categories: "Lab 7"
+title: "Lab 7: Inference for difference in two Means"
 execute:
   eval: true
 format:
