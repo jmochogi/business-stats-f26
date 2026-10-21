@@ -30,11 +30,11 @@ Go to posit cloud (<https://posit.cloud>) and open the MATH 144 project. Once yo
 
 Next, create your new quarto file as follows:
 
--   File \> New File \> Quarto document. Use the file name `Lab_8`. Do not delete the `.qmd` extension.
+- File \> New File \> Quarto document. Use the file name `Lab_7`. Do not delete the `.qmd` extension.
 
--   Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field and set the title to `Inferene for two Independent Means`.
+- Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field and set the title to `Inferene for two Independent Means`.
 
--   Change the output option to `pdf` then click on `render`. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.
+- Change the output option to `pdf` then click on `render`. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.
 
 ## [Context & Scenario]{style="color:#4166f5;"}
 
@@ -44,7 +44,7 @@ A group of researchers wanted to investigate whether financial incentives help i
 
 ## [Packages and Data]{style="color:#4166f5;"}
 
-Create a code chunk and load the following packages and data:
+Create a code chunk and run the following packages. If any package is missing, please install it first:
 
 ``` toml
 #| include: false
@@ -54,7 +54,7 @@ library(infer)
 data(WeightLossIncentive)
 ```
 
-After running the above code chunk, the `WeightLossIncentive` data set should appear in the environment area. Open it and examine the cases and variables. You should see the following variables:
+After running the above code code, the `WeightLossIncentive` data set should appear in the environment area. Open it and examine the cases and variables. You should see the following variables:
 
 `WeightLoss`: Weight lost 4 months into the program. A negative number means weight gain.
 
@@ -64,7 +64,7 @@ After running the above code chunk, the `WeightLossIncentive` data set should ap
 
 ## [Research Question and Hypotheses]{style="color:#4166f5;"}
 
-We want to answer the following research question via statistical inference:
+We want to answer the following research question via statistical inference (a hypothesis test and confidence interval):
 
 ***Research Question:*** Four months into the program, would individuals who receive financial incentives lose more weight on average than those who don't receive the incentives?
 
@@ -77,9 +77,9 @@ $$H_a: \mu_{I} > \mu_{C}.$$
 
 ***Note:*** To answer this question, we will use the variables `WeightLoss` (numerical) and `Group` (categorical) from the `WeightLossIncentive` dataset.
 
-## [Exploring Data via Visualization]{style="color:#4166f5;"}
+## [Visualizating The Data]{style="color:#4166f5;"} 
 
-Let us start by visualizing the distribution of the `WeightLoss` variable using a box plots. Since we have two groups, it would be good to have **side-by-side** box plots (on the same scale) to allow comparison. See below:
+We start by visualizing the distribution of the `WeightLoss` variable by group. One of the tools for visualizing a numerical variable and a categorical one is using side-by-side box plots. Examine and run the below:
 
 ```{r, warning=FALSE}
 WeightLossIncentive |>
@@ -87,8 +87,7 @@ WeightLossIncentive |>
   geom_boxplot() +
   labs(title = "Boxplot of Weight Loss by Group",
        x = "Group",
-       y = "Weight Lost after 4 months (pounds)") +
-  theme_minimal()
+       y = "Weight Lost (in pounds) after 4 months")
 ```
 
 The side-by-side box plots above shows that individuals in the incentive group lost more weight on average than those in the control group. The median weight loss for the incentive group appears to be higher than that of the control group. There are no apparent outliers in either group. The interquartile range (IQR) for the incentive group seems to be larger than that of the control group, indicating more variability in weight loss among individuals who received financial incentives.
@@ -110,10 +109,10 @@ $$\text{Observed Statistic} = 15.68 - 3.92 = 11.76 \text{ pounds}.$$
 
 ## [Running Simulations]{style="color:#4166f5;"}
 
-Next, we want to run simulations to generate the null distribution.  We will use the `infer` package functions to do this. See the code below:
+Next, we want to run simulations to generate the null distribution. We will use the `infer` package functions to do this. See the code below:
 
 ```{r, warning=FALSE}
-set.seed(12) # Prevents simulated data from changing.
+set.seed(12) # Prevents simulated data from changing upon rerun.
 null_distribution <- WeightLossIncentive |>
   specify(WeightLoss ~ Group) |>
   hypothesize(null = "independence") |>
@@ -121,21 +120,21 @@ null_distribution <- WeightLossIncentive |>
   calculate(stat = "diff in means", order = c("Incentive", "Control"))
 ```
 
-Upon running the code the `null_distribution` object should appear under the environment area. This contains 1000 simulated difference in means under the assumption that the null hypothesis is true(hence centered around 0).
+Upon running the code the `null_distribution` object should appear under the environment area. This contains 1000 simulated difference in means under the assumption that the null hypothesis is true (hence centered around 0).
 
 ```{r}
 null_distribution |>
   ggplot(aes(x = stat)) +
   geom_histogram(binwidth = 2, fill = "#4963D4", color = "white")+
-  geom_vline(xintercept = 11.76, color = "red")
+  geom_vline(xintercept = 11.76, color = "orange")
 # The bars are filled using the color code "#4963D4". Google html color codes.
 ```
 
-The vertical line to the right represents the **observed statistic**(11.76 pounds) calculated earlier.
+The orange vertical line to the right represents the **observed statistic**(11.76 pounds) calculated earlier.
 
 ## [P-value Calculation]{style="color:#4166f5;"}
 
-The P-value is calculated by estimating the amount of differences at least as extreme as the observed statistic and dividing by the total number of simulated differences, i.e., 1000. From the above histogram, we can see that there are no values that are greater than or equal to the observed statistic (the vertical line), so the P-value would be close to 0.
+The P-value is calculated by estimating the number of statistics (simulated differences) at least as extreme as the observed statistic and dividing by the total number of simulated differences, i.e., 1000. From the above histogram, we can see that there are no statistics at or above the observed statistic (the vertical line), so the P-value would be close to 0.
 
 We use a function called `get_p_value()` from the `infer` package to calculate the P-value. See below:
 
@@ -152,7 +151,7 @@ The p-value is small (less than 0.05) which means we **reject** the null hypothe
 
 ## [Confidence Interval]{style="color:#4166f5;"}
 
-Next, we want to create a confidence interval to estimate the true difference in average 4-month weight loss between the two groups. First, we run a bootstrap simulation from the sample. You may want to review the class activities for week 11(Mon and Wed) if you need to refresh your mind on the physical mechanics of this process. 
+Next, we want to create a confidence interval to estimate the true difference in average 4-month weight loss between the two groups. First, we run a bootstrap simulation from the sample. You may want to review the class activities for week 11(Mon and Wed) if you need to refresh your mind on the physical mechanics of this process.
 
 ```{r, warning=FALSE}
 set.seed(123) # Prevents simulated data from changing.
@@ -186,19 +185,28 @@ This means we are 95% confident that the true difference in average 4-month weig
 
 ## [Exercises]{style="color:#4166f5;"}
 
-In this lab exercises, you will use the same dataset (`WeightLossIncentive`) used in the explorations above. 
+In this lab exercises, you will use the same dataset (`WeightLossIncentive`) used in the explorations above.
 
-The variable `Month7Loss` lists the weights of the participants 3 months after the initial 4 months. During this time, the financial incentives were withdrawn for both groups. <br> We want to perform statistical inference to check whether the weight lost between the two groups are still different at this time point. <br>
-If we find that the groups are not different after the seventh month, then this is more evidence to suggest that it is indeed the financial incentives that lead to the weight loss. 
+The variable `Month7Loss` lists the weights of the participants 3 months after the initial 4 months. During this time, the financial incentives were withdrawn for both groups. <br> We want to perform statistical inference to check whether the weight lost between the two groups are still different at this time point. <br> If we find that the groups are not different after the seventh month, then this is more evidence to suggest that it is indeed the financial incentives that lead to the weight loss.
 
-1.  **(1 pts)** State the null and alternative hypotheses to answer the research question: *Three months after the initial 4 months, would individuals who received financial incentives still lose more weight on average than those who didn't receive the incentives?*
+**(1 pts)** State the null and alternative hypotheses to answer the research question: *Three months after the initial 4 months, would individuals who received financial incentives still lose more weight on average than those who didn't receive the incentives?*
 
-2.  **(1 pts)** Create side-by-side box plots to visualize the distribution of `Month7Loss` for the two groups. Briefly describe what you see in the box plots.
+### Question One
 
-3.  **(1 pts)** Calculate the relevant observed statistic.
+**(1 pts)** Create side-by-side box plots to visualize the distribution of `Month7Loss` for the two groups. Briefly describe what you see in the box plots.
 
-4.  **(2 pts)** Use the `infer` package to run simulations to create the null distribution of the observed statistic under the null hypothesis. Create a histogram of the null distribution and add a vertical line to represent the observed statistic. Why is the distribution centered around 0? Does the location of the observed statistic (the vertical line) suggest a large or small P-value?
+### Question Two
 
-5.  **(2 pts)** Use the `get_p_value()` function to calculate the P-value for the hypothesis test. Based on the P-value, what is your conclusion regarding the research question? Use a discernibility level of 0.05 (5%) and make sure to write your conclusion in context. What do these results imply about the effectiveness of financial incentives on weight loss? You may want to compare your conclusion here with that from the exploration section above before incentives were withdrawn.
+**(1 pts)** Calculate the relevant observed statistic.
 
-6.  **(3 pts)** Use the `infer` package functions to generate a 95% confidence interval for the true difference in average weight lost between the two groups using the `Month7Loss` variable. Based on this interval, what can you conclude about the true difference in average weight lost between the two groups 3 months after the initial 4 months? Does this conclusion align with that from the hypothesis test results from #5 above? Explain.
+### Question Three
+
+**(2 pts)** Use the `infer` package to run simulations to create the null distribution of the observed statistic under the null hypothesis. Create a histogram of the null distribution and add a vertical line to represent the observed statistic. Why is the distribution centered around 0? Does the location of the observed statistic (the vertical line) suggest a large or small P-value?
+
+### Question Four
+
+ **(2 pts)** Use the `get_p_value()` function to calculate the P-value for the hypothesis test. Based on the P-value, what is your conclusion regarding the research question? Use a discernibility level of 0.05 (5%) and make sure to write your conclusion in context. What do these results imply about the effectiveness of financial incentives on weight loss? You may want to compare your conclusion here with that from the exploration section above before incentives were withdrawn.
+
+### Question Five
+
+**(3 pts)** Use the `infer` package functions to generate a 95% confidence interval for the true difference in average weight lost between the two groups using the `Month7Loss` variable. Based on this interval, what can you conclude about the true difference in average weight lost between the two groups 3 months after the initial 4 months? Does this conclusion align with that from the hypothesis test results from #5 above? Explain.
