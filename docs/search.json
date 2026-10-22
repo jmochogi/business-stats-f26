@@ -987,7 +987,7 @@
     "href": "labs/lab_7.html#context-scenario",
     "title": "Lab 7: Inference for difference in two Means",
     "section": "Context & Scenario",
-    "text": "Context & Scenario\nA group of researchers wanted to investigate whether financial incentives help individuals lose weight. They recruited 38 individuals who wanted to lose weight and randomly assigned them to either a incentive group (given financial incentives) or a control group (not given any financial incentives). After 4 months, the researchers recorded the amount of weight lost (before - after) by each individual. Three months after the initial 4 months, they also recorded the weight lost by each individual again to see if the weight loss was maintained. The data set is saved as WeightLossIncentive and is available in the Stat2Data package. Because this is a new package, you need to install it first.\nDO NOT run the package installation in a code chunk because the installation will repeat every time you render. Use the console or install packages in the packages section next to files.",
+    "text": "Context & Scenario\nA group of researchers wanted to investigate whether financial incentives help individuals lose weight. They recruited 38 individuals who wanted to lose weight and randomly assigned them to either a incentive group (given financial incentives) or a control group (not given any financial incentives). After 4 months, the researchers recorded the amount of weight lost (before - after) by each individual. Three months after the initial 4 months, they also recorded the weight lost by each individual again to see if the weight loss was maintained. The data set is saved as WeightLossIncentive and is available in the Stat2Data package (not anymore as of Oct, 2026! Sorry!).",
     "crumbs": [
       "Labs",
       "Lab 7"
@@ -998,7 +998,7 @@
     "href": "labs/lab_7.html#packages-and-data",
     "title": "Lab 7: Inference for difference in two Means",
     "section": "Packages and Data",
-    "text": "Packages and Data\nCreate a code chunk and run the following packages. If any package is missing, please install it first:\n#| include: false\nlibrary(Stat2Data)\nlibrary(tidyverse)\nlibrary(infer)\ndata(WeightLossIncentive)\nAfter running the above code code, the WeightLossIncentive data set should appear in the environment area. Open it and examine the cases and variables. You should see the following variables:\nWeightLoss: Weight lost 4 months into the program. A negative number means weight gain.\nMonth7Loss: weight lost 3 months after the initial 4 months. A negative number means weight gain.\nGroup: Whether someone was given financial incentive (treatment) or not (control).",
+    "text": "Packages and Data\nCreate a code chunk and run the following packages. If any package is missing, please install it first:\n#| include: false\nlibrary(tidyverse)\nlibrary(infer)\nThe data are available in csv format at the following link: WeightLossIncentive. Please download the data and upload them to your posit cloud project before continuing.\nYou can read the data into quarto file using the read_csv() function from the tidyverse package. See the code below:\nHere are the variables and their descriptions:\nWeightLoss: Weight lost 4 months into the program. A negative number means weight gain.\nMonth7Loss: weight lost 3 months after the initial 4 months. A negative number means weight gain.\nGroup: Whether someone was given financial incentive (treatment) or not (control).",
     "crumbs": [
       "Labs",
       "Lab 7"

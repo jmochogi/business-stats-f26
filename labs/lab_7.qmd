@@ -38,9 +38,8 @@ Next, create your new quarto file as follows:
 
 ## [Context & Scenario]{style="color:#4166f5;"}
 
-A group of researchers wanted to investigate whether financial incentives help individuals lose weight. They recruited 38 individuals who wanted to lose weight and randomly assigned them to either a **incentive group** (given financial incentives) or a **control group** (not given any financial incentives). After 4 months, the researchers recorded the amount of weight lost **(before - after)** by each individual. Three months after the initial 4 months, they also recorded the weight lost by each individual again to see if the weight loss was maintained. The data set is saved as `WeightLossIncentive` and is available in the `Stat2Data` package. Because this is a new package, you need to install it first.
+A group of researchers wanted to investigate whether financial incentives help individuals lose weight. They recruited 38 individuals who wanted to lose weight and randomly assigned them to either a **incentive group** (given financial incentives) or a **control group** (not given any financial incentives). After 4 months, the researchers recorded the amount of weight lost **(before - after)** by each individual. Three months after the initial 4 months, they also recorded the weight lost by each individual again to see if the weight loss was maintained. The data set is saved as `WeightLossIncentive` and is available in the `Stat2Data` package (not anymore as of Oct, 2026! Sorry!).
 
-***DO NOT*** run the package installation in a code chunk because the installation will repeat every time you render. Use the console or install packages in the packages section next to files.
 
 ## [Packages and Data]{style="color:#4166f5;"}
 
@@ -48,13 +47,16 @@ Create a code chunk and run the following packages. If any package is missing, p
 
 ``` toml
 #| include: false
-library(Stat2Data)
 library(tidyverse)
 library(infer)
-data(WeightLossIncentive)
 ```
 
-After running the above code code, the `WeightLossIncentive` data set should appear in the environment area. Open it and examine the cases and variables. You should see the following variables:
+The data are available in csv format at the following link: [WeightLossIncentive](datasets/WeightLossIncentive.csv). 
+Please download the data and upload them to your posit cloud project before continuing.
+
+You can read the data into quarto file using the `read_csv()` function from the `tidyverse` package. See the code below:
+
+Here are the variables and their descriptions:
 
 `WeightLoss`: Weight lost 4 months into the program. A negative number means weight gain.
 
