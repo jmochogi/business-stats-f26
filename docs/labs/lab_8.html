@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Lab 9: Inference for a Single Mean – MATH 144 - Business Statistics</title>
+<title>Lab 8: Inference for a Single Mean – MATH 144 - Business Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,6 +59,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../project/first-project.html" rel="next">
+<link href="../labs/lab_7.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -121,13 +123,13 @@ window.Quarto = {
   typesetMath
 };
 </script>
-<meta property="og:title" content="Lab 9: Inference for a Single Mean – MATH 144 - Business Statistics">
+<meta property="og:title" content="Lab 8: Inference for a Single Mean – MATH 144 - Business Statistics">
 <meta property="og:description" content="Homepage for MATH 144 - Business Statistics, Fall 2026.">
-<meta property="og:image" content="https://jmochogi.github.io/business-stats-f26/labs/lab_9_files/figure-html/unnamed-chunk-3-1.png">
+<meta property="og:image" content="https://jmochogi.github.io/business-stats-f26/labs/lab_8_files/figure-html/unnamed-chunk-3-1.png">
 <meta property="og:site_name" content="MATH 144 - Business Statistics">
 <meta property="og:image:height" content="960">
 <meta property="og:image:width" content="1344">
-<meta name="twitter:title" content="Lab 9: Inference for a Single Mean – MATH 144 - Business Statistics">
+<meta name="twitter:title" content="Lab 8: Inference for a Single Mean – MATH 144 - Business Statistics">
 <meta name="twitter:description" content="Homepage for MATH 144 - Business Statistics, Fall 2026.">
 <meta name="twitter:image" content="https://jmochogi.github.io/business-stats-f26/labs/img/twitter-card.png">
 <meta name="twitter:creator" content="@jmochogi">
@@ -140,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 9: Inference for a Single Mean</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_8.html">Lab 8</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -266,6 +268,12 @@ window.Quarto = {
  <span class="menu-text">Lab 7</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab_8.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 8</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -357,10 +365,10 @@ window.Quarto = {
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Lab 9: Inference for a Single Mean</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_8.html">Lab 8</a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Lab 8: Inference for a Single Mean</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Lab 9</div>
+    <div class="quarto-category">Lab 8</div>
   </div>
   </div>
 
@@ -376,35 +384,35 @@ window.Quarto = {
 
 
 </header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction"><span style="color:#4166f5;">Introduction</span></h2>
-<p>In this lab, we consider statistical inference for a single mean. Scenario that fall under this category include those where we are interested in learning about the average value of a numerical variable for a population.</p>
+<p>In this lab, we consider statistical <strong>inference for a single mean</strong>. Unlike previous labs where we compared two groups, inference for a single mean involves a single group (one sample). We compare the mean of the given sample to the hypothetical population mean to check if the difference is large enough. For example, if we believe that the average weight of US men aged between 20-30 is 188 lbs (population parameter), we can take a sample of 200 men aged between 20-30 and measure everyone’s weight. If we find an average weight of 198 lbs (sample statistic), we can use inference for a single mean to check whether the difference of 10 lbs is statistically large enough.</p>
 </section><section id="creating-your-quarto-file" class="level2"><h2 class="anchored" data-anchor-id="creating-your-quarto-file"><span style="color:#4166f5;">Creating your Quarto File</span></h2>
 <p>Go to posit cloud (<a href="https://posit.cloud" class="uri">https://posit.cloud</a>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and datasets that you don’t need.</p>
 <p>Next, create your new quarto file as follows:</p>
 <ul>
-<li><p>File &gt; New File &gt; Quarto document. Use the file name <code>Lab_9</code>. Do not delete the <code>.qmd</code> extension.</p></li>
+<li><p>File &gt; New File &gt; Quarto document. Use the file name <code>Lab_8</code>. Do not delete the <code>.qmd</code> extension.</p></li>
 <li><p>Add the <code>author</code> and <code>title</code> keys to the <code>YAML</code> section. Write your name (in quotes) in the author field and set the title to <code>Inference for a Single Mean</code>.</p></li>
 <li><p>Change the output option to <code>pdf</code> then click on <code>render</code>. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.</p></li>
 </ul></section><section id="context-scenario" class="level2"><h2 class="anchored" data-anchor-id="context-scenario"><span style="color:#4166f5;">Context &amp; Scenario</span></h2>
 <p>Awesome Auto Car Company (AACC) is a big auto sales company with several franchises. AACC claims that the average sale price of cars at one of its franchises is $20,000. A small company is considering acquiring the franchise and wants an independent evaluation of this claim before moving forward. You are hired as a consultant to assess the claim using statistical inference. As a first step, you collect a random sample of five cars from the franchise and record their sale prices (in US dollars), as shown below:</p>
 <p><span class="math display">\[18300, 20100, 9600, 10700, 27000\]</span></p>
+<p><strong>NOTE:</strong> The sample size is small (n = 5) but we will still use it to demonstrate the process of inference for a single mean. In practice, a larger sample size would be preferred.</p>
 </section><section id="packages-and-data" class="level2"><h2 class="anchored" data-anchor-id="packages-and-data"><span style="color:#4166f5;">Packages and Data</span></h2>
 <p>Load the <code>tidyverse</code> and <code>infer</code> packages:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">tidyverse</span><span class="er">)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">infer</span><span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We will not pull the data from an external source. Instead, we will create the dataset using the <code>tibble()</code> function as shown below:</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sales_data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span>price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">18300</span>, <span class="fl">20100</span>,</span>
-<span><span class="fl">9600</span>, <span class="fl">10700</span>, <span class="fl">27000</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sales_data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span>price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">18300</span>, <span class="fl">20100</span>, <span class="fl">9600</span>, <span class="fl">10700</span>, <span class="fl">27000</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>After running the code, a new object named sales_data will pop up in your environment. Click on it to open it and examine the cases and variables. This is the data we will use.</p>
 </section><section id="research-question-and-hypotheses" class="level2"><h2 class="anchored" data-anchor-id="research-question-and-hypotheses"><span style="color:#4166f5;">Research Question and Hypotheses</span></h2>
-<p>We want to answer the following two research question via statistical inference:</p>
+<p>We want to answer the following research question via statistical inference for a single mean:</p>
 <p><strong><em>Research Question 1:</em></strong> Is there enough evidence to suggest that the average car sale price at the said franchise is different (less than) from $20,000?</p>
 <p><strong><em>Null Hypothesis:</em></strong> The average car sale price is not different from$20,000. <span class="math display">\[H_0: \mu = 20,0000.\]</span><br><strong><em>Alternative Hypothesis:</em></strong> The average car sale price is less than $20,000. <span class="math display">\[H_a: \mu \neq 20,000.\]</span></p>
 <p><strong><em>Note:</em></strong> To answer this research question, we will use the <code>price</code> variable from the sales_data we created.</p>
 </section><section id="exploring-data-via-visualization" class="level2"><h2 class="anchored" data-anchor-id="exploring-data-via-visualization"><span style="color:#4166f5;">Exploring Data via Visualization</span></h2>
-<p>It is a common practice to run various summary statistics and create visualizations to explore the data before running inference. We have done data visualization in previous labs but here we will just make a box plot.</p>
+<p>It is a common practice to run various summary statistics and create visualizations to explore the data before running inference. Here is a box plot showing the distribution of the five prices.</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sales_data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">price</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -413,12 +421,12 @@ window.Quarto = {
 <span>       y <span class="op">=</span> <span class="st">"Sale Price in $"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="lab_9_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="lab_8_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Describe the distribution of the <code>price</code> variable based on the boxplot above. Are there any outliers? What is the median sale price? What is the estimated interquartile range (IQR)?</p>
+<p>Describe the distribution of the <code>price</code> variable based on the boxplot above.</p>
 </section><section id="observed-statistic" class="level2"><h2 class="anchored" data-anchor-id="observed-statistic"><span style="color:#4166f5;">Observed Statistic</span></h2>
 <p>The <strong><em>observed statistic</em></strong> is the average (mean) sale price based on the sample. We can calculate it using the code below:</p>
 <div class="cell">
@@ -432,7 +440,7 @@ window.Quarto = {
 </div>
 </div>
 </section><section id="running-simulations" class="level2"><h2 class="anchored" data-anchor-id="running-simulations"><span style="color:#4166f5;">Running Simulations</span></h2>
-<p>Next, we want to run simulations to see the distribution of the observed statistic under the assumption that the null hypothesis is true. We will use the <code>infer</code> package to do this. Examine the code below before running it.</p>
+<p>Next, we want to run 1,000 simulations to see the distribution of the observed statistic under the assumption that the null hypothesis is true. We will use the <code>infer</code> package to do this. Examine the code below before running it.</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span> <span class="co"># Prevents simulated data from changing.</span></span>
 <span><span class="va">null_distribution</span> <span class="op">&lt;-</span> <span class="va">sales_data</span> <span class="op">|&gt;</span></span>
@@ -453,7 +461,7 @@ window.Quarto = {
 <span>       y <span class="op">=</span> <span class="st">"Frequency"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="lab_9_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="lab_8_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -491,7 +499,7 @@ window.Quarto = {
 <span>       y <span class="op">=</span> <span class="st">"Frequency"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="lab_9_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="lab_8_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -510,7 +518,7 @@ window.Quarto = {
 </div>
 <p>The 95% confidence interval is approximately ($11,780, $22,860). This means that we are 95% confident that the true average sale price is between $11,780 and $22,860. This interval includes the null value ($20,000), meaning $20,000 is a plausible value. This further supports the conclusion reached under the hypothesis testing part.</p>
 </section></section><section id="exercises" class="level2"><h2 class="anchored" data-anchor-id="exercises"><span style="color:#4166f5;">Exercises</span></h2>
-<p>There are no questions to answer. Render your quarto document and submit the PDF to Canvas under Lab 9.</p>
+<p>There are no questions to answer. Render your quarto document and submit the PDF to Canvas under Lab 8.</p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -1073,7 +1081,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../labs/lab_7.html" class="pagination-link" aria-label="Lab 7">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 7</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../project/first-project.html" class="pagination-link" aria-label="Project 1">
+        <span class="nav-page-text">Project 1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
