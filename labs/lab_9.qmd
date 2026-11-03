@@ -1,0 +1,275 @@
+---
+categories: "Lab 9"
+title: "Lab 9: Inference for a Single Proportion"
+execute:
+  eval: true
+format:
+  html: 
+    code-link: true #Supposed to create a link to documentation but its not, for some reason.
+    code-block-border-left: "#31BAE9"
+    code-fold: show #also try true OR false and decide if you like it.
+    code-tools: false
+    code-copy: true
+---
+
+```{r, include=FALSE, echo=F}
+library(tidyverse)
+library(openintro)
+library(infer)
+data(dream)
+```
+
+## [Introduction]{style="color:#4166f5;"}
+
+In the previous lab (lab 8), we performed statistical inference for a single mean. The focus was on one group (one sample) and one numerical variable. In this lab, we introduce inference for a single proportion, where the focus is on a binary categorical variable on a single group. We will still use the `infer` package functions. You may want to review the material in chapter 16 of [Introduction to Modern Statistics](https://openintro-ims.netlify.app/inference-one-prop) if you are rusty on simulation-based inference for a single proportion.
+
+## [Context & Scenario]{style="color:#4166f5;"}
+
+The Development, Relief, and Education for Alien Minors Act (DREAM Act) is a legislative proposal in the United States that aims to provide a pathway to legal status for undocumented people who were brought to the U.S. as children. These people are often referred to as DREAMERS. The DREAM Act passed the House of Representatives in 2010 but failed to reach the 60-vote requirement in the Senate. The Act has been a topic of heated debate in U.S. politics for many years.
+
+A Gallup Poll conducted in 2010, reported that about 54% of Americans supported the DREAM act ([Migration Policy Institute, 2010](https://www.migrationpolicy.org/article/dream-act-passes-house-during-lame-duck-session-faces-uphill-battle-senate?utm_source=chatgpt.com)). The poll also found that the opinions on the DREAM Act vary by political leaning.
+
+## [Research Question and Hypotheses]{style="color:#4166f5;"}
+
+We want to use statistical inference (hypothesis test and a confidence interval) to answer the research question:
+
+***Research Question:*** Is the proportion of Americans who supported the DREAM Act in 2012 different from 0.54 (or 54%)?
+
+***Null Hypothesis:*** The proportion of Americans who supported the DREAM Act in 2012 is 0.54 (or 54%).
+
+$$H_0: p = 0.54.$$
+
+***Alternative Hypothesis:*** The proportion of Americans who supported the DREAM Act in 2012 is different from 0.54.
+
+$$H_0: p \neq 0.54.$$
+
+## [Creating your quarto file]{style="color:#4166f5;"}
+
+Go to posit cloud (<https://posit.cloud>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and datasets that you don't need.
+
+Next, create your new quarto file as follows:
+
+- File \> New File \> Quarto document. Use the file name `Lab_9`. Do not delete the `.qmd` extension.
+
+- Add the `author` and `title` keys to the `YAML` section. Write your name (in quotes) in the author field and set the title to `Inference for a Single Proportion`.
+
+- Change the output option to `pdf` then click on `render`. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.
+
+## [Packages and Data]{style="color:#4166f5;"}
+
+The dataset for this lab is called `dream` and is available in the openintro `package`. We will also need the `infer` and `tidyverse` packages. Use the following code to load the packages and the data:
+
+``` toml
+library(openintro)
+library(tidyverse)
+library(infer)
+data(dream)
+```
+
+After running the code chunk, the `dream` dataset should appear in the environment area. Open it and examine the cases and variables. You can run the code below to view the first few rows of the dataset:
+
+```{r}
+head(dream)
+```
+
+There are two variables in this dataset - ideology (conservative, liberal, moderate) and stance (Yes, No, Note sure). You can use `tail(dream)` to view the last few rows of the dataset.
+
+## [The Observed Statistic]{style="color:#4166f5;"}
+
+Notice that the `stance` variable has 3 levels - Yes, No, Not sure. In order to run inference for a single proportion, we need the `stance` variable to have only two levels. To do this, we can do some wrangling (see [lab 5](https://jmochogi.github.io/business-stats-f26/labs/lab_5.html)) by grouping `No` and `Not sure` responses into `Not Yes`. Examine and run the code below:
+
+```{r}
+dream_filtered <- dream |>
+  mutate(stance = if_else(stance == "Yes", "Yes", "Not Yes"))
+```
+
+After running the above code, check the data to make sure that the new stance variable is now binary as expected.
+
+The code below generates a summary table for the new *stance* variable. Notice that we do not consider the variable *ideology* because we treat this as one group (sample).
+
+```{r}
+dream_filtered |>
+  group_by(stance) |>
+  summarize(count = n()) |>
+  mutate(proportion = count / sum(count))
+```
+
+Thus, the observed statistic is 0.521 (or 52.1%). This is the proportion of Americans ***in the sample*** that supported the DREAM Act in 2012.
+
+## [Running Simulations]{style="color:#4166f5;"}
+
+Next, we want to run simulations to see the distribution of the observed statistic under the null hypothesis. We will use the `infer` package to do this. Examine the code below carefully, then run it:
+
+```{r}
+set.seed(1234) # Prevents simulated data from changing.
+null_distribution <- dream_filtered |>
+  specify(response = stance, success = "Yes") |>
+  hypothesize(null = "point", p = 0.54) |>
+  generate(reps = 1000, type = "draw") |>
+  calculate(stat = "prop")
+```
+
+After running the code, a new object called `null_distribution` will appear in the environment area. This is the null distribution containing 1000 simulated proportions under the null hypothesis.
+
+## [Visualizing the Null Distribution]{style="color:#4166f5;"}
+
+ We can visualize (optional) the null distribution using the `visualize()` function from `infer` package as shown below. Notice that we have added the observed statistic (0.521) to the plot using `geom_vline()`. This allows us to see where the observed statistic falls in relation to the null distribution.
+ 
+```{r}
+null_distribution |>
+  visualise() +
+  geom_vline(xintercept = 0.521)
+```
+
+Alternatively, we can use `ggplot()` to visualize the null distribution. This allows for more customization. See code below:
+
+```{r}
+null_distribution |>
+  ggplot(aes(x = stat)) +
+  geom_histogram(binwidth = .007, fill = "#4963D4", color = "white") +
+  geom_text(
+    aes(label = after_stat(count)),
+    stat = "bin",
+    binwidth = .007,
+    vjust = -0.5,
+    size = 3
+  ) +
+  geom_vline(xintercept = 0.521, color = "black", linetype = "dashed")
+```
+
+
+Note that the center of the ***null distribution*** is around 0.54 (null value). This is because the simulations are set to run under the assumption that the null hypothesis is true. The observed statistic (0.52), appears to be close to the null value (0.54).
+
+## [Calculating the P-value]{style="color:#4166f5;"}
+
+The P-value is the fraction of values at or more extreme than the observed statistic in the null distribution. Since we are doing a two-tailed test (not different instead of less than or greater), we need to consider both tails of the distribution. We can use the `get_p_value()` function from the `infer` package to calculate the P-value as shown below:
+
+```{r}
+p_value <- null_distribution |>
+  get_p_value(obs_stat = 0.521, direction = "two-sided")
+p_value
+```
+
+## [Interpretation & Conclusion]{style="color:#4166f5;"}
+
+The P-value we obtained is approximately 0.23 (or 23%). This means that if the true proportion of Americans that supported the DREAM act in 2012 were 54%, we would expect to see a sample proportion of 52% about 23% of the time. Since this is above the discenibility level of 5%, we fail to reject the null hypothesis and conclude that the *data does not provide strong evidence* to support the claim that the true proportion of Americans who supported the DREAM act in 2012 was different from 54%.
+
+## [Confidence Interval]{style="color:#4166f5;"}
+
+To create a 95% confidence interval, we use our filtered data to run bootstrap simulations to create several bootstrap samples.l Examine and run the code below:
+
+```{r}
+set.seed(12) # Prevents simulated data from changing.
+dream_boot <- dream_filtered |>
+  specify(response = stance, success = "Yes") |>
+  generate(reps = 1000, type = "bootstrap") |>
+  calculate(stat = "prop")
+```
+
+We can use `visualize()` from the `infer` package to visualize the bootstrap distribution for the CI using a histogram. If you want more customization, you can use `ggplot()` as shown under the null distribution section above. See code below:
+
+```{r}
+dream_boot |>
+  visualise() # this is a function from infer package.
+```
+
+Notice that the bootstrap distribution is centered around the ***observed statistic*** (approx. 0.52). This is because bootstrap samples are drawn from the observed data, and thus the reflects the sample proportion. 
+
+Next, the `get_ci()` function is an quick way to find the 95% percentile confidence interval. This chops off the bottom and top 2.5% of the bootstrap distribution. See code below:
+
+```{r}
+dream_boot |>
+  get_ci(level = 0.95, type = "percentile")
+```
+
+The 95% confidence interval is approximately (0.489 to 0.553) or 48.9% to 55.3%. This means that we are 95% confident that the true proportion of Americans who supported the DREAM Act in 2012 is between 48.8% and 55.2%. This interval further supports the conclusion reached for the hypothesis test since the null value of 54% was not rejected and falls inside this confidence interval.
+
+## [Exercises]{style="color:#4166f5;"}
+
+Create a new level 2 Header and title it **Lab 9 Exercises**. You will use the same dataset (`dream`) and packages as in the explorations above. The scenario is different, but the steps are similar. You will need to use the `ideology` variable instead of the `stance` variable.  Read the scenario below carefully before beginning the exercises:
+
+***Scenario:*** A [Gallup poll](https://news.gallup.com/poll/388988/political-ideology-steady-conservatives-moderates-tie.aspx) conducted in 2010 indicated that 35% of Americans politically identified as **Moderate**. A researcher wants to test whether the proportion of Americans who identified as `Moderate` in 2012 was different from 0.35 (35%). The goal is for you to use the `dream` dataset (collected in 2012) and statistical inference ideas to examine whether the proportion of Americans who identified as `Moderate` in 2012 was different from 0.35 (35%).
+
+### Question One
+**(1 pt)** What does the variable `ideology` in the `dream` dataset represent? What are the levels of this variable?
+
+### Question Two
+**(1 pt)** State the ***null*** and ***alternative*** hypotheses to test whether the proportion of Americans who identified as `Moderate` in 2012 is different from 0.35 (or 35%).
+
+### Question Three
+**(1 pts)** What would be the ***observed statistic*** in this scenario? Compute it.
+
+### Question Four
+**(2 pts)** Use the infer package functions to run 1000 simulations for the null distribution. Visualize this distribution using a histogram and indicate the location of the ***observed statistic***. Why is this distribution centered around 0.35?
+
+### Question Five
+**(2 pts)** Use the `get_p_value()` function to find the P-value, then write the conclusion of your hypothesis test in context of the data.
+
+### Question Six
+**(3 pts)** Use the infer package functions to generate and create the relevant 95% confidence interval in this scenario. Write the interpretation of this interval in context of the data and indicate whether your conclusion from the hypothesis test is supported by this interval.
+
+````{=html}
+<!-- Answers to Exercises 
+
+```{r}
+new_dream <- dream|>
+  mutate(ideology=ifelse(ideology=="Moderate", "Moderate", "Not Moderate"))
+```
+
+
+```{r}
+new_dream |>
+  group_by(ideology) |>
+  summarize(count = n()) |>
+  mutate(proportion = count / sum(count))
+```
+
+Hyp. Test:
+
+```{r}
+simulated_diffs <- new_dream|>
+  specify(response=ideology, success="Moderate")|>
+  hypothesise(null = "point", p=.35)|>
+  generate(reps=1000, type="draw")|>
+  calculate(stat="prop")
+```
+
+```{r}
+simulated_diffs |>
+  ggplot(aes(x = stat)) +
+  geom_histogram(bins=55)+
+  geom_vline(xintercept = 0.3989011, color = "red", linetype = "dashed")
+```
+
+Calculate proportions from the new_dream dataset
+
+
+
+```{r}
+simulated_diffs|>
+  get_p_value(obs_stat = 0.3989011, direction = "two-sided")
+```
+
+
+
+Bootstrap CI:
+
+```{r}
+simulated_bootstrap<- new_dream|>
+  specify(response = ideology, success = "Moderate") |>
+  generate(reps = 1000, type = "bootstrap") |>
+  calculate(stat = "prop")
+```
+
+
+```{r}
+simulated_bootstrap |>
+  ggplot(aes(x = stat)) +
+  geom_histogram(bins=55)
+```
+
+```{r}
+get_ci(simulated_bootstrap, level = 0.95, type = "percentile")
+```
+-->
+````

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Lab 8: Inference for a Single Proportion – MATH 144 - Business Statistics</title>
+<title>Lab 9: Inference for a Single Proportion – MATH 144 - Business Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,6 +59,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../project/first-project.html" rel="next">
+<link href="../labs/lab_8.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -121,13 +123,13 @@ window.Quarto = {
   typesetMath
 };
 </script>
-<meta property="og:title" content="Lab 8: Inference for a Single Proportion – MATH 144 - Business Statistics">
+<meta property="og:title" content="Lab 9: Inference for a Single Proportion – MATH 144 - Business Statistics">
 <meta property="og:description" content="Homepage for MATH 144 - Business Statistics, Fall 2026.">
-<meta property="og:image" content="https://jmochogi.github.io/business-stats-f26/labs/lab_8-Single-Prop_files/figure-html/unnamed-chunk-6-1.png">
+<meta property="og:image" content="https://jmochogi.github.io/business-stats-f26/labs/lab_9_files/figure-html/unnamed-chunk-6-1.png">
 <meta property="og:site_name" content="MATH 144 - Business Statistics">
 <meta property="og:image:height" content="960">
 <meta property="og:image:width" content="1344">
-<meta name="twitter:title" content="Lab 8: Inference for a Single Proportion – MATH 144 - Business Statistics">
+<meta name="twitter:title" content="Lab 9: Inference for a Single Proportion – MATH 144 - Business Statistics">
 <meta name="twitter:description" content="Homepage for MATH 144 - Business Statistics, Fall 2026.">
 <meta name="twitter:image" content="https://jmochogi.github.io/business-stats-f26/labs/img/twitter-card.png">
 <meta name="twitter:creator" content="@jmochogi">
@@ -140,7 +142,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 8: Inference for a Single Proportion</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_9.html">Lab 9</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -272,6 +274,12 @@ window.Quarto = {
  <span class="menu-text">Lab 8</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab_9.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 9</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -356,14 +364,24 @@ window.Quarto = {
   <li><a href="#calculating-the-p-value" id="toc-calculating-the-p-value" class="nav-link" data-scroll-target="#calculating-the-p-value"><span style="color:#4166f5;">Calculating the P-value</span></a></li>
   <li><a href="#interpretation-conclusion" id="toc-interpretation-conclusion" class="nav-link" data-scroll-target="#interpretation-conclusion"><span style="color:#4166f5;">Interpretation &amp; Conclusion</span></a></li>
   <li><a href="#confidence-interval" id="toc-confidence-interval" class="nav-link" data-scroll-target="#confidence-interval"><span style="color:#4166f5;">Confidence Interval</span></a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span style="color:#4166f5;">Exercises</span></a></li>
+  <li>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span style="color:#4166f5;">Exercises</span></a>
+  <ul class="collapse">
+<li><a href="#question-one" id="toc-question-one" class="nav-link" data-scroll-target="#question-one">Question One</a></li>
+  <li><a href="#question-two" id="toc-question-two" class="nav-link" data-scroll-target="#question-two">Question Two</a></li>
+  <li><a href="#question-three" id="toc-question-three" class="nav-link" data-scroll-target="#question-three">Question Three</a></li>
+  <li><a href="#question-four" id="toc-question-four" class="nav-link" data-scroll-target="#question-four">Question Four</a></li>
+  <li><a href="#question-five" id="toc-question-five" class="nav-link" data-scroll-target="#question-five">Question Five</a></li>
+  <li><a href="#question-six" id="toc-question-six" class="nav-link" data-scroll-target="#question-six">Question Six</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Lab 8: Inference for a Single Proportion</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab_1.html">Labs</a></li><li class="breadcrumb-item"><a href="../labs/lab_9.html">Lab 9</a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Lab 9: Inference for a Single Proportion</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Lab 8</div>
+    <div class="quarto-category">Lab 9</div>
   </div>
   </div>
 
@@ -379,26 +397,31 @@ window.Quarto = {
 
 
 </header><section id="introduction" class="level2"><h2 class="anchored" data-anchor-id="introduction"><span style="color:#4166f5;">Introduction</span></h2>
-<p>In the previous lab (lab 7), we created a confidence interval for a single proportion using the <code>infer</code> package. In this lab, we will perform a hypothesis test for a single proportion and also create a confidence interval and compare the results.</p>
+<p>In the previous lab (lab 8), we performed statistical inference for a single mean. The focus was on one group (one sample) and one numerical variable. In this lab, we introduce inference for a single proportion, where the focus is on a binary categorical variable on a single group. We will still use the <code>infer</code> package functions. You may want to review the material in chapter 16 of <a href="https://openintro-ims.netlify.app/inference-one-prop">Introduction to Modern Statistics</a> if you are rusty on simulation-based inference for a single proportion.</p>
 </section><section id="context-scenario" class="level2"><h2 class="anchored" data-anchor-id="context-scenario"><span style="color:#4166f5;">Context &amp; Scenario</span></h2>
 <p>The Development, Relief, and Education for Alien Minors Act (DREAM Act) is a legislative proposal in the United States that aims to provide a pathway to legal status for undocumented people who were brought to the U.S. as children. These people are often referred to as DREAMERS. The DREAM Act passed the House of Representatives in 2010 but failed to reach the 60-vote requirement in the Senate. The Act has been a topic of heated debate in U.S. politics for many years.</p>
 <p>A Gallup Poll conducted in 2010, reported that about 54% of Americans supported the DREAM act (<a href="https://www.migrationpolicy.org/article/dream-act-passes-house-during-lame-duck-session-faces-uphill-battle-senate?utm_source=chatgpt.com">Migration Policy Institute, 2010</a>). The poll also found that the opinions on the DREAM Act vary by political leaning.</p>
 </section><section id="research-question-and-hypotheses" class="level2"><h2 class="anchored" data-anchor-id="research-question-and-hypotheses"><span style="color:#4166f5;">Research Question and Hypotheses</span></h2>
 <p>We want to use statistical inference (hypothesis test and a confidence interval) to answer the research question:</p>
-<p><strong><em>Research Question:</em></strong> Is the proportion of Americans who supported the DREAM Act in 2012 different from 0.54 (or 54%).</p>
-<p><strong><em>Null Hypothesis:</em></strong> The proportion of Americans who supported the DREAM Act in 2012 is equal to 0.54.</p>
+<p><strong><em>Research Question:</em></strong> Is the proportion of Americans who supported the DREAM Act in 2012 different from 0.54 (or 54%)?</p>
+<p><strong><em>Null Hypothesis:</em></strong> The proportion of Americans who supported the DREAM Act in 2012 is 0.54 (or 54%).</p>
 <p><span class="math display">\[H_0: p = 0.54.\]</span></p>
 <p><strong><em>Alternative Hypothesis:</em></strong> The proportion of Americans who supported the DREAM Act in 2012 is different from 0.54.</p>
 <p><span class="math display">\[H_0: p \neq 0.54.\]</span></p>
 </section><section id="creating-your-quarto-file" class="level2"><h2 class="anchored" data-anchor-id="creating-your-quarto-file"><span style="color:#4166f5;">Creating your quarto file</span></h2>
-<p>Create a new quarto document with the title <strong>Inference for a Single Proportion</strong> and save the file as <code>lab_8_Explo</code>. Please check previous labs (e.g., <a href="https://jmochogi.github.io/business-stats-f25/labs/lab_4.html#creating-a-quarto-file">lab 4</a>) if you are unsure how to do this. Be sure to delete all the default text in the new file before you start the lab exploration.</p>
-</section><section id="packages-and-data" class="level2"><h2 class="anchored" data-anchor-id="packages-and-data"><span style="color:#4166f5;">Packages and Data</span></h2>
-<p>The dataset we will use is called <code>dream</code> and is available in the openintro <code>package</code>. We will also use the <code>infer</code> and <code>tidyverse</code> packages. Use the following code to load the packages and the data:</p>
+<p>Go to posit cloud (<a href="https://posit.cloud" class="uri">https://posit.cloud</a>) and open the MATH 144 project. Once your MATH 144 project is open, clean up the console and the environment. Close any open documents and datasets that you don’t need.</p>
+<p>Next, create your new quarto file as follows:</p>
+<ul>
+<li><p>File &gt; New File &gt; Quarto document. Use the file name <code>Lab_9</code>. Do not delete the <code>.qmd</code> extension.</p></li>
+<li><p>Add the <code>author</code> and <code>title</code> keys to the <code>YAML</code> section. Write your name (in quotes) in the author field and set the title to <code>Inference for a Single Proportion</code>.</p></li>
+<li><p>Change the output option to <code>pdf</code> then click on <code>render</code>. A PDF document with your name and title should pop up. If the popup blocker shows up, click try again.</p></li>
+</ul></section><section id="packages-and-data" class="level2"><h2 class="anchored" data-anchor-id="packages-and-data"><span style="color:#4166f5;">Packages and Data</span></h2>
+<p>The dataset for this lab is called <code>dream</code> and is available in the openintro <code>package</code>. We will also need the <code>infer</code> and <code>tidyverse</code> packages. Use the following code to load the packages and the data:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">openintro</span><span class="er">)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">tidyverse</span><span class="er">)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">infer</span><span class="er">)</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">data</span><span class="er">(</span><span class="dt">dream</span><span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>After running the code chunk, the <code>dream</code> dataset should appear in the environment area. Open it and examine the cases and variables. be available for use in your analysis. You can run the code chunk below to view the first few rows of the dataset:</p>
+<p>After running the code chunk, the <code>dream</code> dataset should appear in the environment area. Open it and examine the cases and variables. You can run the code below to view the first few rows of the dataset:</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dream</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
@@ -413,15 +436,16 @@ window.Quarto = {
 6 Conservative Yes   </code></pre>
 </div>
 </div>
-<p>There are two variables in this dataset - ideology (conservative, liberal, moderate) and stance (Yes, No, Note sure). Since we are interested in a single proportion (proportion of Americans who supported the DREAM Act), we will focus on the <code>stance</code> variable only.</p>
+<p>There are two variables in this dataset - ideology (conservative, liberal, moderate) and stance (Yes, No, Note sure). You can use <code>tail(dream)</code> to view the last few rows of the dataset.</p>
 </section><section id="the-observed-statistic" class="level2"><h2 class="anchored" data-anchor-id="the-observed-statistic"><span style="color:#4166f5;">The Observed Statistic</span></h2>
-<p>Notice that the <code>stance</code> variable has 3 levels - Yes, No, Not sure. In order to run inference for a single proportion, we need the <code>stance</code> variable to have only two levels. To do this, we can group <code>No</code> and <code>Not sure</code> together and call them <code>Not Yes</code>. See the code below:</p>
+<p>Notice that the <code>stance</code> variable has 3 levels - Yes, No, Not sure. In order to run inference for a single proportion, we need the <code>stance</code> variable to have only two levels. To do this, we can do some wrangling (see <a href="https://jmochogi.github.io/business-stats-f26/labs/lab_5.html">lab 5</a>) by grouping <code>No</code> and <code>Not sure</code> responses into <code>Not Yes</code>. Examine and run the code below:</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dream_filtered</span> <span class="op">&lt;-</span> <span class="va">dream</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>stance <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="va">stance</span> <span class="op">==</span> <span class="st">"Yes"</span>, <span class="st">"Yes"</span>, <span class="st">"Not Yes"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Then, we create the summary table again using the filtered dataset:</p>
+<p>After running the above code, check the data to make sure that the new stance variable is now binary as expected.</p>
+<p>The code below generates a summary table for the new <em>stance</em> variable. Notice that we do not consider the variable <em>ideology</em> because we treat this as one group (sample).</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dream_filtered</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">stance</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -437,97 +461,115 @@ window.Quarto = {
 </div>
 <p>Thus, the observed statistic is 0.521 (or 52.1%). This is the proportion of Americans <strong><em>in the sample</em></strong> that supported the DREAM Act in 2012.</p>
 </section><section id="running-simulations" class="level2"><h2 class="anchored" data-anchor-id="running-simulations"><span style="color:#4166f5;">Running Simulations</span></h2>
-<p>Next, we want to run simulations to see the distribution of the observed statistic under the null hypothesis. We will use the <code>infer</code> package to do this. Run the code below:</p>
+<p>Next, we want to run simulations to see the distribution of the observed statistic under the null hypothesis. We will use the <code>infer</code> package to do this. Examine the code below carefully, then run it:</p>
 <div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span> <span class="co"># Prevents simulated data from changing.</span></span>
-<span><span class="va">dream_sim</span> <span class="op">&lt;-</span> <span class="va">dream_filtered</span> <span class="op">|&gt;</span></span>
+<span><span class="va">null_distribution</span> <span class="op">&lt;-</span> <span class="va">dream_filtered</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">specify</span><span class="op">(</span>response <span class="op">=</span> <span class="va">stance</span>, success <span class="op">=</span> <span class="st">"Yes"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">hypothesize</span><span class="op">(</span>null <span class="op">=</span> <span class="st">"point"</span>, p <span class="op">=</span> <span class="fl">0.54</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">generate</span><span class="op">(</span>reps <span class="op">=</span> <span class="fl">500</span>, type <span class="op">=</span> <span class="st">"draw"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">generate</span><span class="op">(</span>reps <span class="op">=</span> <span class="fl">1000</span>, type <span class="op">=</span> <span class="st">"draw"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">calculate</span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"prop"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>The code should run without errors. The <code>dream_sim</code> object (see environment) contains 500 simulated proportions under the null hypothesis.</p>
+<p>After running the code, a new object called <code>null_distribution</code> will appear in the environment area. This is the null distribution containing 1000 simulated proportions under the null hypothesis.</p>
 </section><section id="visualizing-the-null-distribution" class="level2"><h2 class="anchored" data-anchor-id="visualizing-the-null-distribution"><span style="color:#4166f5;">Visualizing the Null Distribution</span></h2>
-<p>We can visualize the null distribution of the proportions using a histogram. We also indicate the location of observed statistic. See code below:</p>
+<p>We can visualize (optional) the null distribution using the <code>visualize()</code> function from <code>infer</code> package as shown below. Notice that we have added the observed statistic (0.521) to the plot using <code>geom_vline()</code>. This allows us to see where the observed statistic falls in relation to the null distribution.</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dream_sim</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">stat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins<span class="op">=</span><span class="fl">45</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu">geom_vline</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0.521</span>, color <span class="op">=</span> <span class="st">"red"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">null_distribution</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">visualise</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_vline</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0.521</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="lab_8-Single-Prop_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="lab_9_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Note that the center of the <strong><em>null distribution</em></strong> is around 0.54, which is expected since that is the value we specified in the null hypothesis. The observed statistic appears to be close to the null value (0.54).</p>
-</section><section id="calculating-the-p-value" class="level2"><h2 class="anchored" data-anchor-id="calculating-the-p-value"><span style="color:#4166f5;">Calculating the P-value</span></h2>
-<p>The P-value is the fraction of values at or more extreme than the observed statistic in the null distribution. Since we are doing a two-tailed test, we need to consider both tails of the distribution. We can use the <code>get_p_value()</code> function from the <code>infer</code> package to calculate the P-value as shown below:</p>
+<p>Alternatively, we can use <code>ggplot()</code> to visualize the null distribution. This allows for more customization. See code below:</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_value</span> <span class="op">&lt;-</span> <span class="va">dream_sim</span> <span class="op">|&gt;</span></span>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">null_distribution</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">stat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_histogram</span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">.007</span>, fill <span class="op">=</span> <span class="st">"#4963D4"</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_text</span><span class="op">(</span></span>
+<span>    <span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="fu">after_stat</span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    stat <span class="op">=</span> <span class="st">"bin"</span>,</span>
+<span>    binwidth <span class="op">=</span> <span class="fl">.007</span>,</span>
+<span>    vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">3</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_vline</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0.521</span>, color <span class="op">=</span> <span class="st">"black"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="lab_9_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Note that the center of the <strong><em>null distribution</em></strong> is around 0.54 (null value). This is because the simulations are set to run under the assumption that the null hypothesis is true. The observed statistic (0.52), appears to be close to the null value (0.54).</p>
+</section><section id="calculating-the-p-value" class="level2"><h2 class="anchored" data-anchor-id="calculating-the-p-value"><span style="color:#4166f5;">Calculating the P-value</span></h2>
+<p>The P-value is the fraction of values at or more extreme than the observed statistic in the null distribution. Since we are doing a two-tailed test (not different instead of less than or greater), we need to consider both tails of the distribution. We can use the <code>get_p_value()</code> function from the <code>infer</code> package to calculate the P-value as shown below:</p>
+<div class="cell">
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_value</span> <span class="op">&lt;-</span> <span class="va">null_distribution</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">get_p_value</span><span class="op">(</span>obs_stat <span class="op">=</span> <span class="fl">0.521</span>, direction <span class="op">=</span> <span class="st">"two-sided"</span><span class="op">)</span></span>
 <span><span class="va">p_value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   p_value
     &lt;dbl&gt;
-1    0.22</code></pre>
+1   0.234</code></pre>
 </div>
 </div>
 </section><section id="interpretation-conclusion" class="level2"><h2 class="anchored" data-anchor-id="interpretation-conclusion"><span style="color:#4166f5;">Interpretation &amp; Conclusion</span></h2>
-<p>The P-value we obtained is approximately 0.22 (or 22%). Based on the 5% discenibility level, we do not have enough evidence to reject the null hypothesis. Therefore, we conclude that there is not enough evidence to suggest that the proportion of Americans that supported the DREAM Act in 2012 is different from 54%.</p>
+<p>The P-value we obtained is approximately 0.23 (or 23%). This means that if the true proportion of Americans that supported the DREAM act in 2012 were 54%, we would expect to see a sample proportion of 52% about 23% of the time. Since this is above the discenibility level of 5%, we fail to reject the null hypothesis and conclude that the <em>data does not provide strong evidence</em> to support the claim that the true proportion of Americans who supported the DREAM act in 2012 was different from 54%.</p>
 </section><section id="confidence-interval" class="level2"><h2 class="anchored" data-anchor-id="confidence-interval"><span style="color:#4166f5;">Confidence Interval</span></h2>
-<p>To create a 95% confidence interval, we use our filtered data to run bootstrap simulations to create several bootstrap samples:</p>
+<p>To create a 95% confidence interval, we use our filtered data to run bootstrap simulations to create several bootstrap samples.l Examine and run the code below:</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span> <span class="co"># Prevents simulated data from changing.</span></span>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span> <span class="co"># Prevents simulated data from changing.</span></span>
 <span><span class="va">dream_boot</span> <span class="op">&lt;-</span> <span class="va">dream_filtered</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">specify</span><span class="op">(</span>response <span class="op">=</span> <span class="va">stance</span>, success <span class="op">=</span> <span class="st">"Yes"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">generate</span><span class="op">(</span>reps <span class="op">=</span> <span class="fl">500</span>, type <span class="op">=</span> <span class="st">"bootstrap"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">generate</span><span class="op">(</span>reps <span class="op">=</span> <span class="fl">1000</span>, type <span class="op">=</span> <span class="st">"bootstrap"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">calculate</span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"prop"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>We can visualize the bootstrap distribution using a histogram:</p>
+<p>We can use <code>visualize()</code> from the <code>infer</code> package to visualize the bootstrap distribution for the CI using a histogram. If you want more customization, you can use <code>ggplot()</code> as shown under the null distribution section above. See code below:</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dream_boot</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">stat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins<span class="op">=</span><span class="fl">55</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dream_boot</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">visualise</span><span class="op">(</span><span class="op">)</span> <span class="co"># this is a function from infer package.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="lab_8-Single-Prop_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="lab_9_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Notice that the bootstrap distribution is centered around the <strong><em>observed statistic</em></strong> (approx. 0.52). Next, we can use the <code>get_ci()</code> function to create a 95% confidence interval as shown below:</p>
+<p>Notice that the bootstrap distribution is centered around the <strong><em>observed statistic</em></strong> (approx. 0.52). This is because bootstrap samples are drawn from the observed data, and thus the reflects the sample proportion.</p>
+<p>Next, the <code>get_ci()</code> function is an quick way to find the 95% percentile confidence interval. This chops off the bottom and top 2.5% of the bootstrap distribution. See code below:</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dream_boot</span> <span class="op">|&gt;</span></span>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dream_boot</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">get_ci</span><span class="op">(</span>level <span class="op">=</span> <span class="fl">0.95</span>, type <span class="op">=</span> <span class="st">"percentile"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   lower_ci upper_ci
      &lt;dbl&gt;    &lt;dbl&gt;
-1    0.488    0.552</code></pre>
+1    0.489    0.553</code></pre>
 </div>
 </div>
-<p>The 95% confidence interval is approximately (0.488 to 0.552) or 48.8% to 55.2%. This means that we are 95% confident that the true proportion of Americans who supported the DREAM Act in 2012 is between 48.8% and 55.2%. This interval further supports the conclusion reached for the hypothesis test since the value of 54% falls inside this confidence interval.</p>
+<p>The 95% confidence interval is approximately (0.489 to 0.553) or 48.9% to 55.3%. This means that we are 95% confident that the true proportion of Americans who supported the DREAM Act in 2012 is between 48.8% and 55.2%. This interval further supports the conclusion reached for the hypothesis test since the null value of 54% was not rejected and falls inside this confidence interval.</p>
 </section><section id="exercises" class="level2"><h2 class="anchored" data-anchor-id="exercises"><span style="color:#4166f5;">Exercises</span></h2>
-<p>In this lab exercises, you will use the same dataset (<code>dream</code>) used in the exploration above. <br> Create a new quarto file and title it <strong>Inference for a Single proportion</strong>. Save the document as <strong>Lab_8_Exe</strong>. Load the following packages:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">openintro</span><span class="er">)</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">tidyverse</span><span class="er">)</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="dt">library</span><span class="er">(</span><span class="dt">infer</span><span class="er">)</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="dt">data</span><span class="er">(</span><span class="dt">dream</span><span class="er">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong><em>Scenario:</em></strong> A <a href="https://news.gallup.com/poll/388988/political-ideology-steady-conservatives-moderates-tie.aspx">Gallup poll</a> conducted in 2010 indicated that 35% of Americans identified as <strong>Moderate</strong> when it comes to political ideology. The goal is for you to use the <code>dream</code> dataset (collected in 2012) and statistical inference ideas to examine whether the proportion of Americans who identified as <code>Moderate</code> in 2012 was different from 0.35 (35%).</p>
-<ol type="1">
-<li><p><strong>(2 pts)</strong> What does the variable <code>ideology</code> in the <code>dream</code> dataset represent? What are the levels of this variable?</p></li>
-<li><p><strong>(2 pts)</strong> State the null and alternative hypotheses to test whether the proportion of Americans who identified as <code>Moderate</code> in 2012 is different from 0.35 (or 35%).</p></li>
-<li><p><strong>(4 pts)</strong> What would be the <strong><em>observed statistic</em></strong> in this scenario? Compute it. <br> (<strong>Hint:</strong> You may want to modify the variable <code>ideology</code> so that it has two levels only)).</p></li>
-<li><p><strong>(4 pts)</strong> Run 1000 simulations to create the null distribution. Visualize this distribution using a histogram and indicate the location of the <strong><em>observed statistic</em></strong>. Why is this distribution centered around 0.35?</p></li>
-<li><p><strong>(4 pts)</strong> Use the <code>get_p_value()</code> function to find the P-value, then write the conclusion of your hypothesis test in context of the data.</p></li>
-<li><p><strong>(4 pts)</strong> Create a 95% confidence interval for the proportion of Americans who identified as <code>moderate</code> in 2012. Write the interpretation of this interval in context of the data and indicate whether your conclusion from the hypothesis test is supported by this interval.</p></li>
-</ol>
+<p>Create a new level 2 Header and title it <strong>Lab 9 Exercises</strong>. You will use the same dataset (<code>dream</code>) and packages as in the explorations above. The scenario is different, but the steps are similar. You will need to use the <code>ideology</code> variable instead of the <code>stance</code> variable. Read the scenario below carefully before beginning the exercises:</p>
+<p><strong><em>Scenario:</em></strong> A <a href="https://news.gallup.com/poll/388988/political-ideology-steady-conservatives-moderates-tie.aspx">Gallup poll</a> conducted in 2010 indicated that 35% of Americans politically identified as <strong>Moderate</strong>. A researcher wants to test whether the proportion of Americans who identified as <code>Moderate</code> in 2012 was different from 0.35 (35%). The goal is for you to use the <code>dream</code> dataset (collected in 2012) and statistical inference ideas to examine whether the proportion of Americans who identified as <code>Moderate</code> in 2012 was different from 0.35 (35%).</p>
+<section id="question-one" class="level3"><h3 class="anchored" data-anchor-id="question-one">Question One</h3>
+<p><strong>(1 pt)</strong> What does the variable <code>ideology</code> in the <code>dream</code> dataset represent? What are the levels of this variable?</p>
+</section><section id="question-two" class="level3"><h3 class="anchored" data-anchor-id="question-two">Question Two</h3>
+<p><strong>(1 pt)</strong> State the <strong><em>null</em></strong> and <strong><em>alternative</em></strong> hypotheses to test whether the proportion of Americans who identified as <code>Moderate</code> in 2012 is different from 0.35 (or 35%).</p>
+</section><section id="question-three" class="level3"><h3 class="anchored" data-anchor-id="question-three">Question Three</h3>
+<p><strong>(1 pts)</strong> What would be the <strong><em>observed statistic</em></strong> in this scenario? Compute it.</p>
+</section><section id="question-four" class="level3"><h3 class="anchored" data-anchor-id="question-four">Question Four</h3>
+<p><strong>(2 pts)</strong> Use the infer package functions to run 1000 simulations for the null distribution. Visualize this distribution using a histogram and indicate the location of the <strong><em>observed statistic</em></strong>. Why is this distribution centered around 0.35?</p>
+</section><section id="question-five" class="level3"><h3 class="anchored" data-anchor-id="question-five">Question Five</h3>
+<p><strong>(2 pts)</strong> Use the <code>get_p_value()</code> function to find the P-value, then write the conclusion of your hypothesis test in context of the data.</p>
+</section><section id="question-six" class="level3"><h3 class="anchored" data-anchor-id="question-six">Question Six</h3>
+<p><strong>(3 pts)</strong> Use the infer package functions to generate and create the relevant 95% confidence interval in this scenario. Write the interpretation of this interval in context of the data and indicate whether your conclusion from the hypothesis test is supported by this interval.</p>
 <!-- Answers to Exercises 
 
 ::: {.cell}
@@ -585,7 +627,7 @@ simulated_diffs |>
 ```
 
 ::: {.cell-output-display}
-![](lab_8-Single-Prop_files/figure-html/unnamed-chunk-14-1.png){width=672}
+![](lab_9_files/figure-html/unnamed-chunk-15-1.png){width=672}
 :::
 :::
 
@@ -600,13 +642,24 @@ simulated_diffs|>
   get_p_value(obs_stat = 0.3989011, direction = "two-sided")
 ```
 
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning: Please be cautious in reporting a p-value of 0. This result is an approximation
+based on the number of `reps` chosen in the `generate()` step.
+ℹ See `get_p_value()` (`?infer::get_p_value()`) for more information.
+```
+
+
+:::
+
 ::: {.cell-output .cell-output-stdout}
 
 ```
 # A tibble: 1 × 1
   p_value
     <dbl>
-1   0.004
+1       0
 ```
 
 
@@ -637,7 +690,7 @@ simulated_bootstrap |>
 ```
 
 ::: {.cell-output-display}
-![](lab_8-Single-Prop_files/figure-html/unnamed-chunk-17-1.png){width=672}
+![](lab_9_files/figure-html/unnamed-chunk-18-1.png){width=672}
 :::
 :::
 
@@ -653,7 +706,7 @@ get_ci(simulated_bootstrap, level = 0.95, type = "percentile")
 # A tibble: 1 × 2
   lower_ci upper_ci
      <dbl>    <dbl>
-1    0.368    0.433
+1    0.368    0.431
 ```
 
 
@@ -661,7 +714,8 @@ get_ci(simulated_bootstrap, level = 0.95, type = "percentile")
 :::
 -->
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1221,7 +1275,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../labs/lab_8.html" class="pagination-link" aria-label="Lab 8">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 8</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../project/first-project.html" class="pagination-link" aria-label="Project 1">
+        <span class="nav-page-text">Project 1</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
