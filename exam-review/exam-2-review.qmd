@@ -31,21 +31,21 @@ Pizza_Data <- Pizza_Data |>
   mutate(Papa_J = ifelse(Restaurant == "Papa_J", 1, 0))
 ```
 
-Much of the material on this review is based on statistical inference methods including hypothesis testing and confidence intervals using simulation-based methods (randomization tests and bootstrapping). Most of the material was covered starting the week before spring break to mid April, 2026. Hypotheses tests will be based on a discernibility level of 0.05 (5%).
+Much of the material on this review is based on statistical inference methods including hypothesis testing and confidence intervals using simulation-based methods (randomization tests and bootstrapping). Hypotheses tests will be based on a discernibility level of 0.05 (5%).
 
 Be sure to try these problems on your own before coming for the review session.
 
 ## Problem 1
 
-We have discussed various types of statistical inference methods including:
+Here are the four types of statistical inference methods covered in this course:
 
--   A: Inference for difference in two proportions (lab 6 & 7)
+- A: Difference in two proportions (see lab 4 & 6)
 
--   B: Inference for difference in two means (labs 8)
+- B: Difference in two means (lab 7)
 
--   C: Inference for a single mean (lab 9)
+- C: Inference for a single mean (lab 8)
 
--   D: Inference for a single proportion (OneNote Activity 4/10)
+- D: Inference for a single proportion (see lab 10 )
 
 Read the following scenario carefully and answer the questions that follow.
 
@@ -57,43 +57,43 @@ a.  **Research Question:** Do employees in private offices exhibit different ove
 
     \vspace{1.5in}
 
-    -   Predictor and response variables: \vspace{1in}
+    - Predictor and response variables: \vspace{1in}
 
-    -   Parameter of interest: \vspace{1in}
+    - Parameter of interest: \vspace{1in}
 
-    -   Appropriate Inference method: \vspace{1in}
+    - Appropriate Inference method: \vspace{1in}
 
-    -   Null and Alternative Hypotheses: \vspace{1in}
+    - Null and Alternative Hypotheses: \vspace{1in}
 
 b.  **Research Question**: Is the proportion of employees in open-plan workspaces who experience high work-related stress lower than the 25% reported in a previous study? <br> **Setup:** Employees working in open-plan work spaces completed a survey asking whether or not they experienced high work-related stress. It was found that 27% experienced high work-related stress. \vspace{.1in}
 
-    -   Predictor and response variables: \vspace{1in}
+    - Predictor and response variables: \vspace{1in}
 
-    -   Parameter of interest: \vspace{1 in}
+    - Parameter of interest: \vspace{1 in}
 
-    -   Appropriate Inference method: \vspace{1 in}
+    - Appropriate Inference method: \vspace{1 in}
 
-    -   Null and Alternative Hypotheses: \vspace{1 in}
+    - Null and Alternative Hypotheses: \vspace{1 in}
 
 c.  **Research Question:** Is the average job satisfaction score (on a scale of 0-100) for employees working in private offices different from one reported in a previous study (75%)? <br> **Setup:** Employees working in private offices completed a job satisfaction survey and on average the value was 71%. \vspace{.1in}
 
-    -   Predictor and response variables: \vspace{1in}
+    - Predictor and response variables: \vspace{1in}
 
-    -   Parameter of interest: \vspace{1in}
+    - Parameter of interest: \vspace{1in}
 
-    -   Appropriate Inference method: \vspace{1in}
+    - Appropriate Inference method: \vspace{1in}
 
-    -   Null and Alternative Hypotheses: \vspace{1.5in}
+    - Null and Alternative Hypotheses: \vspace{1.5in}
 
 d.  **Research Question:** Is there an association between office space type (open-plan or private offices) and overall stress levels (High vs Low)? <br> **Setup:** Over a 3-month period, the researchers measure the average stress levels (High or Low) of employees in private offices and those in open-space offices. \vspace{.1in}
 
-    -   Predictor and response variables: \vspace{1in}
+    - Predictor and response variables: \vspace{1in}
 
-    -   Parameter of interest: \vspace{1in}
+    - Parameter of interest: \vspace{1in}
 
-    -   Appropriate Inference method: \vspace{1in}
+    - Appropriate Inference method: \vspace{1in}
 
-    -   Null and Alternative Hypotheses: \vspace{1.5in}
+    - Null and Alternative Hypotheses: \vspace{1.5in}
 
 \clearpage
 
@@ -155,7 +155,7 @@ e.  The histogram below shows the bootstrap distribution for the statistic of in
     theme_linedraw()
     ```
 
-    -   Use the histogram to find the 95% confidence interval. Be sure to give a detailed explanation on how you arrived at your answer. \vspace{1.5 in}
+    - Use the histogram to find the 95% confidence interval. Be sure to give a detailed explanation on how you arrived at your answer. \vspace{1.5 in}
 
 \clearpage
 
@@ -199,7 +199,7 @@ null_distribution |>
   theme_linedraw()
 ```
 
--   Estimate the p-value using the histogram then write your conclusion for the hypothesis test in context. Be sure to show/explain your work. \vspace{2.9 in}
+- Estimate the p-value using the histogram then write your conclusion for the hypothesis test in context. Be sure to show/explain your work. \vspace{2.9 in}
 
 e.  Use the bootstrap distribution below (bin width is 0.01) to estimate the 95% confidence interval. Interpret the interval and state whether it supports the conclusion reached under the hypothesis test. Explain.
 
@@ -277,7 +277,7 @@ null_distribution_airlines |>
   theme_linedraw()
 ```
 
--   Use the histogram to estimate the *p-value* (show/explain work) then write your conclusion for the hypothesis test in context. \vspace{2.8 in}
+- Use the histogram to estimate the *p-value* (show/explain work) then write your conclusion for the hypothesis test in context. \vspace{2.8 in}
 
 d.  The histogram below shows the bootstrap distribution for the statistic of interest. The distribution was generated by re-sampling from the original sample. The numbers on each bin represent the counts for the bin. Each bin is 0.005 units wide.
 
@@ -307,9 +307,9 @@ bootstrap_distribution_airlines |>
   theme_linedraw()
 ```
 
--   Use the histogram to estimate the 95% confidence interval. Show/explain your work. \vspace{2.3 in}
+- Use the histogram to estimate the 95% confidence interval. Show/explain your work. \vspace{2.3 in}
 
--   Interpret the confidence interval in context. Does this interval support the findings under the hypothesis testing part? Explain. \vspace{1.5 in}
+- Interpret the confidence interval in context. Does this interval support the findings under the hypothesis testing part? Explain. \vspace{1.5 in}
 
 ## Problem 5
 

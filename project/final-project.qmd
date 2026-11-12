@@ -1,5 +1,5 @@
 ---
-title: "Final Project"
+title: "Project 2"
 format:
   html: default
   pdf: default
@@ -7,7 +7,7 @@ format:
 
 # Project Overview
 
-The goal of this project is to apply what you have learned in **this course** to conduct exploratory and inferential statistical analysis. Multiple data frames are available but your group will choose only one to use for the project. You will need to browse the available data sets, their variables, etc, and come up with possible research questions that can be answered using the data. Your group will narrow down to two or three interesting research questions then use the various tools learned in the course to explore patterns in the data (exploratory analysis) then use statistical inference tools (hypotheses tests and confidence intervals) taught in the course to run inferential analysis. Your exploratory analysis should include both numerical statistics (e.g., means, medians, proportions, etc.) and visualizations (e.g., histograms, bar plots, box plots, etc.). Your inferential analysis should use both hypotheses tests and confidence intervals.
+The goal of this project is to apply what you have learned in **this course** to conduct exploratory and inferential statistical analysis. Multiple data frames are available but your group will choose only one to use for the project. You will need to browse the available data sets, their variables, etc, and come up with possible research questions that can be answered using the data. Your group will narrow down to two or three interesting research questions then use the various tools learned in the course to explore patterns in the data (exploratory analysis) then use statistical inference tools (hypotheses tests and confidence intervals) taught in the course to run inferential analysis. Your exploratory analysis should include both numerical statistics (e.g., means, medians, proportions, etc.) and visualizations (e.g., histograms, bar plots, box plots, etc.). Your inferential analysis should utilize both hypotheses tests and confidence intervals.
 
 # Research Topic and Questions
 
@@ -35,8 +35,6 @@ Your research questions must meet the following guidelines:
 Multiple data sets are available online for you to choose from. We have used [openintro]() and [Stat2Data](https://www.rdocumentation.org/packages/Stat2Data/versions/2.0.0) for the most part, but feel free to explore the other sources listed. If you need help importing a data set into R, please let me know.
 
 - [Openintro](https://www.openintro.org/data/) website: Most of these data sets can be loaded into your work space as long as the openintro package is installed and running. I recommend you use this option if you are new to R and RStudio.
-
-- [Stat2Data](https://www.rdocumentation.org/packages/Stat2Data/versions/2.0.0): This is an R package containing over 200 data sets drawn from a wide variety of contexts (sports, environment, economics, health, etc.), plus a few helper functions for diagnostic plotting. The package was designed by statistician Ann Cannon and her colleagues.
 
 - [Kaggle](https://www.kaggle.com/datasets): This is a platform for predictive modeling and analytics competitions in which companies and researchers post data and statisticians and data miners from all over the world compete to produce the best models.
 
