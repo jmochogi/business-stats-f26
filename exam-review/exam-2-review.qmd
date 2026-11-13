@@ -45,7 +45,7 @@ Here are the four types of statistical inference methods covered in this course:
 
 - C: Inference for a single mean (lab 8)
 
-- D: Inference for a single proportion (see lab 10 )
+- D: Inference for a single proportion (lab 10 )
 
 Read the following scenario carefully and answer the questions that follow.
 
@@ -113,11 +113,13 @@ Pizza_Data %>%
 
 a.  Based on the side-by-side box plots above, comment on the distribution of the average delivery times for the two pizza restaurants. \vspace{1.2 in}
 
-b.  Find the relevant ***observed statistic*** for the scenario described above. \vspace{1.2 in}
+b.  What would be the *parameter* of interest in the above scenario? Find the relevant ***observed statistic*** for the scenario described above. \vspace{1.2 in}
 
 c.  State the null and alternative hypotheses in words and in symbols. \vspace{1.2 in}
 
-d.  Helen generated 1,000 simulations of the statistic under the null model and created the histogram shown below. Each bin is 0.5 minutes wide.
+d.  Describe a possible physical null model for the above scenario and describe how it would be used to generate simulated statistics for the null distribution. \vspace{3in}
+
+e.  Helen generated 1,000 simulations of the statistic under the null model and created the histogram shown below. Each bin is 0.5 minutes wide.
 
     ```{r}
     set.seed(12)
@@ -135,7 +137,7 @@ d.  Helen generated 1,000 simulations of the statistic under the null model and 
     theme_linedraw()
     ```
 
-    Estimate of the P-value (show/explain work) and write down the conclusion for your hypothesis test in context. \vspace{1.5 in}
+    Use the graph to estimate of the P-value (show/explain work) and write down the conclusion for the hypothesis test in context. \vspace{1.5 in}
 
 \clearpage
 
@@ -161,13 +163,13 @@ e.  The histogram below shows the bootstrap distribution for the statistic of in
 
 ## Problem 3
 
-Back in 2021, a poll found that 1 in 5 adults (20%) living in Seattle, Washington, supported proposals to reduce police department budgets (“defund the police”). A researcher decided to investigate this claim by surveying 650 randomly selected Seattle residents. It was found that 159 of the 650 respondents supported defunding the police.
+Back in 2021, a poll found that 20% of adults living in Seattle, Washington, supported proposals to reduce police department budgets (“defund the police”). A researcher decided to investigate this claim by surveying 650 randomly selected Seattle residents. It was found that 159 of the 650 respondents supported defunding the police.
 
 a.  What is the parameter of interest in this scenario? Calculate the observed statistic. \vspace{1.2 in}
 
 b.  Write the appropriate null and alternative hypotheses (in words and symbols) to test the claim. \vspace{1.2 in}
 
-c.  Describe the setup of a simulation model and the steps for its implementation to generate the null distribution. Also explain how to obtain a p-value based on the simulated data. \clearpage
+c.  Describe the a possible null model and how it would be used to generate statistics for the null distribution. Also explain how to obtain a p-value based on the simulated data. \clearpage
 
 d.  The histogram below shows the distribution of 1,000 simulated statistics under the null hypothesis. Each bin is 0.01 units wide.
 
@@ -199,9 +201,9 @@ null_distribution |>
   theme_linedraw()
 ```
 
-- Estimate the p-value using the histogram then write your conclusion for the hypothesis test in context. Be sure to show/explain your work. \vspace{2.9 in}
+- Use information on the histogram to estimate the p-value then write your conclusion for the hypothesis test in context. Be sure to show/explain your work. \vspace{2.9 in}
 
-e.  Use the bootstrap distribution below (bin width is 0.01) to estimate the 95% confidence interval. Interpret the interval and state whether it supports the conclusion reached under the hypothesis test. Explain.
+e.  Use the bootstrap distribution below (each bin is 0.01 wide) to estimate the 95% confidence interval. Interpret the interval and state whether it supports the conclusion reached under the hypothesis test. Explain.
 
 ```{r}
 set.seed(1433)
@@ -226,7 +228,7 @@ boot_distribution |>
 
 ## Problem 4
 
-The `Airlines` data set from the `Stat2Data` package contains information on over 10,000 commercial flights operated by Delta and American Airlines. A business analyst wants to conduct a statistical analysis to determine whether the proportion of arrival delays differs between the two airlines. The table below summarizes the arrival status (delayed or on time) by airline:
+A business analyst wants to investigate via statistical inference whether the proportion of flight arrival delays differs between American and Delta airlines. The table below summarizes the arrival status (delayed or on time) by airline:
 
 ```{r, include=FALSE}
 data(Airlines)
